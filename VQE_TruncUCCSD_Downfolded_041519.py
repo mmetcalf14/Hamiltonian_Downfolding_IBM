@@ -9,6 +9,8 @@ from qiskit.aqua.algorithms import VQE, ExactEigensolver
 from qiskit import Aer
 from qiskit.tools.visualization import circuit_drawer
 
+from pytket.qiskit import *
+
 from qiskit.chemistry.drivers import PySCFDriver, UnitsType
 import numpy as np
 import yaml as yml
@@ -139,7 +141,17 @@ var_op = UCCSD(num_qubits=n_qubits, depth=1, num_orbitals=n_orbitals, num_partic
                active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True)
 dumpy_params = np.random.rand(var_op.num_parameters)
 
-#var_cirq = var_op.construct_circuit(dumpy_params)
+var_cirq = var_op.construct_circuit(dumpy_params)
+# print(var_cirq)
+tk_cirq = qiskit_to_tk(var_cirq)
+
+
+def print_tkcirc_via_qiskit(tkcirc):
+    copy_tkcirc = tkcirc.copy()
+    qiskit_qcirc = tk_to_qiskit(copy_tkcirc)
+    print(qiskit_qcirc)
+
+print_tkcirc_via_qiskit(tk_cirq)
 # singles, doubles = var_op.return_excitations()
 
 
