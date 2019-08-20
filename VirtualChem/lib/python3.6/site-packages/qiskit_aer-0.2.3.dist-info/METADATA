@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: qiskit-aer
+Version: 0.2.3
+Summary: Qiskit Aer - High performance simulators for Qiskit
+Home-page: https://github.com/Qiskit/qiskit-aer
+Author: AER Development Team
+Author-email: qiskit@us.ibm.com
+License: Apache 2.0
+Keywords: qiskit aer simulator quantum addon backend
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: numpy (>=1.13)
+
+UNKNOWN
+
+

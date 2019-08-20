@@ -1,0 +1,1329 @@
+ argument  1 = Li2-4_ORBITALS-ccpVTZ-5_346.nw
+  NWChem w/ OpenMP: maximum threads =    1
+
+
+
+============================== echo of input deck ==============================
+title "Li2-REMOVE"
+echo
+start Li2-REMOVE
+
+memory total 24 gb
+
+geometry  units angstrom
+symmetry c1
+Li  0    0    0
+Li  0    0    5.346
+end
+
+basis spherical
+   * library cc-pvtz
+end
+
+scf
+thresh 1.0e-10
+tol2e 1.0e-10
+rhf
+singlet
+maxiter 200
+end
+
+tce
+   ccsd
+   maxiter 200
+   thresh 1.e-6
+   2eorb
+   2emet 13
+   tilesize 5
+end
+
+set tce:qducc T
+set tce:nactv 1
+
+task tce energy
+
+================================================================================
+
+
+                                         
+                                         
+
+
+              Northwest Computational Chemistry Package (NWChem) 6.8
+              ------------------------------------------------------
+
+
+                    Environmental Molecular Sciences Laboratory
+                       Pacific Northwest National Laboratory
+                                Richland, WA 99352
+
+                              Copyright (c) 1994-2018
+                       Pacific Northwest National Laboratory
+                            Battelle Memorial Institute
+
+             NWChem is an open-source computational chemistry package
+                        distributed under the terms of the
+                      Educational Community License (ECL) 2.0
+             A copy of the license is included with this distribution
+                              in the LICENSE.TXT file
+
+                                  ACKNOWLEDGMENT
+                                  --------------
+
+            This software and its documentation were developed at the
+            EMSL at Pacific Northwest National Laboratory, a multiprogram
+            national laboratory, operated for the U.S. Department of Energy
+            by Battelle under Contract Number DE-AC05-76RL01830. Support
+            for this work was provided by the Department of Energy Office
+            of Biological and Environmental Research, Office of Basic
+            Energy Sciences, and the Office of Advanced Scientific Computing.
+
+
+           Job information
+           ---------------
+
+    hostname        = WE35263ubuntu
+    program         = /home/baum612/code/NWChem/nwchem/bin/LINUX64/nwchem
+    date            = Tue Apr  9 06:42:33 2019
+
+    compiled        = Thu_Apr_04_14:53:19_2019
+    source          = /home/baum612/code/NWChem/nwchem
+    nwchem branch   = Development
+    nwchem revision = nwchem_on_git-845-ga8f432451
+    ga revision     = 5.6.5
+    use scalapack   = F
+    input           = Li2-4_ORBITALS-ccpVTZ-5_346.nw
+    prefix          = Li2-REMOVE.
+    data base       = ./Li2-REMOVE.db
+    status          = startup
+    nproc           =        1
+    time left       =     -1s
+
+
+
+           Memory information
+           ------------------
+
+    heap     =  805306368 doubles =   6144.0 Mbytes
+    stack    =  805306365 doubles =   6144.0 Mbytes
+    global   = 1610612736 doubles =  12288.0 Mbytes (distinct from heap & stack)
+    total    = 3221225469 doubles =  24576.0 Mbytes
+    verify   = yes
+    hardfail = no 
+
+
+           Directory information
+           ---------------------
+
+  0 permanent = .
+  0 scratch   = .
+
+
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+                                    Li2-REMOVE
+                                    ----------
+
+ Scaling coordinates for geometry "geometry" by  1.889725989
+ (inverse scale =  0.529177249)
+
+ Turning off AUTOSYM since
+ SYMMETRY directive was detected!
+
+
+          ------
+          auto-z
+          ------
+     1 autoz failed with cvr_scaling = 1.2 changing to 1.3
+     2 autoz failed with cvr_scaling = 1.3 changing to 1.4
+     3 autoz failed with cvr_scaling = 1.4 changing to 1.5
+     4 autoz failed with cvr_scaling = 1.5 changing to 1.6
+     5 autoz failed with cvr_scaling = 1.6 changing to 1.7
+
+ AUTOZ failed to generate good internal coordinates.
+ Cartesian coordinates will be used in optimizations.
+
+
+
+                             Geometry "geometry" -> ""
+                             -------------------------
+
+ Output coordinates in angstroms (scale by  1.889725989 to convert to a.u.)
+
+  No.       Tag          Charge          X              Y              Z
+ ---- ---------------- ---------- -------------- -------------- --------------
+    1 Li                   3.0000     0.00000000     0.00000000    -2.67300000
+    2 Li                   3.0000     0.00000000     0.00000000     2.67300000
+
+      Atomic Mass 
+      ----------- 
+
+      Li                 7.016000
+
+
+ Effective nuclear repulsion energy (a.u.)       0.8908707896
+
+            Nuclear Dipole moment (a.u.) 
+            ----------------------------
+        X                 Y               Z
+ ---------------- ---------------- ----------------
+     0.0000000000     0.0000000000     0.0000000000
+
+
+            XYZ format geometry
+            -------------------
+     2
+ geometry
+ Li                    0.00000000     0.00000000    -2.67300000
+ Li                    0.00000000     0.00000000     2.67300000
+
+
+
+ Summary of "ao basis" -> "" (spherical)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ *                          cc-pvtz                   on all atoms 
+
+
+                      Basis "ao basis" -> "ao basis" (spherical)
+                      -----
+  Li (Lithium)
+  ------------
+            Exponent  Coefficients 
+       -------------- ---------------------------------------------------------
+  1 S  5.98800000E+03  0.000133
+  1 S  8.98900000E+02  0.001025
+  1 S  2.05900000E+02  0.005272
+  1 S  5.92400000E+01  0.020929
+  1 S  1.98700000E+01  0.066340
+  1 S  7.40600000E+00  0.165775
+  1 S  2.93000000E+00  0.315038
+  1 S  1.18900000E+00  0.393523
+  1 S  4.79800000E-01  0.190870
+
+  2 S  5.98800000E+03 -0.000021
+  2 S  8.98900000E+02 -0.000161
+  2 S  2.05900000E+02 -0.000820
+  2 S  5.92400000E+01 -0.003326
+  2 S  1.98700000E+01 -0.010519
+  2 S  7.40600000E+00 -0.028097
+  2 S  2.93000000E+00 -0.055936
+  2 S  1.18900000E+00 -0.099237
+  2 S  4.79800000E-01 -0.112189
+
+  3 S  7.50900000E-02  1.000000
+
+  4 S  2.83200000E-02  1.000000
+
+  5 P  3.26600000E+00  0.008630
+  5 P  6.51100000E-01  0.047538
+  5 P  1.69600000E-01  0.209772
+
+  6 P  5.57800000E-02  1.000000
+
+  7 P  2.05000000E-02  1.000000
+
+  8 D  1.87400000E-01  1.000000
+
+  9 D  8.01000000E-02  1.000000
+
+ 10 F  1.82900000E-01  1.000000
+
+
+
+ Summary of "ao basis" -> "ao basis" (spherical)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ Li                         cc-pvtz                 10       30   4s3p2d1f
+
+
+                                 NWChem SCF Module
+                                 -----------------
+
+
+                                    Li2-REMOVE
+
+
+
+  ao basis        = "ao basis"
+  functions       =    60
+  atoms           =     2
+  closed shells   =     3
+  open shells     =     0
+  charge          =   0.00
+  wavefunction    = RHF 
+  input vectors   = atomic
+  output vectors  = ./Li2-REMOVE.movecs
+  use symmetry    = F
+  symmetry adapt  = F
+
+
+ Summary of "ao basis" -> "ao basis" (spherical)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ Li                         cc-pvtz                 10       30   4s3p2d1f
+
+
+
+ Forming initial guess at       0.1s
+
+
+      Superposition of Atomic Density Guess
+      -------------------------------------
+
+ Sum of atomic energies:         -14.86535760
+
+      Non-variational initial energy
+      ------------------------------
+
+ Total energy =     -14.750548
+ 1-e energy   =     -21.208826
+ 2-e energy   =       5.567407
+ HOMO         =      -0.098673
+ LUMO         =      -0.065712
+
+
+ Starting SCF solution at       0.1s
+
+
+
+ ----------------------------------------------
+         Quadratically convergent ROHF
+
+ Convergence threshold     :          1.000E-10
+ Maximum no. of iterations :          200
+ Final Fock-matrix accuracy:          1.000E-10
+ ----------------------------------------------
+
+
+ Integral file          = ./Li2-REMOVE.aoints.0
+ Record size in doubles =    65536    No. of integs per rec  =    43688
+ Max. records in memory =       54    Max. records in file   =  1546358
+ No. of bits per label  =        8    No. of bits per value  =       64
+
+
+ #quartets = 2.130D+04 #integrals = 3.658D+05 #direct =  0.0% #cached =100.0%
+
+
+              iter       energy          gnorm     gmax       time
+             ----- ------------------- --------- --------- --------
+                 1      -14.8228348034  4.28D-02  3.01D-02      0.3
+                 2      -14.8243916857  2.10D-03  1.55D-03      0.3
+                 3      -14.8243940329  7.62D-07  4.76D-07      0.4
+                 4      -14.8243940329  5.34D-12  2.13D-12      0.4
+
+
+       Final RHF  results 
+       ------------------ 
+
+         Total SCF energy =    -14.824394032870
+      One-electron energy =    -21.127918605000
+      Two-electron energy =      5.412653782568
+ Nuclear repulsion energy =      0.890870789562
+
+        Time for solution =      0.3s
+
+
+             Final eigenvalues
+             -----------------
+
+              1      
+    1   -2.5044
+    2   -2.5044
+    3   -0.1425
+    4   -0.0285
+    5    0.0262
+    6    0.0262
+    7    0.0281
+    8    0.0421
+    9    0.0421
+   10    0.0514
+   11    0.1147
+   12    0.1230
+   13    0.1230
+
+                       ROHF Final Molecular Orbital Analysis
+                       -------------------------------------
+
+ Vector    2  Occ=2.000000D+00  E=-2.504393D+00
+              MO Center= -1.1D-17, -5.4D-18, -1.6D-05, r^2= 7.3D+00
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     1      0.706696  1 Li s                 31      0.706691  2 Li s          
+
+ Vector    3  Occ=2.000000D+00  E=-1.425191D-01
+              MO Center= -2.9D-15,  4.5D-15,  9.1D-12, r^2= 1.1D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     4      0.461992  1 Li s                 34      0.461992  2 Li s          
+     3      0.216291  1 Li s                 33      0.216291  2 Li s          
+
+ Vector    4  Occ=0.000000D+00  E=-2.845883D-02
+              MO Center=  7.0D-16, -1.3D-15, -2.0D-11, r^2= 1.9D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     4      0.469298  1 Li s                 34     -0.469298  2 Li s          
+    13     -0.212504  1 Li pz                43     -0.212504  2 Li pz         
+     3      0.209071  1 Li s                 33     -0.209071  2 Li s          
+
+ Vector    5  Occ=0.000000D+00  E= 2.624154D-02
+              MO Center= -4.3D-15, -7.4D-15, -7.9D-11, r^2= 2.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    12      0.462467  1 Li py                42      0.462467  2 Li py         
+    11      0.355538  1 Li px                41      0.355538  2 Li px         
+
+ Vector    6  Occ=0.000000D+00  E= 2.624154D-02
+              MO Center=  6.2D-15, -5.3D-15, -7.9D-11, r^2= 2.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    11      0.462467  1 Li px                41      0.462467  2 Li px         
+    12     -0.355538  1 Li py                42     -0.355538  2 Li py         
+
+ Vector    7  Occ=0.000000D+00  E= 2.814835D-02
+              MO Center=  5.2D-15,  3.8D-15, -7.3D-11, r^2= 2.7D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    13      0.591189  1 Li pz                43     -0.591189  2 Li pz         
+     4     -0.370059  1 Li s                 34     -0.370059  2 Li s          
+
+ Vector    8  Occ=0.000000D+00  E= 4.205197D-02
+              MO Center=  4.0D-16,  1.2D-17,  7.8D-11, r^2= 2.8D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    11      0.637068  1 Li px                41     -0.637068  2 Li px         
+    12     -0.604586  1 Li py                42      0.604586  2 Li py         
+
+ Vector    9  Occ=0.000000D+00  E= 4.205197D-02
+              MO Center=  4.1D-15,  3.0D-15,  7.8D-11, r^2= 2.8D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    12      0.637068  1 Li py                42     -0.637068  2 Li py         
+    11      0.604586  1 Li px                41     -0.604586  2 Li px         
+
+ Vector   10  Occ=0.000000D+00  E= 5.144842D-02
+              MO Center= -2.8D-15, -5.1D-15,  7.2D-11, r^2= 4.0D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    13      1.434570  1 Li pz                43      1.434570  2 Li pz         
+     4      0.949032  1 Li s                 34     -0.949032  2 Li s          
+    10     -0.215021  1 Li pz                40     -0.215021  2 Li pz         
+
+ Vector   11  Occ=0.000000D+00  E= 1.146991D-01
+              MO Center= -1.6D-16, -4.7D-16, -9.9D-11, r^2= 2.6D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    10      0.970721  1 Li pz                40     -0.970721  2 Li pz         
+    13     -0.885404  1 Li pz                43      0.885404  2 Li pz         
+     4      0.414038  1 Li s                 34      0.414038  2 Li s          
+     3     -0.329506  1 Li s                 33     -0.329506  2 Li s          
+
+ Vector   12  Occ=0.000000D+00  E= 1.230127D-01
+              MO Center= -8.7D-16, -2.3D-15, -3.3D-10, r^2= 2.0D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     9      0.858050  1 Li py                39      0.858050  2 Li py         
+    12     -0.635074  1 Li py                42     -0.635074  2 Li py         
+     8      0.437832  1 Li px                38      0.437832  2 Li px         
+    11     -0.324055  1 Li px                41     -0.324055  2 Li px         
+
+ Vector   13  Occ=0.000000D+00  E= 1.230127D-01
+              MO Center=  3.1D-15, -3.4D-15, -3.3D-10, r^2= 2.0D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     8      0.858050  1 Li px                38      0.858050  2 Li px         
+    11     -0.635074  1 Li px                41     -0.635074  2 Li px         
+     9     -0.437832  1 Li py                39     -0.437832  2 Li py         
+    12      0.324055  1 Li py                42      0.324055  2 Li py         
+
+ Vector   14  Occ=0.000000D+00  E= 1.286617D-01
+              MO Center= -2.2D-15, -3.5D-15,  3.3D-10, r^2= 2.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     8      0.787121  1 Li px                38     -0.787121  2 Li px         
+    11     -0.770831  1 Li px                41      0.770831  2 Li px         
+     9      0.605282  1 Li py                39     -0.605282  2 Li py         
+    12     -0.592755  1 Li py                42      0.592755  2 Li py         
+
+ Vector   15  Occ=0.000000D+00  E= 1.286617D-01
+              MO Center=  1.9D-15, -2.3D-15,  3.3D-10, r^2= 2.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     9      0.787121  1 Li py                39     -0.787121  2 Li py         
+    12     -0.770831  1 Li py                42      0.770831  2 Li py         
+     8     -0.605282  1 Li px                38      0.605282  2 Li px         
+    11      0.592755  1 Li px                41     -0.592755  2 Li px         
+
+ Vector   16  Occ=0.000000D+00  E= 1.299157D-01
+              MO Center=  9.0D-16,  3.1D-15,  1.0D-10, r^2= 1.9D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    10      0.863337  1 Li pz                40      0.863337  2 Li pz         
+    13     -0.702387  1 Li pz                43     -0.702387  2 Li pz         
+    21     -0.200056  1 Li d  0              51      0.200056  2 Li d  0       
+
+ Vector   17  Occ=0.000000D+00  E= 1.491315D-01
+              MO Center= -4.4D-15,  5.9D-15, -7.4D-12, r^2= 1.5D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     3      1.352109  1 Li s                 33      1.352109  2 Li s          
+     4     -1.047092  1 Li s                 34     -1.047092  2 Li s          
+     2      0.338881  1 Li s                 32      0.338881  2 Li s          
+    10      0.262202  1 Li pz                40     -0.262202  2 Li pz         
+    13     -0.214673  1 Li pz                43      0.214673  2 Li pz         
+
+ Vector   18  Occ=0.000000D+00  E= 1.844039D-01
+              MO Center=  1.1D-16,  9.9D-16,  7.4D-12, r^2= 1.8D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     4      2.185275  1 Li s                 34     -2.185275  2 Li s          
+     3     -1.719734  1 Li s                 33      1.719734  2 Li s          
+    13      0.952445  1 Li pz                43      0.952445  2 Li pz         
+     2     -0.364167  1 Li s                 32      0.364167  2 Li s          
+    10     -0.253485  1 Li pz                40     -0.253485  2 Li pz         
+
+ Vector   19  Occ=0.000000D+00  E= 2.061971D-01
+              MO Center= -4.9D-16, -5.3D-16, -2.5D-11, r^2= 1.3D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    20      0.604114  1 Li d -1              50     -0.604114  2 Li d -1       
+    22     -0.475641  1 Li d  1              52      0.475641  2 Li d  1       
+
+ Vector   20  Occ=0.000000D+00  E= 2.061971D-01
+              MO Center= -1.1D-15,  9.7D-16, -2.5D-11, r^2= 1.3D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    22      0.604114  1 Li d  1              52     -0.604114  2 Li d  1       
+    20      0.475641  1 Li d -1              50     -0.475641  2 Li d -1       
+
+ Vector   21  Occ=0.000000D+00  E= 2.210390D-01
+              MO Center= -2.9D-15,  2.8D-15, -1.7D-10, r^2= 1.4D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    19      0.805478  1 Li d -2              49      0.805478  2 Li d -2       
+    14     -0.159213  1 Li d -2              44     -0.159213  2 Li d -2       
+
+ Vector   22  Occ=0.000000D+00  E= 2.210390D-01
+              MO Center=  3.0D-16,  1.2D-15, -1.7D-10, r^2= 1.4D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    23      0.805478  1 Li d  2              53      0.805478  2 Li d  2       
+    18     -0.159213  1 Li d  2              48     -0.159213  2 Li d  2       
+
+ Vector   23  Occ=0.000000D+00  E= 2.325128D-01
+              MO Center= -6.0D-16,  1.7D-15,  1.7D-10, r^2= 1.4D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    23      0.803179  1 Li d  2              53     -0.803179  2 Li d  2       
+    19     -0.158007  1 Li d -2              49      0.158007  2 Li d -2       
+
+ Vector   24  Occ=0.000000D+00  E= 2.325128D-01
+              MO Center= -1.1D-15, -3.9D-16,  1.7D-10, r^2= 1.4D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    19      0.803179  1 Li d -2              49     -0.803179  2 Li d -2       
+    23      0.158007  1 Li d  2              53     -0.158007  2 Li d  2       
+
+ Vector   25  Occ=0.000000D+00  E= 2.340772D-01
+              MO Center=  1.2D-15,  8.0D-16, -9.9D-12, r^2= 1.4D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    21      0.705202  1 Li d  0              51      0.705202  2 Li d  0       
+    10     -0.347631  1 Li pz                40      0.347631  2 Li pz         
+     3     -0.339962  1 Li s                 33     -0.339962  2 Li s          
+    13      0.298449  1 Li pz                43     -0.298449  2 Li pz         
+
+ Vector   26  Occ=0.000000D+00  E= 2.675556D-01
+              MO Center=  3.5D-16, -3.6D-16,  2.6D-11, r^2= 1.5D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    22      0.857528  1 Li d  1              52      0.857528  2 Li d  1       
+    11     -0.209443  1 Li px                41      0.209443  2 Li px         
+
+ Vector   27  Occ=0.000000D+00  E= 2.675556D-01
+              MO Center=  1.1D-15,  2.3D-16,  2.6D-11, r^2= 1.5D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    20      0.857528  1 Li d -1              50      0.857528  2 Li d -1       
+    12      0.209443  1 Li py                42     -0.209443  2 Li py         
+
+ Vector   28  Occ=0.000000D+00  E= 3.196378D-01
+              MO Center= -1.5D-16, -4.8D-17,  7.1D-12, r^2= 1.7D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     4      1.397315  1 Li s                 34     -1.397315  2 Li s          
+    21      0.978802  1 Li d  0              51     -0.978802  2 Li d  0       
+    13      0.773085  1 Li pz                43      0.773085  2 Li pz         
+     3     -0.762077  1 Li s                 33      0.762077  2 Li s          
+     7      0.295617  1 Li pz                37      0.295617  2 Li pz         
+
+ Vector   29  Occ=0.000000D+00  E= 4.422381D-01
+              MO Center=  9.9D-16, -1.5D-15, -2.2D-10, r^2= 1.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     9     -1.002350  1 Li py                39     -1.002350  2 Li py         
+     6      0.960058  1 Li py                36      0.960058  2 Li py         
+    12      0.395187  1 Li py                42      0.395187  2 Li py         
+     8      0.233661  1 Li px                38      0.233661  2 Li px         
+     5     -0.223802  1 Li px                35     -0.223802  2 Li px         
+
+ Vector   30  Occ=0.000000D+00  E= 4.422381D-01
+              MO Center=  1.1D-16,  1.0D-15, -2.2D-10, r^2= 1.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     8     -1.002350  1 Li px                38     -1.002350  2 Li px         
+     5      0.960058  1 Li px                35      0.960058  2 Li px         
+    11      0.395187  1 Li px                41      0.395187  2 Li px         
+     9     -0.233661  1 Li py                39     -0.233661  2 Li py         
+     6      0.223802  1 Li py                36      0.223802  2 Li py         
+
+ Vector   31  Occ=0.000000D+00  E= 4.458576D-01
+              MO Center=  9.7D-16, -2.1D-16, -3.0D-11, r^2= 1.3D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    10     -1.015789  1 Li pz                40      1.015789  2 Li pz         
+     7      0.978507  1 Li pz                37     -0.978507  2 Li pz         
+    13      0.471424  1 Li pz                43     -0.471424  2 Li pz         
+
+ Vector   32  Occ=0.000000D+00  E= 4.556480D-01
+              MO Center= -1.4D-15, -6.6D-16,  2.2D-10, r^2= 1.3D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     9      1.029779  1 Li py                39     -1.029779  2 Li py         
+     6     -0.933285  1 Li py                36      0.933285  2 Li py         
+    12     -0.511868  1 Li py                42      0.511868  2 Li py         
+     8     -0.386995  1 Li px                38      0.386995  2 Li px         
+     5      0.350732  1 Li px                35     -0.350732  2 Li px         
+
+ Vector   33  Occ=0.000000D+00  E= 4.556480D-01
+              MO Center= -6.8D-17,  6.4D-16,  2.2D-10, r^2= 1.3D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+     8      1.029779  1 Li px                38     -1.029779  2 Li px         
+     5     -0.933285  1 Li px                35      0.933285  2 Li px         
+    11     -0.511868  1 Li px                41      0.511868  2 Li px         
+     9      0.386995  1 Li py                39     -0.386995  2 Li py         
+     6     -0.350732  1 Li py                36      0.350732  2 Li py         
+
+ Vector   34  Occ=0.000000D+00  E= 4.987703D-01
+              MO Center= -2.8D-16,  4.0D-16,  3.7D-11, r^2= 1.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    10      1.215722  1 Li pz                40      1.215722  2 Li pz         
+     7     -0.960726  1 Li pz                37     -0.960726  2 Li pz         
+     4      0.371223  1 Li s                 34     -0.371223  2 Li s          
+    21      0.315947  1 Li d  0              51     -0.315947  2 Li d  0       
+    13     -0.291653  1 Li pz                43     -0.291653  2 Li pz         
+
+ Vector   35  Occ=0.000000D+00  E= 6.962445D-01
+              MO Center=  4.9D-15,  1.4D-16, -4.0D-11, r^2= 1.2D+01
+   Bfn.  Coefficient  Atom+Function         Bfn.  Coefficient  Atom+Function  
+  ----- ------------  ---------------      ----- ------------  ---------------
+    17      0.732766  1 Li d  1              47     -0.732766  2 Li d  1       
+    22     -0.415093  1 Li d  1              52      0.415093  2 Li d  1       
+    15      0.402793  1 Li d -1              45     -0.402793  2 Li d -1       
+    28     -0.327069  1 Li f  1              58     -0.327069  2 Li f  1       
+    20     -0.228171  1 Li d -1              50      0.228171  2 Li d -1       
+
+
+ center of mass
+ --------------
+ x =   0.00000000 y =   0.00000000 z =   0.00000000
+
+ moments of inertia (a.u.)
+ ------------------
+         358.026493513715           0.000000000000           0.000000000000
+           0.000000000000         358.026493513715           0.000000000000
+           0.000000000000           0.000000000000           0.000000000000
+
+  Mulliken analysis of the total density
+  --------------------------------------
+
+    Atom       Charge   Shell Charges
+ -----------   ------   -------------------------------------------------------
+    1 Li   3     3.00   2.00 -0.01  0.27  0.71  0.00  0.01  0.02 -0.00  0.00  0.00
+    2 Li   3     3.00   2.00 -0.01  0.27  0.71  0.00  0.01  0.02 -0.00  0.00  0.00
+
+       Multipole analysis of the density wrt the origin
+       ------------------------------------------------
+
+     L   x y z        total         open         nuclear
+     -   - - -        -----         ----         -------
+     0   0 0 0     -0.000000      0.000000      6.000000
+
+     1   1 0 0      0.000000      0.000000      0.000000
+     1   0 1 0     -0.000000      0.000000      0.000000
+     1   0 0 1     -0.000000      0.000000      0.000000
+
+     2   2 0 0    -14.976960      0.000000      0.000000
+     2   1 1 0      0.000000      0.000000      0.000000
+     2   1 0 1      0.000000      0.000000      0.000000
+     2   0 2 0    -14.976960      0.000000      0.000000
+     2   0 1 1      0.000000      0.000000      0.000000
+     2   0 0 2      3.177480      0.000000    153.090006
+
+
+ Parallel integral file used       9 records with       0 large values
+
+                   NWChem Extensible Many-Electron Theory Module
+                   ---------------------------------------------
+
+              ======================================================
+                   This portion of the program was automatically
+                  generated by a Tensor Contraction Engine (TCE).
+                  The development of this portion of the program
+                 and TCE was supported by US Department of Energy,
+                Office of Science, Office of Basic Energy Science.
+                      TCE is a product of Battelle and PNNL.
+              Please cite: S.Hirata, J.Phys.Chem.A 107, 9887 (2003).
+              ======================================================
+
+                                    Li2-REMOVE
+
+
+            General Information
+            -------------------
+      Number of processors :     1
+         Wavefunction type : Restricted Hartree-Fock
+          No. of electrons :     6
+           Alpha electrons :     3
+            Beta electrons :     3
+           No. of orbitals :   120
+            Alpha orbitals :    60
+             Beta orbitals :    60
+        Alpha frozen cores :     0
+         Beta frozen cores :     0
+     Alpha frozen virtuals :     0
+      Beta frozen virtuals :     0
+         Spin multiplicity : singlet 
+    Number of AO functions :    60
+       Number of AO shells :    20
+        Use of symmetry is : off
+      Symmetry adaption is : off
+         Schwarz screening : 0.10D-09
+
+          Correlation Information
+          -----------------------
+          Calculation type : Coupled-cluster singles & doubles                           
+   Perturbative correction : none                                                        
+            Max iterations :      200
+        Residual threshold : 0.10D-05
+     T(0) DIIS level shift : 0.00D+00
+     L(0) DIIS level shift : 0.00D+00
+     T(1) DIIS level shift : 0.00D+00
+     L(1) DIIS level shift : 0.00D+00
+     T(R) DIIS level shift : 0.00D+00
+     T(I) DIIS level shift : 0.00D+00
+   CC-T/L Amplitude update :  5-th order DIIS
+                I/O scheme : Global Array Library
+        L-threshold :  0.10D-05
+        EOM-threshold :  0.10D-05
+ no EOMCCSD initial starts read in
+ TCE RESTART OPTIONS
+ READ_INT:   F
+ WRITE_INT:  F
+ READ_TA:    F
+ WRITE_TA:   F
+ READ_XA:    F
+ WRITE_XA:   F
+ READ_IN3:   F
+ WRITE_IN3:  F
+ SLICE:      F
+ D4D5:       F
+ quantumc:   F
+ qrotation:  F
+ qducc:      T
+ nacto:                         0
+ nrotv:                         0
+ nrot:                          0
+
+            Memory Information
+            ------------------
+          Available GA space size is    1610609136 doubles
+          Available MA space size is    1610610012 doubles
+
+ Maximum block size supplied by input
+ Maximum block size         5 doubles
+
+ tile_dim =      5
+
+ Block   Spin    Irrep     Size     Offset   Alpha
+ -------------------------------------------------
+   1    alpha     a      3 doubles       0       1
+   2    beta      a      3 doubles       3       1
+   3    alpha     a      4 doubles       6       3
+   4    alpha     a      5 doubles      10       4
+   5    alpha     a      5 doubles      15       5
+   6    alpha     a      5 doubles      20       6
+   7    alpha     a      4 doubles      25       7
+   8    alpha     a      5 doubles      29       8
+   9    alpha     a      5 doubles      34       9
+  10    alpha     a      5 doubles      39      10
+  11    alpha     a      4 doubles      44      11
+  12    alpha     a      5 doubles      48      12
+  13    alpha     a      5 doubles      53      13
+  14    alpha     a      5 doubles      58      14
+  15    beta      a      4 doubles      63       3
+  16    beta      a      5 doubles      67       4
+  17    beta      a      5 doubles      72       5
+  18    beta      a      5 doubles      77       6
+  19    beta      a      4 doubles      82       7
+  20    beta      a      5 doubles      86       8
+  21    beta      a      5 doubles      91       9
+  22    beta      a      5 doubles      96      10
+  23    beta      a      4 doubles     101      11
+  24    beta      a      5 doubles     105      12
+  25    beta      a      5 doubles     110      13
+  26    beta      a      5 doubles     115      14
+
+ Global array virtual files algorithm will be used
+
+ Parallel file system coherency ......... OK
+
+ Integral file          = ./Li2-REMOVE.aoints.0
+ Record size in doubles =    65536    No. of integs per rec  =    43688
+ Max. records in memory =       54    Max. records in file   =  1546358
+ No. of bits per label  =        8    No. of bits per value  =       64
+
+
+ #quartets = 2.130D+04 #integrals = 3.658D+05 #direct =  0.0% #cached =100.0%
+
+
+ Fock matrix recomputed
+ 1-e file size   =             3600
+ 1-e file name   = ./Li2-REMOVE.f1
+ Cpu & wall time / sec            0.2            0.2
+ 4-electron integrals stored in orbital form
+
+ v2    file size   =          1905240
+ 4-index algorithm nr.  13 is used
+ imaxsize =       30
+ imaxsize ichop =        0
+ Cpu & wall time / sec            4.6            4.6
+ T1-number-of-tasks                   12
+
+ t1 file size   =              171
+ t1 file name   = ./Li2-REMOVE.t1
+ t1 file handle =       -998
+ T2-number-of-boxes                  222
+
+ t2 file size   =            45090
+ t2 file name   = ./Li2-REMOVE.t2
+ t2 file handle =       -996
+
+ CCSD iterations
+ -----------------------------------------------------------------
+ Iter          Residuum       Correlation     Cpu    Wall    V2*C2
+ -----------------------------------------------------------------
+    1   0.0910981634604  -0.0475963900309     1.9     2.0     0.6
+    2   0.0290959526852  -0.0569132724875     1.8     2.0     0.5
+    3   0.0183258625220  -0.0622508836933     1.8     2.0     0.5
+    4   0.0129204314441  -0.0648334373004     1.8     1.9     0.6
+    5   0.0090849318338  -0.0666868309163     1.8     2.0     0.5
+ MICROCYCLE DIIS UPDATE:                    5                    5
+    6   0.0017643232808  -0.0702947207637     1.8     1.9     0.6
+    7   0.0010350575604  -0.0703376358040     1.8     1.9     0.5
+    8   0.0005800031519  -0.0703625566315     1.8     1.9     0.5
+    9   0.0004381386769  -0.0703761988687     1.8     1.9     0.5
+   10   0.0002945400170  -0.0703994913022     1.8     2.0     0.5
+ MICROCYCLE DIIS UPDATE:                   10                    5
+   11   0.0000712385568  -0.0704496927518     1.8     2.0     0.5
+   12   0.0000377684341  -0.0704534373055     1.9     2.0     0.6
+   13   0.0000221994841  -0.0704589297230     1.9     2.0     0.6
+   14   0.0000150786148  -0.0704609797267     1.9     2.0     0.6
+   15   0.0000099363340  -0.0704628859650     1.9     2.0     0.6
+ MICROCYCLE DIIS UPDATE:                   15                    5
+   16   0.0000026225175  -0.0704661454665     1.9     2.0     0.6
+   17   0.0000015955126  -0.0704662095453     1.8     2.0     0.5
+   18   0.0000008894662  -0.0704663003277     1.8     2.0     0.6
+ -----------------------------------------------------------------
+ Iterations converged
+ CCSD correlation energy / hartree =        -0.070466300327657
+ CCSD total energy / hartree       =       -14.894860333197380
+
+ Singles contributions
+
+ Doubles contributions
+     4a   (alpha)     4a   (beta ) ---     3a   (alpha)     3a   (beta )       -0.5724325853
+     4a   (alpha)    10a   (beta ) ---     3a   (alpha)     3a   (beta )       -0.1717072748
+    10a   (alpha)     4a   (beta ) ---     3a   (alpha)     3a   (beta )       -0.1717072748
+ Ground state specification:
+ exp(T)|Ref>~(1+T)|Ref>
+ ------- a(p)+/a(q) strings ----------
+
+ singles norm
+
+ doubles norm
+
+ Reference string
+  0.84921415254337906      :(1a)+ (2a)+ (3a)+ (1b)+ (2b)+ (3b)+ |0>
+
+ Singles strings
+
+ Doubles strings
+ -0.48611785282260439      :(4a)+ (4b)+ (3b)  (3a)  (1a)+ (2a)+ (3a)+ (1b)+ (2b)+ (3b)+ |0>
+ -0.14581624787240180      :(4a)+ (10b)+(3b)  (3a)  (1a)+ (2a)+ (3a)+ (1b)+ (2b)+ (3b)+ |0>
+ -0.14581624787240177      :(10a)+(4b)+ (3b)  (3a)  (1a)+ (2a)+ (3a)+ (1b)+ (2b)+ (3b)+ |0>
+ -------------------------------------
+ enrep_tce =   0.89087078956178178     
+  EHF(total)         =       -14.82439403
+  Shift (HFtot-HFA)  =         0.00000000
+ ALL OCCUPIED ORBITALS ARE ACTIVE IN DUCC --> NO SHIFT
+ Number of active orbitals                    4
+ Number of active alpha electrons                    3
+ Number of active beta electrons                    3
+  nos                     6
+  nvs                   114
+ noas                     3
+ nobs                     3
+ nvas                    57
+ nvbs                    57
+ nactv                     1
+ From DUCC CCSD corr. ene.  -7.0466300327553702E-002
+ From DUCC CCSD corr. ene.-e-part   6.9487665600800566E-002
+ begin_one_electron_integrals
+    1    1        -4.7385955360
+    1    2         0.0000000003
+    1    3        -0.0000003559
+    1    4         0.0996116119
+    2    1         0.0000000003
+    2    2        -4.7386797723
+    2    3         0.1160990395
+    2    4         0.0000003054
+    3    1        -0.0000003559
+    3    2         0.1160990395
+    3    3        -1.1161923787
+    4    1         0.0996116119
+    4    2         0.0000003054
+    4    4        -0.9742137826
+ end_one_electron_integrals
+ begin_two_electron_integrals
+    1    1    1    1        0.8678798692
+    2    1    1    1       -0.0000047146
+    2    2    1    1        0.8679221927
+    2    1    2    1        0.7689496383
+    2    2    2    1        0.0000047144
+    2    2    2    2        0.8679634843
+    3    1    1    1        0.0000005244
+    3    2    1    1       -0.0570054837
+    3    3    1    1        0.2059719511
+    3    1    2    1       -0.0570224933
+    3    1    2    2       -0.0000001748
+    3    2    2    1       -0.0000001748
+    3    2    2    2       -0.0570094669
+    3    3    2    2        0.2059725386
+    3    1    3    1        0.0043678473
+    3    2    3    2        0.0043681231
+    3    3    3    1        0.0000000045
+    3    3    3    2       -0.0014555618
+    3    3    3    3        0.1684994868
+    4    1    1    1       -0.0504357444
+    4    2    1    1        0.0000001536
+    4    3    1    1       -0.0000005202
+    4    4    1    1        0.1807106333
+    4    1    2    1        0.0000001541
+    4    1    2    2       -0.0504403000
+    4    2    2    1       -0.0502740807
+    4    2    2    2       -0.0000004629
+    4    3    2    1        0.0848414100
+    4    3    2    2        0.0000005202
+    4    4    2    2        0.1807113116
+    4    1    3    1       -0.0000000336
+    4    1    3    2        0.0054813733
+    4    1    3    3       -0.0016540263
+    4    2    3    1        0.0054813191
+    4    2    3    2        0.0000000336
+    4    2    3    3       -0.0000000051
+    4    3    3    1       -0.0013295444
+    4    3    3    2       -0.0000000041
+    4    4    3    1        0.0000000028
+    4    4    3    2       -0.0009068650
+    4    4    3    3        0.1414811804
+    4    1    4    1        0.0061837338
+    4    2    4    2        0.0061852596
+    4    3    4    1        0.0000000047
+    4    3    4    2       -0.0015328728
+    4    3    4    3        0.0604549416
+    4    4    4    1       -0.0006235366
+    4    4    4    2       -0.0000000019
+    4    4    4    4        0.1415016440
+ end_two_electron_integrals
+ onebody.inp
+     -4.7385955360     1
+      0.0000000003     2
+     -4.7386797723     3
+     -0.0000003559     4
+      0.1160990395     5
+     -1.1161923787     6
+      0.0996116119     7
+      0.0000003054     8
+     -0.0000000000     9
+     -0.9742137826    10
+ twobody.inp
+    1    1    1    1        0.8678798692
+    1    1    1    2       -0.0000047146
+    1    1    1    3        0.0000005244
+    1    1    1    4       -0.0504357444
+    1    1    2    1       -0.0000047146
+    1    1    2    2        0.8679221927
+    1    1    2    3       -0.0570054837
+    1    1    2    4        0.0000001536
+    1    1    3    1        0.0000005244
+    1    1    3    2       -0.0570054837
+    1    1    3    3        0.2059719511
+    1    1    3    4       -0.0000005202
+    1    1    4    1       -0.0504357444
+    1    1    4    2        0.0000001536
+    1    1    4    3       -0.0000005202
+    1    1    4    4        0.1807106333
+    1    2    1    1       -0.0000047146
+    1    2    1    2        0.7689496383
+    1    2    1    3       -0.0570224933
+    1    2    1    4        0.0000001541
+    1    2    2    1        0.7689501553
+    1    2    2    2        0.0000047144
+    1    2    2    3       -0.0000001748
+    1    2    2    4       -0.0502740807
+    1    2    3    1       -0.0570226908
+    1    2    3    2       -0.0000001748
+    1    2    3    4        0.0848414100
+    1    2    4    1        0.0000001541
+    1    2    4    2       -0.0502764862
+    1    2    4    3        0.0848426870
+    1    3    1    1        0.0000005244
+    1    3    1    2       -0.0570224933
+    1    3    1    3        0.0043678473
+    1    3    1    4       -0.0000000336
+    1    3    2    1       -0.0570226908
+    1    3    2    2       -0.0000001748
+    1    3    2    4        0.0054813191
+    1    3    3    1        0.0060387734
+    1    3    3    3        0.0000000045
+    1    3    3    4       -0.0013295444
+    1    3    4    1       -0.0000000444
+    1    3    4    2        0.0072427502
+    1    3    4    3       -0.0013822378
+    1    3    4    4        0.0000000028
+    1    4    1    1       -0.0504357444
+    1    4    1    2        0.0000001541
+    1    4    1    3       -0.0000000336
+    1    4    1    4        0.0061837338
+    1    4    2    1        0.0000001541
+    1    4    2    2       -0.0504403000
+    1    4    2    3        0.0054813733
+    1    4    3    1       -0.0000000444
+    1    4    3    2        0.0072417315
+    1    4    3    3       -0.0016540263
+    1    4    3    4        0.0000000047
+    1    4    4    1        0.0046576613
+    1    4    4    3        0.0000000023
+    1    4    4    4       -0.0006235366
+    2    1    1    1       -0.0000047146
+    2    1    1    2        0.7689501553
+    2    1    1    3       -0.0570226908
+    2    1    1    4        0.0000001541
+    2    1    2    1        0.7689496383
+    2    1    2    2        0.0000047144
+    2    1    2    3       -0.0000001748
+    2    1    2    4       -0.0502764862
+    2    1    3    1       -0.0570224933
+    2    1    3    2       -0.0000001748
+    2    1    3    4        0.0848426870
+    2    1    4    1        0.0000001541
+    2    1    4    2       -0.0502740807
+    2    1    4    3        0.0848414100
+    2    2    1    1        0.8679221927
+    2    2    1    2        0.0000047144
+    2    2    1    3       -0.0000001748
+    2    2    1    4       -0.0504403000
+    2    2    2    1        0.0000047144
+    2    2    2    2        0.8679634843
+    2    2    2    3       -0.0570094669
+    2    2    2    4       -0.0000004629
+    2    2    3    1       -0.0000001748
+    2    2    3    2       -0.0570094669
+    2    2    3    3        0.2059725386
+    2    2    3    4        0.0000005202
+    2    2    4    1       -0.0504403000
+    2    2    4    2       -0.0000004629
+    2    2    4    3        0.0000005202
+    2    2    4    4        0.1807113116
+    2    3    1    1       -0.0570054837
+    2    3    1    2       -0.0000001748
+    2    3    1    4        0.0054813733
+    2    3    2    1       -0.0000001748
+    2    3    2    2       -0.0570094669
+    2    3    2    3        0.0043681231
+    2    3    2    4        0.0000000336
+    2    3    3    2        0.0060393777
+    2    3    3    3       -0.0014555618
+    2    3    3    4       -0.0000000041
+    2    3    4    1        0.0072417315
+    2    3    4    2        0.0000000444
+    2    3    4    3       -0.0000000042
+    2    3    4    4       -0.0009068650
+    2    4    1    1        0.0000001536
+    2    4    1    2       -0.0502740807
+    2    4    1    3        0.0054813191
+    2    4    2    1       -0.0502764862
+    2    4    2    2       -0.0000004629
+    2    4    2    3        0.0000000336
+    2    4    2    4        0.0061852596
+    2    4    3    1        0.0072427502
+    2    4    3    2        0.0000000444
+    2    4    3    3       -0.0000000051
+    2    4    3    4       -0.0015328728
+    2    4    4    2        0.0046579476
+    2    4    4    3       -0.0007341466
+    2    4    4    4       -0.0000000019
+    3    1    1    1        0.0000005244
+    3    1    1    2       -0.0570226908
+    3    1    1    3        0.0060387734
+    3    1    1    4       -0.0000000444
+    3    1    2    1       -0.0570224933
+    3    1    2    2       -0.0000001748
+    3    1    2    4        0.0072427502
+    3    1    3    1        0.0043678473
+    3    1    3    3        0.0000000045
+    3    1    3    4       -0.0013822378
+    3    1    4    1       -0.0000000336
+    3    1    4    2        0.0054813191
+    3    1    4    3       -0.0013295444
+    3    1    4    4        0.0000000028
+    3    2    1    1       -0.0570054837
+    3    2    1    2       -0.0000001748
+    3    2    1    4        0.0072417315
+    3    2    2    1       -0.0000001748
+    3    2    2    2       -0.0570094669
+    3    2    2    3        0.0060393777
+    3    2    2    4        0.0000000444
+    3    2    3    2        0.0043681231
+    3    2    3    3       -0.0014555618
+    3    2    3    4       -0.0000000042
+    3    2    4    1        0.0054813733
+    3    2    4    2        0.0000000336
+    3    2    4    3       -0.0000000041
+    3    2    4    4       -0.0009068650
+    3    3    1    1        0.2059719511
+    3    3    1    3        0.0000000045
+    3    3    1    4       -0.0016540263
+    3    3    2    2        0.2059725386
+    3    3    2    3       -0.0014555618
+    3    3    2    4       -0.0000000051
+    3    3    3    1        0.0000000045
+    3    3    3    2       -0.0014555618
+    3    3    3    3        0.1684994868
+    3    3    4    1       -0.0016540263
+    3    3    4    2       -0.0000000051
+    3    3    4    4        0.1414811804
+    3    4    1    1       -0.0000005202
+    3    4    1    2        0.0848414100
+    3    4    1    3       -0.0013295444
+    3    4    1    4        0.0000000047
+    3    4    2    1        0.0848426870
+    3    4    2    2        0.0000005202
+    3    4    2    3       -0.0000000041
+    3    4    2    4       -0.0015328728
+    3    4    3    1       -0.0013822378
+    3    4    3    2       -0.0000000042
+    3    4    3    4        0.0604549416
+    3    4    4    1        0.0000000023
+    3    4    4    2       -0.0007341466
+    3    4    4    3        0.0557399499
+    4    1    1    1       -0.0504357444
+    4    1    1    2        0.0000001541
+    4    1    1    3       -0.0000000444
+    4    1    1    4        0.0046576613
+    4    1    2    1        0.0000001541
+    4    1    2    2       -0.0504403000
+    4    1    2    3        0.0072417315
+    4    1    3    1       -0.0000000336
+    4    1    3    2        0.0054813733
+    4    1    3    3       -0.0016540263
+    4    1    3    4        0.0000000023
+    4    1    4    1        0.0061837338
+    4    1    4    3        0.0000000047
+    4    1    4    4       -0.0006235366
+    4    2    1    1        0.0000001536
+    4    2    1    2       -0.0502764862
+    4    2    1    3        0.0072427502
+    4    2    2    1       -0.0502740807
+    4    2    2    2       -0.0000004629
+    4    2    2    3        0.0000000444
+    4    2    2    4        0.0046579476
+    4    2    3    1        0.0054813191
+    4    2    3    2        0.0000000336
+    4    2    3    3       -0.0000000051
+    4    2    3    4       -0.0007341466
+    4    2    4    2        0.0061852596
+    4    2    4    3       -0.0015328728
+    4    2    4    4       -0.0000000019
+    4    3    1    1       -0.0000005202
+    4    3    1    2        0.0848426870
+    4    3    1    3       -0.0013822378
+    4    3    1    4        0.0000000023
+    4    3    2    1        0.0848414100
+    4    3    2    2        0.0000005202
+    4    3    2    3       -0.0000000042
+    4    3    2    4       -0.0007341466
+    4    3    3    1       -0.0013295444
+    4    3    3    2       -0.0000000041
+    4    3    3    4        0.0557399499
+    4    3    4    1        0.0000000047
+    4    3    4    2       -0.0015328728
+    4    3    4    3        0.0604549416
+    4    4    1    1        0.1807106333
+    4    4    1    3        0.0000000028
+    4    4    1    4       -0.0006235366
+    4    4    2    2        0.1807113116
+    4    4    2    3       -0.0009068650
+    4    4    2    4       -0.0000000019
+    4    4    3    1        0.0000000028
+    4    4    3    2       -0.0009068650
+    4    4    3    3        0.1414811804
+    4    4    4    1       -0.0006235366
+    4    4    4    2       -0.0000000019
+    4    4    4    4        0.1415016440
+ fcidump
+      0.8678798692     1   1   1   1
+     -0.0000047146     2   1   1   1
+      0.7689496383     2   1   2   1
+      0.8679221927     2   2   1   1
+      0.0000047144     2   2   2   1
+      0.8679634843     2   2   2   2
+      0.0000005244     3   1   1   1
+     -0.0570224933     3   1   2   1
+     -0.0000001748     3   1   2   2
+      0.0043678473     3   1   3   1
+     -0.0570054837     3   2   1   1
+     -0.0000001748     3   2   2   1
+     -0.0570094669     3   2   2   2
+      0.0043681231     3   2   3   2
+      0.2059719511     3   3   1   1
+      0.2059725386     3   3   2   2
+      0.0000000045     3   3   3   1
+     -0.0014555618     3   3   3   2
+      0.1684994868     3   3   3   3
+     -0.0504357444     4   1   1   1
+      0.0000001541     4   1   2   1
+     -0.0504403000     4   1   2   2
+     -0.0000000336     4   1   3   1
+      0.0054813733     4   1   3   2
+     -0.0016540263     4   1   3   3
+      0.0061837338     4   1   4   1
+      0.0000001536     4   2   1   1
+     -0.0502740807     4   2   2   1
+     -0.0000004629     4   2   2   2
+      0.0054813191     4   2   3   1
+      0.0000000336     4   2   3   2
+     -0.0000000051     4   2   3   3
+      0.0061852596     4   2   4   2
+     -0.0000005202     4   3   1   1
+      0.0848414100     4   3   2   1
+      0.0000005202     4   3   2   2
+     -0.0013295444     4   3   3   1
+     -0.0000000041     4   3   3   2
+      0.0000000047     4   3   4   1
+     -0.0015328728     4   3   4   2
+      0.0604549416     4   3   4   3
+      0.1807106333     4   4   1   1
+      0.1807113116     4   4   2   2
+      0.0000000028     4   4   3   1
+     -0.0009068650     4   4   3   2
+      0.1414811804     4   4   3   3
+     -0.0006235366     4   4   4   1
+     -0.0000000019     4   4   4   2
+      0.1415016440     4   4   4   4
+     -4.7385955360     1   1   0   0
+      0.0000000003     2   1   0   0
+     -4.7386797723     2   2   0   0
+     -0.0000003559     3   1   0   0
+      0.1160990395     3   2   0   0
+     -1.1161923787     3   3   0   0
+      0.0996116119     4   1   0   0
+      0.0000003054     4   2   0   0
+     -0.9742137826     4   4   0   0
+
+ Parallel integral file used       9 records with       0 large values
+
+
+ Task  times  cpu:      749.7s     wall:      754.3s
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+ Summary of allocated global arrays
+-----------------------------------
+  No active global arrays
+
+
+
+                         GA Statistics for process    0
+                         ------------------------------
+
+       create   destroy   get      put      acc     scatter   gather  read&inc
+calls: 2211     2211     3.58e+06 1.99e+04 1.44e+05    0        0     1.91e+05 
+number of processes/call 1.00e+00 1.00e+00 1.00e+00 0.00e+00 0.00e+00
+bytes total:             1.33e+10 1.03e+08 2.39e+08 0.00e+00 0.00e+00 1.53e+06
+bytes remote:            0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00 0.00e+00
+Max memory consumed for GA by this process: 73662736 bytes
+
+MA_summarize_allocated_blocks: starting scan ...
+MA_summarize_allocated_blocks: scan completed: 0 heap blocks, 0 stack blocks
+MA usage statistics:
+
+	allocation statistics:
+					      heap	     stack
+					      ----	     -----
+	current number of blocks	         0	         0
+	maximum number of blocks	        17	        40
+	current total bytes		         0	         0
+	maximum total bytes		  28329720	8298725256
+	maximum total K-bytes		     28330	   8298726
+	maximum total M-bytes		        29	      8299
+
+
+                                     CITATION
+                                     --------
+                Please cite the following reference when publishing
+                           results obtained with NWChem:
+
+                 M. Valiev, E.J. Bylaska, N. Govind, K. Kowalski,
+              T.P. Straatsma, H.J.J. van Dam, D. Wang, J. Nieplocha,
+                        E. Apra, T.L. Windus, W.A. de Jong
+                 "NWChem: a comprehensive and scalable open-source
+                  solution for large scale molecular simulations"
+                      Comput. Phys. Commun. 181, 1477 (2010)
+                           doi:10.1016/j.cpc.2010.04.018
+
+                                      AUTHORS
+                                      -------
+          E. Apra, E. J. Bylaska, W. A. de Jong, N. Govind, K. Kowalski,
+       T. P. Straatsma, M. Valiev, H. J. J. van Dam, D. Wang, T. L. Windus,
+        J. Hammond, J. Autschbach, K. Bhaskaran-Nair, J. Brabec, K. Lopata,
+    S. A. Fischer, S. Krishnamoorthy, M. Jacquelin, W. Ma, M. Klemm, O. Villa,
+      Y. Chen, V. Anisimov, F. Aquino, S. Hirata, M. T. Hackler, V. Konjkov,
+            D. Mejia-Rodriguez, T. Risthaus, M. Malagoli, A. Marenich,
+   A. Otero-de-la-Roza, J. Mullin, P. Nichols, R. Peverati, J. Pittner, Y. Zhao,
+        P.-D. Fan, A. Fonari, M. J. Williamson, R. J. Harrison, J. R. Rehr,
+      M. Dupuis, D. Silverstein, D. M. A. Smith, J. Nieplocha, V. Tipparaju,
+    M. Krishnan, B. E. Van Kuiken, A. Vazquez-Mayagoitia, L. Jensen, M. Swart,
+      Q. Wu, T. Van Voorhis, A. A. Auer, M. Nooijen, L. D. Crosby, E. Brown,
+      G. Cisneros, G. I. Fann, H. Fruchtl, J. Garza, K. Hirao, R. A. Kendall,
+      J. A. Nichols, K. Tsemekhman, K. Wolinski, J. Anchell, D. E. Bernholdt,
+      P. Borowski, T. Clark, D. Clerc, H. Dachsel, M. J. O. Deegan, K. Dyall,
+    D. Elwood, E. Glendening, M. Gutowski, A. C. Hess, J. Jaffe, B. G. Johnson,
+     J. Ju, R. Kobayashi, R. Kutteh, Z. Lin, R. Littlefield, X. Long, B. Meng,
+      T. Nakajima, S. Niu, L. Pollack, M. Rosing, K. Glaesemann, G. Sandrone,
+      M. Stave, H. Taylor, G. Thomas, J. H. van Lenthe, A. T. Wong, Z. Zhang.
+
+ Total times  cpu:      749.7s     wall:      754.3s

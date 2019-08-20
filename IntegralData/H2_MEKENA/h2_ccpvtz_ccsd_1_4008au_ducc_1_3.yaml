@@ -1,0 +1,80 @@
+
+"$schema": https://raw.githubusercontent.com/Microsoft/Quantum/master/Chemistry/Schema/broombridge-0.1.schema.json
+
+bibliography:
+- {url: 'https://www.nwchem-sw.org'}
+format: {version: '0.1'}
+generator: {source: nwchem, version: '6.8'}
+integral_sets:
+- basis_set: {name: cc-pvtz, type: gaussian}
+  coulomb_repulsion: {units: hartree, value: 0.7138777841233577}
+  energy_offset: {units: hartree, value: -0.0}
+  fci_energy: {lower: -1.246669512948753, units: hartree, upper: -1.0466695129487529,
+    value: -1.146669512948753}
+  geometry:
+    atoms:
+    - coords: [0.0, 0.0, -0.7004]
+      name: H
+    - coords: [0.0, 0.0, 0.7004]
+      name: H
+    coordinate_system: cartesian
+    symmetry: c1
+    units: bohr
+  hamiltonian:
+    one_electron_integrals:
+      format: sparse
+      units: hartree
+      values:
+      - [1, 1, -1.2528398693]
+      - [2, 2, -0.4695131026]
+      - [3, 1, -0.1311635971]
+      - [3, 3, -0.3575220896]
+      - [4, 2, -0.2102172352]
+      - [4, 4, -0.2484788837]
+    two_electron_integrals:
+      format: sparse
+      index_convention: mulliken
+      units: hartree
+      values:
+      - [1, 1, 1, 1, 0.637895138]
+      - [2, 2, 1, 1, 0.3375192457]
+      - [2, 1, 2, 1, 0.0379391632]
+      - [2, 2, 2, 2, 0.2903110488]
+      - [3, 1, 1, 1, 0.1249469844]
+      - [3, 3, 1, 1, 0.3440317944]
+      - [3, 1, 2, 2, 0.0225835506]
+      - [3, 2, 2, 1, -0.0216228218]
+      - [3, 3, 2, 2, 0.2614638476]
+      - [3, 1, 3, 1, 0.0525096611]
+      - [3, 2, 3, 2, 0.0393026982]
+      - [3, 3, 3, 1, 0.030120042]
+      - [3, 3, 3, 3, 0.2661184719]
+      - [4, 2, 1, 1, 0.1333117072]
+      - [4, 4, 1, 1, 0.4796377358]
+      - [4, 1, 2, 1, 0.0538042833]
+      - [4, 2, 2, 2, 0.0434143395]
+      - [4, 3, 2, 1, 0.0251429464]
+      - [4, 4, 2, 2, 0.3146952951]
+      - [4, 1, 3, 2, -0.009816174]
+      - [4, 2, 3, 1, 0.0341108797]
+      - [4, 2, 3, 3, 0.0394947099]
+      - [4, 3, 3, 2, -0.0181076777]
+      - [4, 4, 3, 1, 0.0695945403]
+      - [4, 4, 3, 3, 0.2923360211]
+      - [4, 1, 4, 1, 0.0916251037]
+      - [4, 2, 4, 2, 0.0523031625]
+      - [4, 3, 4, 1, 0.034389275]
+      - [4, 3, 4, 3, 0.0216780341]
+      - [4, 4, 4, 2, 0.0942192106]
+      - [4, 4, 4, 4, 0.4049606919]
+  initial_state_suggestions:
+  - state:
+      energy: {units: hartree, value: -1.146669512948753}
+      label: '|G>'
+      superposition:
+      - [1.0, (1a)+, (1b)+, '|vacuum>']
+  metadata: {molecule_name: unknown}
+  n_electrons: 2
+  n_orbitals: 4
+  scf_energy: {units: hartree, value: -1.1329775}
+  scf_energy_offset: {units: hartree, value: -0.0}
