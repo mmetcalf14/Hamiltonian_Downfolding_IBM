@@ -20,7 +20,7 @@ import os
 
 #Importing data generated from NW Chem to run experiments
 #Li2_cc-pVTZ_4_ORBITALS_Li2-4_ORBITALS-ccpVTZ-2_1384
-root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/HamiltonianDownfolding_w_IBM/IntegralData/H2_MEKENA/'
+root_dir = '/Users/Wifes/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
 NW_data_file = str(root_dir+'h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml')
 # NW_data_file = str('H2.yaml')
 OE_data_file = str(root_dir+ 'h2_ccpvtz_ccsd_0_80au.FOCK')
@@ -143,15 +143,15 @@ dumpy_params = np.random.rand(var_op.num_parameters)
 
 var_cirq = var_op.construct_circuit(dumpy_params)
 # print(var_cirq)
-tk_cirq = qiskit_to_tk(var_cirq)
-
-
-def print_tkcirc_via_qiskit(tkcirc):
-    copy_tkcirc = tkcirc.copy()
-    qiskit_qcirc = tk_to_qiskit(copy_tkcirc)
-    print(qiskit_qcirc)
-
-print_tkcirc_via_qiskit(tk_cirq)
+# tk_cirq = qiskit_to_tk(var_cirq)
+#
+#
+# def print_tkcirc_via_qiskit(tkcirc):
+#     copy_tkcirc = tkcirc.copy()
+#     qiskit_qcirc = tk_to_qiskit(copy_tkcirc)
+#     print(qiskit_qcirc)
+#
+# print_tkcirc_via_qiskit(tk_cirq)
 # singles, doubles = var_op.return_excitations()
 
 
