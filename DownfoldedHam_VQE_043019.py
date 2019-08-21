@@ -1,11 +1,11 @@
-from qiskit_chemistry import FermionicOperator, QMolecule
-from qiskit_chemistry.aqua_extensions.components.initial_states import HartreeFock
-from qiskit_chemistry.aqua_extensions.components.variational_forms import UCCSD
-from qiskit_chemistry import QMolecule as qm
+from qiskit.chemistry import FermionicOperator, QMolecule
+from qiskit.chemistry.aqua_extensions.components.initial_states import HartreeFock
+from qiskit.chemistry.aqua_extensions.components.variational_forms import UCCSD
+from qiskit.chemistry import QMolecule as qm
 
-from qiskit_aqua.components.optimizers import COBYLA
-from qiskit_aqua import Operator
-from qiskit_aqua.algorithms import VQE, ExactEigensolver
+from qiskit.aqua.components.optimizers import COBYLA
+from qiskit.aqua import Operator
+from qiskit.aqua.algorithms import VQE, ExactEigensolver
 from qiskit import Aer
 
 from scipy import linalg as la
@@ -19,7 +19,7 @@ import Load_Hamiltonians as lh
 ##Carefully upgrade terra to see if qasm/state-vector simulator perform quicker.##
 
 #################### WALK ROOT DIR ############################
-root_dir = 'IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS'
+root_dir = '/Users/Wifes/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
 
 data_file_list = []
 data_file_list_oe = []
@@ -33,15 +33,15 @@ for dirName, subdirList, fileList in os.walk(root_dir):
 
 #This 'del' is four the 4-orbital case since the OEs are missing for the distance 13...
 #This should be resolved for the future
-del data_file_list[-1]
+# del data_file_list[-1]
 
 #I added an x in front of the 10s for distance to force the sorting, else it sees 13 as 1
 #If any distance is in the 100s (unlikely) then add a 'y' in front of dist in file name
 ###############################################################
 ############# Output Files to Plot stuff ###############
 print(data_file_list)
-Fout = open('Li2_ExactEnergies_wMP2_4-orbitals_061219.dat',"w")
-Fout_op = open('Li2_OptimalParams_wMP2_4-orbitals_061219.dat',"w")
+Fout = open('H2_VQEEnergies_wMP2_NoSingles_4-orbitals_082119.dat',"w")
+Fout_op = open('H2_OptimalParams_wMP2_4-orbitals_082119.dat',"w")
 #Fout = open('Li2_ExactEnergiesG&FE_wMP2_4-orbitals_052919.dat',"w")
 ###########################################################
 
@@ -61,7 +61,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     NW_data_file = str(os.path.join(root_dir,file1))
 
-    OE_data_file = str(os.path.join(root_dir+'/DOWNFOLDED_ORBITAL_ENERGIES',file2))
+    OE_data_file = str(os.path.join(root_dir,file2))
 
     try:
         doc = open(NW_data_file, 'r')
@@ -85,6 +85,14 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
         n_qubits = n_orbitals - 2
     else:
         n_qubits = n_orbitals
+
+    active_occ = n_particles // 2
+    active_virt = (n_orbitals - n_particles) // 2
+    active_occ_list = np.arange(active_occ)
+    active_occ_list = active_occ_list.tolist()
+    # print('Orbitals {} are occupied'.format(active_occ_list))
+    active_virt_list = np.arange(active_virt)
+    active_virt_list = active_virt_list.tolist()
 
     # Populating the QMolecule class with the data to make calculations easier
     qm.num_orbitals = n_spatial_orbitals
@@ -130,12 +138,13 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     #Get Variational form and intial state
     init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type, two_qubit_reduction=False)
-    var_op = UCCSD(n_qubits, 1, n_orbitals, n_particles, active_occupied=None, active_unoccupied=None, initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True)
+    var_op = UCCSD(num_qubits=n_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles, active_occupied=active_occ_list,\
+               active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True, singles_deletion=True)
 
     ######################## VQE RESULT ###############################
         # setup a classical optimizer for VQE
     max_eval = 200
-    optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-3)
+    optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-2)
 
     #Choosing initial params based on previous iteration
     if ind == 0:
@@ -149,7 +158,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
 
     print('Doing VQE')
-    algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=initial_params, )
+    algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=initial_params)
     #VQE_Circ = algorithm.construct_circuit(dumpy_params, backend1)
     #print('The VQE circuit:\n',VQE_Circ)
     result = algorithm.run(backend1)
@@ -160,14 +169,14 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     ###################################################################
 
     ################### EXACT RESULT ##################################
-    exact_eigensolver = ExactEigensolver(qop, k=2)
+    exact_eigensolver = ExactEigensolver(qop, k=1)
     ret = exact_eigensolver.run()
     print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
     print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
     exact_energy = ret['eigvals'][0].real + nuclear_repulsion_energy
-    exact_energy_fe = ret['eigvals'][1].real + nuclear_repulsion_energy
-    qop.to_matrix()
-    #print(qop)
+    # exact_energy_fe = ret['eigvals'][1].real + nuclear_repulsion_energy
+    # qop.to_matrix()
+    # print(qop)
     # eigval, eigvec = np.linalg.eigh(qop.matrix.toarray())
     # exact_energy = eigval[0].real + nuclear_repulsion_energy
     # exact_energy_fe = eigval[1].real + nuclear_repulsion_energy

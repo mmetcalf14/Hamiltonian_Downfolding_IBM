@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9552b325-1b90-417c-9142-344781b485d4" name="Default Changelist" comment="I have added the pytket optimization functionality to reduce the gate count on the UCCSD circuit. It might be worth investigating how this helps simulation time for the larger molecules.">
+    <list default="true" id="9552b325-1b90-417c-9142-344781b485d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" beforeDir="false" afterPath="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/pytket/qiskit/qiskit_convert.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/pytket/qiskit/qiskit_convert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" beforeDir="false" afterPath="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/bin/python" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/bin/python3" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/bin/python3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Mekenas_Parallel_PythonScript_wQiskitParMap.py">
+        <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="156" selection-start-line="156" selection-end-line="156" />
+            <state relative-caret-position="144">
+              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -28,33 +29,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pytket-Qiskit-CircuitPlay.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
+        <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_NoMP2_043019.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/backend_macosx.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="327">
+              <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="172" column="41" lean-forward="true" selection-start-line="172" selection-start-column="41" selection-end-line="172" selection-end-column="41" />
+              <folding>
+                <element signature="e#677#691#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="141" column="15" selection-start-line="141" selection-start-column="15" selection-end-line="141" selection-end-column="15" />
+            <state relative-caret-position="95">
+              <caret line="80" selection-start-line="80" selection-end-line="86" selection-end-column="44" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -107,6 +109,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -123,7 +126,6 @@
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/providers/aer/aerprovider.py" />
         <option value="$PROJECT_DIR$/DownfoldedHam_ED_060319.py" />
         <option value="$PROJECT_DIR$/get_molecular_energies.py" />
-        <option value="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" />
         <option value="$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml" />
         <option value="$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_1_4008au_ducc_1_3.yaml" />
         <option value="$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_4_00au_ducc_1_3.yaml" />
@@ -150,10 +152,11 @@
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/backend_macosx.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/__init__.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/mp2info.py" />
-        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/pytket/qiskit/qiskit_convert.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/pytket/qiskit/__init__.py" />
         <option value="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" />
+        <option value="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" />
       </list>
     </option>
   </component>
@@ -178,6 +181,17 @@
             <path>
               <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
+              <item name="IntegralData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
+              <item name="IntegralData" type="462c0819:PsiDirectoryNode" />
+              <item name="H2_MEKENA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
               <item name="VirtualChem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -208,17 +222,53 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="python3.6" type="462c0819:PsiDirectoryNode" />
               <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="pytket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-              <item name="VirtualChem" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="python3.6" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="pytket" type="462c0819:PsiDirectoryNode" />
               <item name="qiskit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
+              <item name="VirtualChem" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="python3.6" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="qiskit" type="462c0819:PsiDirectoryNode" />
+              <item name="chemistry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
+              <item name="VirtualChem" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="python3.6" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="qiskit" type="462c0819:PsiDirectoryNode" />
+              <item name="chemistry" type="462c0819:PsiDirectoryNode" />
+              <item name="aqua_extensions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
+              <item name="VirtualChem" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="python3.6" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="qiskit" type="462c0819:PsiDirectoryNode" />
+              <item name="chemistry" type="462c0819:PsiDirectoryNode" />
+              <item name="aqua_extensions" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
+              <item name="VirtualChem" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="python3.6" type="462c0819:PsiDirectoryNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="qiskit" type="462c0819:PsiDirectoryNode" />
+              <item name="chemistry" type="462c0819:PsiDirectoryNode" />
+              <item name="aqua_extensions" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="variational_forms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -248,7 +298,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.VQE_TruncUCCSD_Downfolded_041519">
+  <component name="RunManager" selected="Python.DownfoldedHam_VQE_043019">
+    <configuration name="DownfoldedHam_VQE_043019" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="HamiltonianDownfolding_w_IBM" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="IPEA_H2_GoogleCircuit" type="PythonConfigurationType" factoryName="Python">
       <module name="HamiltonianDownfolding_w_IBM" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -333,27 +404,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestingMirosIQPE" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="HamiltonianDownfolding_w_IBM" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestingMirosIQPE.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="VQE_TruncUCCSD_Downfolded_041519" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="HamiltonianDownfolding_w_IBM" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -377,11 +427,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.DownfoldedHam_VQE_043019" />
         <item itemvalue="Python.VQE_TruncUCCSD_Downfolded_041519" />
         <item itemvalue="Python.Mekenas_Parallel_PythonScript_wQiskitParMap" />
         <item itemvalue="Python.Mekenas_Parallel_PythonScript" />
         <item itemvalue="Python.IQPE_IBMAlg_H2" />
-        <item itemvalue="Python.TestingMirosIQPE" />
       </list>
     </recent_temporary>
   </component>
@@ -396,6 +446,14 @@
       <option name="presentableId" value="Default" />
       <updated>1556643059546</updated>
     </task>
+    <task id="LOCAL-00001" summary="I have added the pytket optimization functionality to reduce the gate count on the UCCSD circuit. It might be worth investigating how this helps simulation time for the larger molecules.">
+      <created>1566335320157</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1566335320157</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -409,20 +467,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="58" width="1400" height="768" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49311095" weight="0.45118344" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49238577" visible="true" weight="0.45118344" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39940828" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988167" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49963742" weight="0.32988167" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49456128" visible="true" weight="0.32988167" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50543875" side_tool="true" visible="true" weight="0.32988167" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4981871" weight="0.32988167" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49456128" weight="0.32988167" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5076142" side_tool="true" visible="true" weight="0.45118344" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4960116" weight="0.32988167" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -434,13 +493,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="I have added the pytket optimization functionality to reduce the gate count on the UCCSD circuit. It might be worth investigating how this helps simulation time for the larger molecules." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_4_00au_ducc_1_3.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_10_0au_ducc_1_3.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -470,16 +522,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/tools/visualization/_matplotlib.py" />
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_chemistry/core/hamiltonian.py" />
-    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_NoMP2_043019.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="141" column="62" lean-forward="true" selection-start-line="141" selection-start-column="6" selection-end-line="141" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DownfoldedHam_ED_060319.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -628,33 +670,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_chemistry/mp2info.py" />
-    <entry file="file://$PROJECT_DIR$/Mekenas_Parallel_PythonScript_wQiskitParMap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pytket-Qiskit-CircuitPlay.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/backend_macosx.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/pyplot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -689,16 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="166" column="78" lean-forward="true" selection-start-line="166" selection-start-column="78" selection-end-line="166" selection-end-column="78" />
-          <folding>
-            <element signature="e#677#691#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/pytket/qiskit/qiskit_convert.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -723,12 +728,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Mekenas_Parallel_PythonScript_wQiskitParMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pytket-Qiskit-CircuitPlay.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/backend_macosx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_NoMP2_043019.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="141" column="15" selection-start-line="141" selection-start-column="15" selection-end-line="141" selection-end-column="15" />
+        <state relative-caret-position="95">
+          <caret line="80" selection-start-line="80" selection-end-line="86" selection-end-column="44" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="172" column="41" lean-forward="true" selection-start-line="172" selection-start-column="41" selection-end-line="172" selection-end-column="41" />
+          <folding>
+            <element signature="e#677#691#0" expanded="true" />
           </folding>
         </state>
       </provider>
