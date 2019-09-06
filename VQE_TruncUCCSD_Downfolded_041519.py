@@ -17,10 +17,11 @@ import yaml as yml
 from yaml import SafeLoader as Loader
 import Load_Hamiltonians as lh
 import os
+import time
 
 #Importing data generated from NW Chem to run experiments
 #Li2_cc-pVTZ_4_ORBITALS_Li2-4_ORBITALS-ccpVTZ-2_1384
-root_dir = '/Users/Wifes/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
+root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
 NW_data_file = str(root_dir+'h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml')
 # NW_data_file = str('H2.yaml')
 OE_data_file = str(root_dir+ 'h2_ccpvtz_ccsd_0_80au.FOCK')
@@ -88,7 +89,7 @@ active_virt_list = active_virt_list.tolist()
 #print('Orbitals {} are unoccupied'.format(active_virt_list))
 ###########################################################
 #Output Files to Plot stuff
-Fout = open('ErrorFromTruncation_Li2_Orb-{}_Dist-{}'.format(n_spatial_orbitals,dist),"w")
+#Fout = open('ErrorFromTruncation_Li2_Orb-{}_Dist-{}'.format(n_spatial_orbitals,dist),"w")
 ###########################################################
 
 ###Running Pyscf driver to check integrals
@@ -109,7 +110,8 @@ two_electron_import = data['integral_sets'][0]['hamiltonian']['two_electron_inte
 one_electron_spatial_integrals, two_electron_spatial_integrals = lh.get_spatial_integrals(one_electron_import,two_electron_import,n_spatial_orbitals)
 one_electron_spatial_integrals, two_electron_spatial_integrals = lh.trunctate_spatial_integrals(one_electron_spatial_integrals,two_electron_spatial_integrals,.001)
 
-#print('Spatial Integrals from my program\n',two_electron_spatial_integrals)
+#print('Spatial Integrals from my program\n',one_electron_spatial_integrals)
+
 #print('The difference\n',molecule.mo_eri_ints-two_electron_spatial_integrals)
 #For the MP2 calculation
 qm.mo_eri_ints = two_electron_spatial_integrals
@@ -134,47 +136,41 @@ qop = Operator(paulis=qop_paulis.paulis)
 # print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
 # print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
 ###########################################
+start_time = time.time()
 
 init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type,two_qubit_reduction=False)
 #Keep in mind Jarrod didn't use any singles for his ansatz. Maybe just stick to some local doubles, diagonal cancel
 var_op = UCCSD(num_qubits=n_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles, active_occupied=active_occ_list,\
-               active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True)
+               active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True, singles_deletion=True)
+
+print('There are {} params in this anzats'.format(var_op.num_parameters))
 dumpy_params = np.random.rand(var_op.num_parameters)
-
-var_cirq = var_op.construct_circuit(dumpy_params)
+#var_cirq = var_op.construct_circuit(dumpy_params)
 # print(var_cirq)
-# tk_cirq = qiskit_to_tk(var_cirq)
-#
-#
-# def print_tkcirc_via_qiskit(tkcirc):
-#     copy_tkcirc = tkcirc.copy()
-#     qiskit_qcirc = tk_to_qiskit(copy_tkcirc)
-#     print(qiskit_qcirc)
-#
-# print_tkcirc_via_qiskit(tk_cirq)
-# singles, doubles = var_op.return_excitations()
-
-
+'''
 # setup a classical optimizer for VQE
-# max_eval = 200
-# #WOuld using a different optimizer yield better results at long distances?
-# optimizer = COBYLA(maxiter=max_eval,disp=True, tol=1e-2)
-# print('params: ',var_op.num_parameters)
+max_eval = 200
+# Would using a different optimizer yield better results at long distances?
+optimizer = COBYLA(maxiter=max_eval,disp=True, tol=1e-2)
+print('params: ',var_op.num_parameters)
 # dumpy_params = np.random.rand(var_op.num_parameters)
 # #Call the VQE algorithm class with your qubit operator for the Hamiltonian and the variational op
-# # print('Doing VQE')
-# algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=var_op._mp2_coeff)
+print('Doing VQE')
+algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=None)
 # VQE_Circ = algorithm.construct_circuit(dumpy_params, backend=None)
 # print('The VQE circuit:\n',circuit_drawer(VQE_Circ, output='text'))
-# result = algorithm.run(backend1)
-# print('The VQE energy is: ',result['energy']+nuclear_repulsion_energy)
+result = algorithm.run(backend1)
+print('The VQE energy is: ',result['energy']+nuclear_repulsion_energy)
+end_time = time.time()
+print('It took {} seconds to run this calculation'.format(end_time-start_time))
 # print('the params are {}.'.format(result['opt_params']))
 # print(qop)
-# exact_eigensolver = ExactEigensolver(qop, k=2)
-# ret = exact_eigensolver.run()
-# print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
+exact_eigensolver = ExactEigensolver(qop, k=1)
+ret = exact_eigensolver.run()
+print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
+'''
 
-Fout.close()
+#Fout.close()
 
 # Junk Code I don't want to delete
 # Determining a method to reduce the excitation list with MP2

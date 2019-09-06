@@ -2,11 +2,279 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9552b325-1b90-417c-9142-344781b485d4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DownfoldedHam_VQE_090519.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HamiltonianDownfolding_w_IBM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HamiltonianDownfolding_w_IBM.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DUCCHams_VQE_082019.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/DUCCHams_VQE_082019.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Li2_4orb_MultiMethod_053119.agr" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Li2_4orb_MultiMethod_053119.agr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Li2_ExactEnergies-7_wVQE_4-orbitals_053019.png" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Li2_ExactEnergies-7_wVQE_4-orbitals_053019.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" beforeDir="false" afterPath="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2 CCSD Energies.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2 Energies.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-13_365.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-13_365.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_1384.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_1384.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_1384.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_27205.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_27205.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_27205.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_4057.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_4057.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_4057.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_53935.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_53935.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_53935.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_673.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_673.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_673.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_80665.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_80665.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_80665.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_9403.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_9403.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_9403.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_07395.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_07395.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_07395.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_2076.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_2076.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_2076.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_34125.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_34125.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_34125.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_0095.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_0095.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_0095.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_67775.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_67775.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_67775.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-5_346.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-5_346.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-5_346.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-6_6825.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-6_6825.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-6_6825.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-x13_365.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_1384.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_27205.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_4057.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_53935.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_673.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_80665.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_9403.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-3_07395.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-3_2076.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-3_34125.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-4_0095.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-4_67775.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-5_346.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-6_6825.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_1384.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_1384.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_1384.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_27205.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_27205.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_27205.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_4057.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_4057.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_4057.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_53935.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_53935.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_53935.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_673.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_673.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_673.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_80665.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_80665.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_80665.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_9403.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_9403.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_9403.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_07395.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_07395.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_07395.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_2076.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_2076.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_2076.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_34125.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_34125.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_34125.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_0095.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_0095.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_0095.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_67775.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_67775.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_67775.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-5_346.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-5_346.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-5_346.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-6_6825.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-6_6825.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-6_6825.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-x13_365.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-x13_365.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-x13_365.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/4_ORBITALS/Li2-4orbital-Data.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-13_365.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-13_365.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_1384.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_1384.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_1384.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_27205.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_27205.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_27205.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_4057.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_4057.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_4057.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_53935.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_53935.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_53935.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_673.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_673.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_673.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_80665.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_80665.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_80665.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_9403.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_9403.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_9403.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_07395.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_07395.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_07395.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_2076.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_2076.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_2076.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_34125.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_34125.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_34125.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_0095.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_0095.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_0095.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_67775.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_67775.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_67775.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-5_346.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-5_346.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-5_346.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-6_6825.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-6_6825.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-6_6825.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-x13_365.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-13_365.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-2_1384.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-2_27205.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-2_4057.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-2_53935.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-2_673.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-2_80665.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-2_9403.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-3_07395.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-3_2076.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-3_34125.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-4_0095.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-4_67775.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-5_346.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/7_ORBITALS/Orbital_Energies/Li2-7_ORBITALS-ccpVTZ-6_6825.FOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-13_365.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-13_365.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_1384.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_1384.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_27205.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_27205.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_4057.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_4057.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_53935.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_53935.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_673.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_673.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_80665.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_80665.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_9403.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-2_9403.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_07395.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_07395.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_2076.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_2076.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_34125.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-3_34125.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_0095.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_0095.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_67775.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-4_67775.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-5_346.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-5_346.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-6_6825.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/10_ORBITALS/Li2-10_ORBITALS-ccpVTZ-6_6825.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-13_365.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-13_365.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_1384.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_1384.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_27205.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_27205.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_4057.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_4057.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_53935.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_53935.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_673.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_673.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_80665.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_80665.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_9403.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_9403.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_07395.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_07395.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_2076.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_2076.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_34125.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_34125.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_0095.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_0095.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_67775.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_67775.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-5_346.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-5_346.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-6_6825.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-6_6825.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-13_365.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-13_365.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_1384.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_1384.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_27205.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_27205.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_4057.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_4057.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_53935.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_53935.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_673.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_673.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_80665.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_80665.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_9403.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-2_9403.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_07395.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_07395.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_2076.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_2076.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_34125.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-3_34125.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_0095.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_0095.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_67775.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-4_67775.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-5_346.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-5_346.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-6_6825.nw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/Li2_cc-pVTZ/STANDARD_FROZEN_VIRTUAL_CALCULATIONS/7_ORBITALS/Li2-7_ORBITALS-ccpVTZ-6_6825.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IntegralData/vqe-data-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Load_Hamiltonians.py" beforeDir="false" afterPath="$PROJECT_DIR$/Load_Hamiltonians.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" beforeDir="false" afterPath="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualChem/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/bin/python" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualChem/bin/python3" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/bin/python3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/drivers/pyscfd/pyscfdriver.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/drivers/pyscfd/pyscfdriver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/mp2info.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/mp2info.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +287,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+            <state relative-caret-position="-92">
+              <caret line="21" column="156" selection-start-line="21" selection-start-column="156" selection-end-line="21" selection-end-column="156" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -29,24 +297,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_NoMP2_043019.py">
+        <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_090519.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+            <state relative-caret-position="-460">
+              <caret line="101" column="45" lean-forward="true" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="172" column="41" lean-forward="true" selection-start-line="172" selection-start-column="41" selection-end-line="172" selection-end-column="41" />
-              <folding>
-                <element signature="e#677#691#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,11 +311,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="80" selection-start-line="80" selection-end-line="86" selection-end-column="44" />
+            <state relative-caret-position="107">
+              <caret line="143" column="141" selection-start-line="143" selection-start-column="120" selection-end-line="143" selection-end-column="141" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+              <folding>
+                <element signature="e#677#691#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Load_Hamiltonians.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1635">
+              <caret line="109" selection-start-line="109" selection-end-line="117" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -75,8 +352,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_minimize_cob</find>
-      <find>get</find>
       <find>get_</find>
       <find>qm</find>
       <find>freez</find>
@@ -105,6 +380,8 @@
       <find>evalu</find>
       <find>con</find>
       <find>self._dou</find>
+      <find>prin</find>
+      <find>one</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -139,7 +416,6 @@
         <option value="$PROJECT_DIR$/DownfoldedHam_VQE_Parallelized_081219.py" />
         <option value="$PROJECT_DIR$/Downfold_Parallel_Test.py" />
         <option value="$PROJECT_DIR$/Mekenas_Parallel_PythonScript.py" />
-        <option value="$PROJECT_DIR$/Load_Hamiltonians.py" />
         <option value="$PROJECT_DIR$/TestingMirosIQPE.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/algorithms/single_sample/iqpe/iqpe.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/IQPE_IBMAlg_H2.py" />
@@ -151,19 +427,23 @@
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_chemistry/aqua_extensions/components/variational_forms/uccsd.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/backend_macosx.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/__init__.py" />
-        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/mp2info.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/pytket/qiskit/qiskit_convert.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/pytket/qiskit/__init__.py" />
-        <option value="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/mp2info.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/drivers/pyscfd/pyscfdriver.py" />
+        <option value="$PROJECT_DIR$/Load_Hamiltonians.py" />
         <option value="$PROJECT_DIR$/DownfoldedHam_VQE_043019.py" />
+        <option value="$PROJECT_DIR$/VQE_TruncUCCSD_FromDriver_082619.py" />
+        <option value="$PROJECT_DIR$/DownfoldedHam_VQE_090519.py" />
+        <option value="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="20" />
     <option name="y" value="58" />
-    <option name="width" value="1400" />
+    <option name="width" value="1412" />
     <option name="height" value="768" />
   </component>
   <component name="ProjectView">
@@ -171,23 +451,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-              <item name="IntegralData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-              <item name="IntegralData" type="462c0819:PsiDirectoryNode" />
-              <item name="H2_MEKENA" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
@@ -274,12 +544,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -298,7 +567,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.DownfoldedHam_VQE_043019">
+  <component name="RunManager" selected="Python.VQE_TruncUCCSD_Downfolded_041519">
     <configuration name="DownfoldedHam_VQE_043019" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="HamiltonianDownfolding_w_IBM" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -333,27 +602,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IPEA_H2_GoogleCircuit.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="IQPE_IBMAlg_H2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="HamiltonianDownfolding_w_IBM" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/IQPE_IBMAlg_H2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -425,13 +673,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="VQE_TruncUCCSD_FromDriver_082619" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="HamiltonianDownfolding_w_IBM" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VQE_TruncUCCSD_FromDriver_082619.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.DownfoldedHam_VQE_043019" />
         <item itemvalue="Python.VQE_TruncUCCSD_Downfolded_041519" />
+        <item itemvalue="Python.VQE_TruncUCCSD_FromDriver_082619" />
+        <item itemvalue="Python.DownfoldedHam_VQE_043019" />
         <item itemvalue="Python.Mekenas_Parallel_PythonScript_wQiskitParMap" />
         <item itemvalue="Python.Mekenas_Parallel_PythonScript" />
-        <item itemvalue="Python.IQPE_IBMAlg_H2" />
       </list>
     </recent_temporary>
   </component>
@@ -453,7 +722,28 @@
       <option name="project" value="LOCAL" />
       <updated>1566335320157</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="The UCCSD class now has a boolean to delete the single excitations in the variational anzats">
+      <created>1566401386167</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566401386167</updated>
+    </task>
+    <task id="LOCAL-00003" summary="The UCCSD class now has a boolean to delete the single excitations in the variational anzats">
+      <created>1566401926695</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566401926695</updated>
+    </task>
+    <task id="LOCAL-00004" summary="The UCCSD class now has a boolean to delete the single excitations in the variational anzats">
+      <created>1566401953216</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1566401953216</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -466,23 +756,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="58" width="1400" height="768" extended-state="0" />
-    <editor active="true" />
+    <frame x="20" y="58" width="1412" height="768" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2473041" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49238577" visible="true" weight="0.45118344" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48813802" weight="0.45118344" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39940828" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32988167" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4981871" weight="0.32988167" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49456128" weight="0.32988167" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5076142" side_tool="true" visible="true" weight="0.45118344" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.4960116" weight="0.32988167" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49963742" weight="0.32988167" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.496046" weight="0.32988167" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49245146" visible="true" weight="0.32988167" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5075485" side_tool="true" visible="true" weight="0.32988167" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49532712" weight="0.32988167" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -490,83 +779,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I have added the pytket optimization functionality to reduce the gate count on the UCCSD circuit. It might be worth investigating how this helps simulation time for the larger molecules." />
-    <option name="LAST_COMMIT_MESSAGE" value="I have added the pytket optimization functionality to reduce the gate count on the UCCSD circuit. It might be worth investigating how this helps simulation time for the larger molecules." />
+    <MESSAGE value="The UCCSD class now has a boolean to delete the single excitations in the variational anzats" />
+    <option name="LAST_COMMIT_MESSAGE" value="The UCCSD class now has a boolean to delete the single excitations in the variational anzats" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_10_0au_ducc_1_3.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/components/optimizers/optimizer.py" />
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/components/optimizers/cobyla.py" />
-    <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/algorithms/quantum_algorithm.py" />
-    <entry file="file://$PROJECT_DIR$/get_molecular_energies.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="30" selection-end-line="38" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/tools/visualization/_matplotlib.py" />
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_chemistry/core/hamiltonian.py" />
-    <entry file="file://$PROJECT_DIR$/DownfoldedHam_ED_060319.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="123" column="47" selection-start-line="123" selection-start-column="47" selection-end-line="123" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/H2.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="64" lean-forward="true" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/algorithms/classical/exacteigensolver/exacteigensolver.py" />
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/quantum_info/operators/pauli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_chemistry/aqua_extensions/components/initial_states/hartree_fock.py" />
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/providers/builtinsimulators/unitary_simulator.py" />
-    <entry file="file://$PROJECT_DIR$/Downfold_Parallel_Test.py" />
-    <entry file="file://$PROJECT_DIR$/Load_Hamiltonians.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="114" column="30" lean-forward="true" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_Parallelized_081219.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="133" column="64" selection-start-line="133" selection-start-column="11" selection-end-line="133" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/IQPE_IBMAlg_H2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -655,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/qiskit_chemistry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/aqua/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -721,13 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/mp2info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="186" column="27" selection-start-line="186" selection-start-column="27" selection-end-line="186" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Mekenas_Parallel_PythonScript_wQiskitParMap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
@@ -748,10 +950,155 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_NoMP2_043019.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="143" column="31" selection-start-line="143" selection-start-column="31" selection-end-line="143" selection-end-column="31" />
+        <state relative-caret-position="15">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/fermionic_operator.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/drivers/pyscfd/pyscfdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="88" column="31" selection-start-line="88" selection-start-column="31" selection-end-line="88" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/qmolecule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="65" column="49" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/DOWNFOLDED_ORBITAL_ENERGIES/Li2-4_ORBITALS-ccpVTZ-2_1384.FOCK">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/qiskit_chemistry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_1384.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_27205.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_4057.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_53935.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_673.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-2_80665.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_07395.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-3_34125.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_0095.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/Li2_cc-pVTZ/4_ORBITALS/Li2-4_ORBITALS-ccpVTZ-4_67775.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/mp2info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Load_Hamiltonians.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" selection-start-line="109" selection-end-line="117" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VQE_TruncUCCSD_FromDriver_082619.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="44" column="48" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="21" column="156" selection-start-line="21" selection-start-column="156" selection-end-line="21" selection-end-column="156" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_090519.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-460">
+          <caret line="101" column="45" lean-forward="true" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>
@@ -760,35 +1107,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="80" selection-start-line="80" selection-end-line="86" selection-end-column="44" />
+        <state relative-caret-position="107">
+          <caret line="143" column="141" selection-start-line="143" selection-start-column="120" selection-end-line="143" selection-end-column="141" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="172" column="41" lean-forward="true" selection-start-line="172" selection-start-column="41" selection-end-line="172" selection-end-column="41" />
+        <state relative-caret-position="151">
+          <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
           <folding>
             <element signature="e#677#691#0" expanded="true" />
           </folding>

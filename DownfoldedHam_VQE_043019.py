@@ -19,7 +19,7 @@ import Load_Hamiltonians as lh
 ##Carefully upgrade terra to see if qasm/state-vector simulator perform quicker.##
 
 #################### WALK ROOT DIR ############################
-root_dir = '/Users/Wifes/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
+root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/Li2_cc-pVTZ/4_ORBITALS/'
 
 data_file_list = []
 data_file_list_oe = []
@@ -143,8 +143,8 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     ######################## VQE RESULT ###############################
         # setup a classical optimizer for VQE
-    max_eval = 200
-    optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-2)
+    max_eval = 500
+    optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-4)
 
     #Choosing initial params based on previous iteration
     if ind == 0:

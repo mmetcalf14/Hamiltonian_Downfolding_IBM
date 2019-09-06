@@ -108,14 +108,12 @@ def get_spatial_integrals_TEST_METHOD(one_electron,two_electron,n_o):
 
 
 def trunctate_spatial_integrals(one_electron, two_electron, trunc):
-    #one_electron = np.where(
-    #    (one_electron <  trunc) & (one_electron > - trunc), 0,
-    #    one_electron)
     one_electron = np.where(
         (abs(one_electron) < trunc), 0,
         one_electron)
-    #two_electron = np.where((two_electron < trunc) & (two_electron > -trunc),0,two_electron)
-    two_electron = np.where((abs(two_electron) < trunc), 0, two_electron)
+    two_electron = np.where(
+        (abs(two_electron) < trunc), 0,
+        two_electron)
 
     return one_electron,two_electron
 

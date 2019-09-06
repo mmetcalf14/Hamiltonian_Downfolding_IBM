@@ -1,1 +1,0 @@
-# Repostitory for VQE applicaiton data including inputs based on OpenFermion representation of molecular Hamiltonians and input state ansatz, and output based on the energy-minimizing value of the ansatz.
