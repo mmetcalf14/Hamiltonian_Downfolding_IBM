@@ -18,7 +18,7 @@ import os
 
 #Importing data generated from NW Chem to run experiments
 #Li2_cc-pVTZ_4_ORBITALS_Li2-4_ORBITALS-ccpVTZ-2_1384
-root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/HamiltonianDownfolding_w_IBM/IntegralData/H2_MEKENA/'
+root_dir = '/home/users/mmetcalf/Codes/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
 NW_data_file = str(root_dir+'h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml')
 # NW_data_file = str('H2.yaml')
 OE_data_file = str(root_dir+ 'h2_ccpvtz_ccsd_0_80au.FOCK')
@@ -121,7 +121,6 @@ h1, h2 = lh.convert_to_spin_index(one_electron_spatial_integrals,two_electron_sp
 #fop = FermionicOperator(one_temp,two_temp)
 fop = FermionicOperator(h1, h2)
 qop_paulis = fop.mapping(map_type)
-qop = Operator(paulis=qop_paulis.paulis)
 
 ###########################################
 #Exact Result to compare to: This can also be obtained via the yaml file once we verify correctness.
@@ -136,7 +135,7 @@ qop = Operator(paulis=qop_paulis.paulis)
 init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type,two_qubit_reduction=False)
 #Keep in mind Jarrod didn't use any singles for his ansatz. Maybe just stick to some local doubles, diagonal cancel
 var_op = UCCSD(num_qubits=n_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles, active_occupied=active_occ_list,\
-               active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True)
+               active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True, singles_deletion=True)
 dumpy_params = np.random.rand(var_op.num_parameters)
 
 #var_cirq = var_op.construct_circuit(dumpy_params)
@@ -144,18 +143,18 @@ dumpy_params = np.random.rand(var_op.num_parameters)
 
 
 # setup a classical optimizer for VQE
-# max_eval = 200
+max_eval = 200
 # #WOuld using a different optimizer yield better results at long distances?
-# optimizer = COBYLA(maxiter=max_eval,disp=True, tol=1e-2)
+optimizer = COBYLA(maxiter=max_eval,disp=True, tol=1e-2)
 # print('params: ',var_op.num_parameters)
 # dumpy_params = np.random.rand(var_op.num_parameters)
 # #Call the VQE algorithm class with your qubit operator for the Hamiltonian and the variational op
-# # print('Doing VQE')
-# algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=var_op._mp2_coeff)
 # VQE_Circ = algorithm.construct_circuit(dumpy_params, backend=None)
+print('Doing VQE')
+algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=None)
 # print('The VQE circuit:\n',circuit_drawer(VQE_Circ, output='text'))
-# result = algorithm.run(backend1)
-# print('The VQE energy is: ',result['energy']+nuclear_repulsion_energy)
+result = algorithm.run(backend1)
+print('The VQE energy is: ',result['energy']+nuclear_repulsion_energy)
 # print('the params are {}.'.format(result['opt_params']))
 # print(qop)
 # exact_eigensolver = ExactEigensolver(qop, k=2)
