@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: qiskit-ignis
+Version: 0.2.0
+Summary: Qiskit tools for quantum information science
+Home-page: https://github.com/Qiskit/qiskit-ignis
+Author: Qiskit Development Team
+Author-email: qiskit@qiskit.org
+License: Apache 2.0
+Keywords: qiskit sdk quantum
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.5
+Requires-Dist: numpy (>=1.13)
+Requires-Dist: qiskit-terra (>=0.8.0)
+Requires-Dist: scipy (!=0.19.1,>=0.19)
+Requires-Dist: setuptools (>=40.1.0)
+
+UNKNOWN
+
+
