@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9552b325-1b90-417c-9142-344781b485d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/chemistry/mp2info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/HamiltonianDownfolding_w_IBM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HamiltonianDownfolding_w_IBM.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" beforeDir="false" afterPath="$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py" afterDir="false" />
-    </list>
+    <list default="true" id="9552b325-1b90-417c-9142-344781b485d4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2415">
-              <caret line="161" column="19" selection-start-line="161" selection-start-column="19" selection-end-line="161" selection-end-column="19" />
+            <state relative-caret-position="159">
+              <caret line="147" column="56" lean-forward="true" selection-start-line="147" selection-start-column="56" selection-end-line="147" selection-end-column="56" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -45,10 +37,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/chemistry/fermionic_operator.py">
+        <entry file="file://$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/aqua/operator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="224">
+              <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+              <folding>
+                <element signature="e#509#520#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -160,17 +155,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-              <item name="virtchem-linux" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
@@ -236,7 +227,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -411,6 +401,21 @@
       <option name="presentableId" value="Default" />
       <updated>1556643059546</updated>
     </task>
+    <task id="LOCAL-00001" summary="my new virutal environment for linux">
+      <created>1568148313779</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568148313779</updated>
+    </task>
+    <task id="LOCAL-00002" summary="my new virutal environment for linux">
+      <created>1568148381531</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568148381531</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -425,24 +430,28 @@
   <component name="ToolWindowManager">
     <frame x="65" y="58" width="1400" height="768" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24909224" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24909224" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49310094" weight="0.45112783" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49237472" visible="true" weight="0.45112783" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39940828" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988167" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4996369" weight="0.32932332" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49818447" weight="0.32932332" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49527958" weight="0.32932332" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50689906" side_tool="true" visible="true" weight="0.32932332" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5076253" side_tool="true" visible="true" weight="0.45112783" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49673203" weight="0.32932332" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="my new virutal environment for linux" />
+    <option name="LAST_COMMIT_MESSAGE" value="my new virutal environment for linux" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit_aqua/components/optimizers/optimizer.py" />
@@ -636,16 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pytket-Qiskit-CircuitPlay.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/matplotlib/backends/backend_macosx.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -702,16 +701,6 @@
         <state relative-caret-position="-2205" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/aqua/operator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="57" column="11" lean-forward="true" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
-          <folding>
-            <element signature="e#509#520#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/chemistry/aqua_extensions/components/variational_forms/uccsd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -722,20 +711,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Pytket-Qiskit-CircuitPlay.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/chemistry/fermionic_operator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/VQE_TruncUCCSD_Downfolded_041519.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2415">
-          <caret line="161" column="19" selection-start-line="161" selection-start-column="19" selection-end-line="161" selection-end-column="19" />
+        <state relative-caret-position="159">
+          <caret line="147" column="56" lean-forward="true" selection-start-line="147" selection-start-column="56" selection-end-line="147" selection-end-column="56" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/chemistry/fermionic_operator.py">
+    <entry file="file://$PROJECT_DIR$/virtchem-linux/lib/python3.5/site-packages/qiskit/aqua/operator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="224">
+          <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+          <folding>
+            <element signature="e#509#520#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
