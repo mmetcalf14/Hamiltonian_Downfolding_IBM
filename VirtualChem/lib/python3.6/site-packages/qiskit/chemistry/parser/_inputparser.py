@@ -62,13 +62,12 @@ class InputParser(BaseParser):
         }
         super().__init__(json_schema)
 
-        # limit Chemistry problems to energy and excited_states
+        # limit Chemistry problems to only valid for chemistry
         chemistry_problems = [problem for problem in
                               self.json_schema.get_property_default_values(JSONSchema.PROBLEM, JSONSchema.NAME)
                               if any(problem == item.value for item in ChemistryProblem)]
-        self.json_schema.schema['properties'][JSONSchema.PROBLEM]['properties'][JSONSchema.NAME]['oneOf'] = \
-            [{'enum': chemistry_problems}]
-        self._json_schema.commit_changes()
+        self.json_schema.schema['properties'][JSONSchema.PROBLEM]['properties'][JSONSchema.NAME]['enum'] = chemistry_problems
+        self.json_schema.commit_changes()
         # ---
 
         self._inputdict = None
@@ -144,7 +143,7 @@ class InputParser(BaseParser):
                         if isinstance(v, dict):
                             self._inputdict = json.loads(json.dumps(v))
                             self._load_parser_from_dict()
-                    except:
+                    except Exception:
                         pass
         else:
             self._load_parser_from_dict()
@@ -261,7 +260,18 @@ class InputParser(BaseParser):
         Args:
             section_name (str): the name of the section, case insensitive
         """
+        section_name = JSONSchema.format_section_name(section_name).lower()
+        driver_name = None
+        if section_name == InputParser.DRIVER:
+            driver_name = self.get_section_property(section_name, JSONSchema.NAME)
+            if driver_name is not None:
+                driver_name = driver_name.strip().lower()
+
         super().delete_section(section_name)
+        if driver_name is not None:
+            # delete correspondent driver name section
+            super().delete_section(driver_name)
+
         self._update_driver_input_schemas()
         self._update_operator_input_schema()
 
@@ -482,7 +492,7 @@ class InputParser(BaseParser):
         config = {}
         try:
             config = get_chemistry_operator_configuration(operator_name)
-        except:
+        except Exception:
             pass
 
         input_schema = config['input_schema'] if 'input_schema' in config else {}
@@ -582,7 +592,8 @@ class InputParser(BaseParser):
     def section_is_driver(self, section_name):
         section_name = JSONSchema.format_section_name(section_name).lower()
         InputParser._load_driver_names()
-        return section_name in InputParser._DRIVER_NAMES
+        driver_names = InputParser._DRIVER_NAMES if isinstance(InputParser._DRIVER_NAMES, list) else []
+        return section_name in driver_names
 
     def _update_operator_problem(self):
         problem_name = self.get_section_property(JSONSchema.PROBLEM, JSONSchema.NAME)

@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/HamiltonianDownfolding_w_IBM/VirtualChem"
+VIRTUAL_ENV="/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/VirtualChem"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

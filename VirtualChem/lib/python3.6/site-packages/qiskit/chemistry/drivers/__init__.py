@@ -12,7 +12,7 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-from ._basedriver import BaseDriver, UnitsType
+from ._basedriver import BaseDriver, UnitsType, HFMethodType
 from ._discover_driver import (DRIVERS_ENTRY_POINT,
                                refresh_drivers,
                                register_driver,
@@ -24,10 +24,11 @@ from .gaussiand import GaussianDriver
 from .hdf5d import HDF5Driver
 from .psi4d import PSI4Driver
 from .pyquanted import PyQuanteDriver, BasisType
-from .pyscfd import PySCFDriver
+from .pyscfd import PySCFDriver, InitialGuess
 
 __all__ = ['BaseDriver',
            'UnitsType',
+           'HFMethodType',
            'DRIVERS_ENTRY_POINT',
            'refresh_drivers',
            'register_driver',
@@ -40,4 +41,5 @@ __all__ = ['BaseDriver',
            'PSI4Driver',
            'BasisType',
            'PyQuanteDriver',
-           'PySCFDriver']
+           'PySCFDriver',
+           'InitialGuess']

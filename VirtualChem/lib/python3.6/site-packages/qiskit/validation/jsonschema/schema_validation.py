@@ -72,7 +72,7 @@ def _get_validator(name, schema=None, check_schema=True,
         validator_class (jsonschema.IValidator): jsonschema IValidator instance.
             Default behavior is to determine this from the schema `$schema`
             field.
-        **validator_kwargs (dict): Additional keyword arguments for validator.
+        **validator_kwargs: Additional keyword arguments for validator.
 
     Return:
         jsonschema.IValidator: Validator for JSON schema.
@@ -88,19 +88,16 @@ def _get_validator(name, schema=None, check_schema=True,
                                         "be provided.")
 
     if name not in _VALIDATORS:
-
         # Resolve JSON spec from schema if needed
         if validator_class is None:
             validator_class = jsonschema.validators.validator_for(schema)
 
         # Generate and store validator in _VALIDATORS
         _VALIDATORS[name] = validator_class(schema, **validator_kwargs)
+        if check_schema:
+            _VALIDATORS[name].check_schema(schema)
 
     validator = _VALIDATORS[name]
-
-    if check_schema:
-        validator.check_schema(schema)
-
     return validator
 
 

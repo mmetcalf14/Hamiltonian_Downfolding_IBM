@@ -33,6 +33,12 @@ class UnitsType(Enum):
     BOHR = 'Bohr'
 
 
+class HFMethodType(Enum):
+    RHF = 'rhf'
+    ROHF = 'rohf'
+    UHF = 'uhf'
+
+
 class BaseDriver(ABC):
     """
     Base class for Drivers.
@@ -41,6 +47,9 @@ class BaseDriver(ABC):
     use an exception if a component of the module is available.
 
     """
+
+    CONFIGURATION = None
+
     @abstractmethod
     def __init__(self):
         self.check_driver_valid()

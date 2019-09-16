@@ -43,7 +43,7 @@ class Id(Node):
 
     def qasm(self, prec=15):
         """Return the corresponding OPENQASM string."""
-        # pylint: disable=unused-argument
+        del prec  # prec ignored
         return self.name
 
     def latex(self, prec=15, nested_scope=None):
@@ -56,9 +56,9 @@ class Id(Node):
                                     "name=%s, " % self.name,
                                     "line=%s, " % self.line,
                                     "file=%s" % self.file)
-            else:
-                return nested_scope[-1][self.name].latex(prec,
-                                                         nested_scope[0:-1])
+
+            return nested_scope[-1][self.name].latex(prec,
+                                                     nested_scope[0:-1])
 
     def sym(self, nested_scope=None):
         """Return the correspond symbolic number."""
@@ -66,8 +66,8 @@ class Id(Node):
             raise NodeException("Expected local parameter name: ",
                                 "name=%s, line=%s, file=%s" % (
                                     self.name, self.line, self.file))
-        else:
-            return nested_scope[-1][self.name].sym(nested_scope[0:-1])
+
+        return nested_scope[-1][self.name].sym(nested_scope[0:-1])
 
     def real(self, nested_scope=None):
         """Return the correspond floating point number."""
@@ -75,5 +75,5 @@ class Id(Node):
             raise NodeException("Expected local parameter name: ",
                                 "name=%s, line=%s, file=%s" % (
                                     self.name, self.line, self.file))
-        else:
-            return nested_scope[-1][self.name].real(nested_scope[0:-1])
+
+        return nested_scope[-1][self.name].real(nested_scope[0:-1])

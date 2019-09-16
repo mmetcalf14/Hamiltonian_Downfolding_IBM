@@ -16,7 +16,7 @@ import os
 import Load_Hamiltonians as lh
 
 #################### WALK ROOT DIR ############################
-root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/Li2_cc-pVTZ/4_ORBITALS/'
+root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/Li2_cc-pVTZ/7_ORBITALS/'
 
 data_file_list = []
 data_file_list_oe = []
@@ -33,8 +33,8 @@ for dirName, subdirList, fileList in os.walk(root_dir):
 
 ############# Output Files to Plot stuff ###############
 print(data_file_list)
-Fout = open('H2_VQEEnergies_wMP2_NoSingles_4-orbitals_082119.dat',"w")
-Fout_op = open('H2_OptimalParams_wMP2_4-orbitals_082119.dat',"w")
+Fout = open('H2_VQEEnergies_wMP2_WSingles_7-orbitals_091119.dat',"w")
+Fout_op = open('H2_OptimalParams_wMP2_7-orbitals_091119.dat',"w")
 #Fout = open('Li2_ExactEnergiesG&FE_wMP2_4-orbitals_052919.dat',"w")
 ###########################################################
 
@@ -43,8 +43,10 @@ map_type = str('jordan_wigner')
 truncation_threshold = 0.01
 
 ################# IBM BACKEND #####################
-backend1 = Aer.get_backend('statevector_simulator')
+backend1 = Aer.get_backend('statevector_simulator',)
 backend2 = Aer.get_backend('qasm_simulator')
+
+#Add noise model here.
 ###################################################
 
 output_data = []
@@ -54,7 +56,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     NW_data_file = str(os.path.join(root_dir,file1))
 
-    OE_data_file = str(os.path.join(root_dir,file2))
+    OE_data_file = str(os.path.join(root_dir+'Orbital_Energies/',file2))
 
     try:
         doc = open(NW_data_file, 'r')
@@ -132,8 +134,9 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     #Get Variational form and intial state
     init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type, two_qubit_reduction=False)
     var_op = UCCSD(num_qubits=n_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles, active_occupied=active_occ_list,\
-               active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, mp2_reduction=True, singles_deletion=True)
-
+               active_unoccupied=active_virt_list,initial_state=init_state,
+                qubit_mapping=map_type, mp2_reduction=True, singles_deletion=False)
+    print('There are {} params'.format(var_op.num_parameters))
     ######################## VQE RESULT ###############################
         # setup a classical optimizer for VQE
     max_eval = 500
@@ -172,8 +175,8 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     my_info = [dist,exact_energy,vqe_energy]
     param_info = [dist,vqe_params]
     output_data.append(my_info)
-    my_info_to_str = " ".join(str(e) for e in my_info)
-    params_to_str = " ".join(str(e) for e in param_info)
+    my_info_to_str = "\t".join(str(e) for e in my_info)
+    params_to_str = "\t".join(str(e) for e in param_info)
     Fout.write(my_info_to_str + "\n")
     Fout_op.write(params_to_str + "\n")
 

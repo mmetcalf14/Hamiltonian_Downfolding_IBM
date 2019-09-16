@@ -18,13 +18,9 @@
 matplotlib pulse visualization.
 """
 
-import logging
-
 from qiskit.pulse import Schedule, Instruction, SamplePulse
 from qiskit.visualization.exceptions import VisualizationError
-from qiskit.visualization import matplotlib as _matplotlib
-
-logger = logging.getLogger(__name__)
+from qiskit.visualization.pulse import matplotlib as _matplotlib
 
 
 def pulse_drawer(data, dt=1, style=None, filename=None,
@@ -36,7 +32,8 @@ def pulse_drawer(data, dt=1, style=None, filename=None,
     Args:
         data (ScheduleComponent or SamplePulse): Data to plot
         dt (float): Time interval of samples
-        style (OPStylePulse or OPStyleSched): A style sheet to configure plot appearance
+        style (PulseStyle or SchedStyle): A style sheet to configure
+            plot appearance
         filename (str): Name required to save pulse image
         interp_method (Callable): interpolation function
             See `qiskit.visualization.interpolation` for more information
@@ -69,6 +66,7 @@ def pulse_drawer(data, dt=1, style=None, filename=None,
     if filename:
         image.savefig(filename, dpi=drawer.style.dpi, bbox_inches='tight')
 
+    _matplotlib.plt.close(image)
     if image and interactive:
         image.show()
     return image

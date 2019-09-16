@@ -1,19 +1,28 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2019, IBM.
+# This code is part of Qiskit.
 #
-# This source code is licensed under the Apache License, Version 2.0 found in
-# the LICENSE.txt file in the root directory of this source tree.
+# (C) Copyright IBM 2017, 2019.
+#
+# This code is licensed under the Apache License, Version 2.0. You may
+# obtain a copy of this license in the LICENSE.txt file in the root directory
+# of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+#
+# Any modifications or derivative works of this code must retain this
+# copyright notice, and modified files need to carry a notice indicating
+# that they have been altered from the originals.
 
-# pylint: disable=unused-argument,too-many-return-statements,len-as-condition
+# pylint: disable=too-many-return-statements,len-as-condition
+
+
 """
-Transformations between QuantumChannel represenations.
+Transformations between QuantumChannel representations.
 """
 
 import numpy as np
 import scipy.linalg as la
 
-from qiskit.qiskiterror import QiskitError
+from qiskit.exceptions import QiskitError
 from qiskit.quantum_info.operators.predicates import is_hermitian_matrix
 from qiskit.quantum_info.operators.predicates import ATOL_DEFAULT
 
@@ -150,6 +159,7 @@ def _from_operator(rep, data, input_dim, output_dim):
 
 def _kraus_to_operator(data, input_dim, output_dim):
     """Transform Kraus representation to Operator representation."""
+    del input_dim, output_dim  # unused
     if data[1] is not None or len(data[0]) > 1:
         raise QiskitError(
             'Channel cannot be converted to Operator representation')
@@ -158,6 +168,7 @@ def _kraus_to_operator(data, input_dim, output_dim):
 
 def _stinespring_to_operator(data, input_dim, output_dim):
     """Transform Stinespring representation to Operator representation."""
+    del input_dim  # unused
     trace_dim = data[0].shape[0] // output_dim
     if data[1] is not None or trace_dim != 1:
         raise QiskitError(
@@ -179,6 +190,7 @@ def _choi_to_superop(data, input_dim, output_dim):
 
 def _kraus_to_choi(data, input_dim, output_dim):
     """Transform Kraus representation to Choi representation."""
+    del input_dim, output_dim  # unused
     choi = 0
     kraus_l, kraus_r = data
     if kraus_r is None:
@@ -197,7 +209,7 @@ def _choi_to_kraus(data, input_dim, output_dim, atol=ATOL_DEFAULT):
     if is_hermitian_matrix(data, atol=atol):
         # Get eigen-decomposition of Choi-matrix
         w, v = la.eigh(data)
-        # Check eigenvaleus are non-negative
+        # Check eigenvalues are non-negative
         if len(w[w < -atol]) == 0:
             # CP-map Kraus representation
             kraus = []
@@ -225,6 +237,7 @@ def _choi_to_kraus(data, input_dim, output_dim, atol=ATOL_DEFAULT):
 
 def _stinespring_to_kraus(data, input_dim, output_dim):
     """Transform Stinespring representation to Kraus representation."""
+    del input_dim  # unused
     kraus_pair = []
     for stine in data:
         if stine is None:
@@ -285,6 +298,7 @@ def _kraus_to_stinespring(data, input_dim, output_dim):
 
 def _kraus_to_superop(data, input_dim, output_dim):
     """Transform Kraus representation to SuperOp representation."""
+    del input_dim, output_dim  # unused
     kraus_l, kraus_r = data
     superop = 0
     if kraus_r is None:
@@ -298,30 +312,34 @@ def _kraus_to_superop(data, input_dim, output_dim):
 
 def _chi_to_choi(data, input_dim, output_dim):
     """Transform Chi representation to a Choi representation."""
+    del output_dim  # unused
     num_qubits = int(np.log2(input_dim))
     return _transform_from_pauli(data, num_qubits)
 
 
 def _choi_to_chi(data, input_dim, output_dim):
     """Transform Choi representation to the Chi representation."""
+    del output_dim  # unused
     num_qubits = int(np.log2(input_dim))
     return _transform_to_pauli(data, num_qubits)
 
 
 def _ptm_to_superop(data, input_dim, output_dim):
     """Transform PTM representation to SuperOp representation."""
+    del output_dim  # unused
     num_qubits = int(np.log2(input_dim))
     return _transform_from_pauli(data, num_qubits)
 
 
 def _superop_to_ptm(data, input_dim, output_dim):
     """Transform SuperOp representation to PTM representation."""
+    del output_dim  # unused
     num_qubits = int(np.log2(input_dim))
     return _transform_to_pauli(data, num_qubits)
 
 
 def _bipartite_tensor(mat1, mat2, shape1=None, shape2=None):
-    """Tensor product (A ⊗ B) to bipartite matrices and reravel indicies.
+    """Tensor product (A ⊗ B) to bipartite matrices and reravel indices.
 
     This is used for tensor product of superoperators and Choi matrices.
 
@@ -365,7 +383,7 @@ def _bipartite_tensor(mat1, mat2, shape1=None, shape2=None):
 
 def _reravel(mat1, mat2, shape1, shape2):
     """Reravel two bipartite matrices."""
-    # Reshuffle indicies
+    # Reshuffle indices
     left_dims = shape1[:2] + shape2[:2]
     right_dims = shape1[2:] + shape2[2:]
     tensor_shape = left_dims + right_dims
@@ -379,7 +397,7 @@ def _reravel(mat1, mat2, shape1, shape2):
 
 
 def _transform_to_pauli(data, num_qubits):
-    """Change of basis of bipartite matrix represenation."""
+    """Change of basis of bipartite matrix representation."""
     # Change basis: um_{i=0}^3 |i>><\sigma_i|
     basis_mat = np.array(
         [[1, 0, 0, 1], [0, 1, 1, 0], [0, -1j, 1j, 0], [1, 0j, 0, -1]],
@@ -398,7 +416,7 @@ def _transform_to_pauli(data, num_qubits):
 
 
 def _transform_from_pauli(data, num_qubits):
-    """Change of basis of bipartite matrix represenation."""
+    """Change of basis of bipartite matrix representation."""
     # Change basis: sum_{i=0}^3 =|\sigma_i>><i|
     basis_mat = np.array(
         [[1, 0, 0, 1], [0, 1, 1j, 0], [0, 1, -1j, 0], [1, 0j, 0, -1]],
@@ -417,7 +435,7 @@ def _transform_from_pauli(data, num_qubits):
 
 
 def _reshuffle(mat, shape):
-    """Reshuffle the indicies of a bipartite matrix A[ij,kl] -> A[lj,ki]."""
+    """Reshuffle the indices of a bipartite matrix A[ij,kl] -> A[lj,ki]."""
     return np.reshape(
         np.transpose(np.reshape(mat, shape), (3, 1, 2, 0)),
         (shape[3] * shape[1], shape[0] * shape[2]))
