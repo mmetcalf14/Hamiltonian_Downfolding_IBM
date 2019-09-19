@@ -3,6 +3,7 @@ from qiskit.chemistry.aqua_extensions.components.initial_states import HartreeFo
 from qiskit.chemistry.aqua_extensions.components.variational_forms import UCCSD
 from qiskit.chemistry import QMolecule as qm
 from qiskit.aqua.operators import Z2Symmetries, WeightedPauliOperator
+from qiskit.quantum_info import Pauli
 from qiskit.visualization import circuit_drawer
 
 from qiskit.aqua.components.optimizers import COBYLA
@@ -23,6 +24,29 @@ import os
 import time
 
 
+def symmetries_4_8qbit_jwmap():
+
+    symm = [Pauli(z=[True, True, False, False, False, False, True, True],
+           x=[False, False, False, False, False, False, False, False]),
+     Pauli(z=[False, False, True, False, False, False, True, False],
+           x=[False, False, False, False, False, False, False, False]),
+     Pauli(z=[False, False, False, True, False, False, False, True],
+           x=[False, False, False, False, False, False, False, False]),
+     Pauli(z=[False, False, False, False, True, True, True, True],
+           x=[False, False, False, False, False, False, False, False])]
+
+    sq_pauli = [Pauli(z=[False, False, False, False, False, False, False, False],
+                      x=[True, False, False, False, False, False, False, False]),
+                Pauli(z=[False, False, False, False, False, False, False, False],
+                      x=[False, False, True, False, False, False, False, False]),
+                Pauli(z=[False, False, False, False, False, False, False, False],
+                      x=[False, False, False, True, False, False, False, False]),
+                Pauli(z=[False, False, False, False, False, False, False, False],
+                      x=[False, False, False, False, True, False, False, False])]
+
+    sq_list = [0, 2, 3, 4]
+    return symm, sq_pauli, sq_list
+
 #Importing data generated from NW Chem to run experiments
 #Li2_cc-pVTZ_4_ORBITALS_Li2-4_ORBITALS-ccpVTZ-2_1384
 root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
@@ -41,7 +65,7 @@ backend2 = Aer.get_backend('qasm_simulator')
 
 ###########################################################
 #Initialize Variables
-map_type = str('parity')
+map_type = str('jordan_wigner')
 truncation_threshold = 0.1
 n_spatial_orbitals = data['integral_sets'][0]['n_orbitals']
 nuclear_repulsion_energy = data['integral_sets'][0]['coulomb_repulsion']['value']
@@ -71,7 +95,7 @@ for line in content_oe:
         if count >= n_spatial_orbitals:
             break
 qm.orbital_energies = orbital_energies
-print(orbital_energies)
+
 #7 orbitals
 #qm.orbital_energies = [-2.4533,-2.4530,-0.1817,0.0065, 0.0273, 0.0273, 0.0385]
 ##############################################################################
@@ -91,24 +115,12 @@ active_virt_list = active_virt_list.tolist()
 #Fout = open('ErrorFromTruncation_Li2_Orb-{}_Dist-{}'.format(n_spatial_orbitals,dist),"w")
 ###########################################################
 
-###Running Pyscf driver to check integrals
-# driver = PySCFDriver(atom='Li .0 .0 .0; Li .0 .0 {}'.format(dist),
-#                     unit=UnitsType.ANGSTROM,
-#                     basis='cc-pvtz')
-# molecule = driver.run()
-# print(molecule.num_orbitals)
-# print('Spatial Integrals from Pyscf\n',molecule.mo_eri_ints)
-
-# Get Hamiltonian in array form from data and get excitations
-#Setting singles so they are not us
-dumpy_singles = [[0,0]]
-
 one_electron_import = data['integral_sets'][0]['hamiltonian']['one_electron_integrals']['values']
 two_electron_import = data['integral_sets'][0]['hamiltonian']['two_electron_integrals']['values']
 
 one_electron_spatial_integrals, two_electron_spatial_integrals = lh.get_spatial_integrals(one_electron_import,two_electron_import,n_spatial_orbitals)
 one_electron_spatial_integrals, two_electron_spatial_integrals = lh.trunctate_spatial_integrals(one_electron_spatial_integrals,two_electron_spatial_integrals,.001)
-
+print(one_electron_spatial_integrals)
 #print('Spatial Integrals from my program\n',one_electron_spatial_integrals)
 
 #print('The difference\n',molecule.mo_eri_ints-two_electron_spatial_integrals)
@@ -133,7 +145,10 @@ else:
     two_qubit_reduction = False
     n_qubits = n_orbitals
 
-z2_symmetries = Z2Symmetries.find_Z2_symmetries(qop_paulis)
+# z2_symmetries = Z2Symmetries.find_Z2_symmetries(qop_paulis)
+symm, sq_pauli, sq_list = symmetries_4_8qbit_jwmap()
+z2_symmetries = Z2Symmetries(symmetries=symm, sq_paulis=sq_pauli, sq_list=sq_list)
+
 print('Z2 symmetries found:')
 for symm in z2_symmetries.symmetries:
     print(symm.to_label())
@@ -166,10 +181,10 @@ print(
 ###########################################
 #Exact Result to compare to: This can also be obtained via the yaml file once we verify correctness.
 #Don't use trunctated Hamiltonian
-# print('Getting energy')
-# exact_eigensolver = ExactEigensolver(qop_paulis, k=1)
-# ret = exact_eigensolver.run()
-# print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
+print('Getting energy')
+exact_eigensolver = ExactEigensolver(qop_paulis, k=1)
+ret = exact_eigensolver.run()
+print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
 # print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
 ###########################################
 
@@ -181,12 +196,12 @@ start_time = time.time()
 #                active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, two_qubit_reduction=two_qubit_reduction, mp2_reduction=True, singles_deletion=False)
 
 # Unitaries with symmetries
-# init_state = HartreeFock(num_qubits=the_tapered_op.num_qubits, num_orbitals=n_orbitals, num_particles=n_particles,
-#                          qubit_mapping=map_type,two_qubit_reduction=two_qubit_reduction, sq_list=the_tapered_op.z2_symmetries.sq_list)
-#
-# var_op = UCCSD(num_qubits=the_tapered_op.num_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles, active_occupied=active_occ_list,\
-#                active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, two_qubit_reduction=two_qubit_reduction,
-#                mp2_reduction=True, singles_deletion=True, z2_symmetries=the_tapered_op.z2_symmetries)
+init_state = HartreeFock(num_qubits=the_tapered_op.num_qubits, num_orbitals=n_orbitals, num_particles=n_particles,
+                         qubit_mapping=map_type,two_qubit_reduction=two_qubit_reduction, sq_list=the_tapered_op.z2_symmetries.sq_list)
+
+var_op = UCCSD(num_qubits=the_tapered_op.num_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles, active_occupied=active_occ_list,\
+               active_unoccupied=active_virt_list,initial_state=init_state, qubit_mapping=map_type, two_qubit_reduction=two_qubit_reduction,
+               mp2_reduction=True, singles_deletion=True, z2_symmetries=the_tapered_op.z2_symmetries)
 # print('There are {} params in this anzats'.format(var_op.num_parameters))
 # print(var_op._double_excitations)
 # dumpy_params = np.random.rand(var_op.num_parameters)
@@ -199,27 +214,27 @@ start_time = time.time()
 # Transform.OptimisePhaseGadgets().apply(tk_cirq)
 # print('{} depth of UCCSD circuit with redundancies removed'.format(tk_cirq.depth()))
 # var_cirq = tk_to_qiskit(tk_cirq)
-# circuit_drawer(var_cirq, filename='uccsd_circuit_h2_parity_symm_2qreduction.png',output='mpl')
+# circuit_drawer(var_cirq, filename='uccsd_circuit_h2_jordanwigner_symm_091819.png',output='mpl')
 
 
 # setup a classical optimizer for VQE
-# max_eval = 200
-# # Would using a different optimizer yield better results at long distances?
-# optimizer = COBYLA(maxiter=max_eval,disp=True, tol=1e-2)
-# print('params: ',var_op.num_parameters)
-# # dumpy_params = np.random.rand(var_op.num_parameters)
-# #Call the VQE algorithm class with your qubit operator for the Hamiltonian and the variational op
-# print('Doing VQE')
-# # algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=None)
-# algorithm = VQE(the_tapered_op,var_op,optimizer,'paulis', initial_point=None)
-# # VQE_Circ = algorithm.construct_circuit(dumpy_params, backend=None)
-# # print('The VQE circuit:\n',circuit_drawer(VQE_Circ, output='text'))
-# result = algorithm.run(backend1)
-# print('The VQE energy is: ',result['energy']+nuclear_repulsion_energy)
-# opt_params = result['opt_params']
-# print(' {} are the optimal parameters.'.format(opt_params))
-# end_time = time.time()
-# print('It took {} seconds to run this calculation'.format(end_time-start_time))
+max_eval = 200
+# Would using a different optimizer yield better results at long distances?
+optimizer = COBYLA(maxiter=max_eval,disp=True, tol=1e-2)
+print('params: ',var_op.num_parameters)
+# dumpy_params = np.random.rand(var_op.num_parameters)
+#Call the VQE algorithm class with your qubit operator for the Hamiltonian and the variational op
+print('Doing VQE')
+# algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=None)
+algorithm = VQE(the_tapered_op,var_op,optimizer,'paulis', initial_point=None)
+# VQE_Circ = algorithm.construct_circuit(dumpy_params, backend=None)
+# print('The VQE circuit:\n',circuit_drawer(VQE_Circ, output='text'))
+result = algorithm.run(backend1)
+print('The VQE energy is: ',result['energy']+nuclear_repulsion_energy)
+opt_params = result['opt_params']
+print(' {} are the optimal parameters.'.format(opt_params))
+end_time = time.time()
+print('It took {} seconds to run this calculation'.format(end_time-start_time))
 
 '''
 
