@@ -3,7 +3,7 @@ from qiskit.chemistry.aqua_extensions.components.initial_states import HartreeFo
 from qiskit.chemistry.aqua_extensions.components.variational_forms import UCCSD
 from qiskit.chemistry import QMolecule as qm
 
-from qiskit.aqua.components.optimizers import COBYLA
+from qiskit.aqua.components.optimizers import COBYLA, L_BFGS_B
 from qiskit.aqua import Operator
 from qiskit.aqua.algorithms import VQE, ExactEigensolver
 from qiskit import Aer
@@ -126,15 +126,14 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
                                                                                               two_electron_import,
                                                                                               n_spatial_orbitals)
     one_electron_spatial_integrals, two_electron_spatial_integrals = lh.trunctate_spatial_integrals(
-        one_electron_spatial_integrals, two_electron_spatial_integrals, .001)
+        one_electron_spatial_integrals, two_electron_spatial_integrals, .00001)
     h1, h2 = lh.convert_to_spin_index(one_electron_spatial_integrals, two_electron_spatial_integrals,
-                                                  n_spatial_orbitals, truncation_threshold)
+                                                  n_spatial_orbitals)
     #For the MP2 Calculation
     qm.mo_eri_ints = two_electron_spatial_integrals
     #Constructing the fermion operator and qubit operator from integrals data
     fop = FermionicOperator(h1, h2)
     qop_paulis = fop.mapping(map_type)
-    qop = Operator(paulis=qop_paulis.paulis)
 
     #Get Variational form and intial state
     init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type, two_qubit_reduction=False)
@@ -143,9 +142,9 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     ######################## VQE RESULT ###############################
         # setup a classical optimizer for VQE
-    max_eval = 500
-    optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-4)
-
+    max_eval = 1000
+    optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-5)
+    # optimizer = L_BFGS_B()
     #Choosing initial params based on previous iteration
     if ind == 0:
         # initial_params = var_op._mp2_coeff
@@ -158,21 +157,19 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
 
     print('Doing VQE')
-    algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=initial_params)
-    #VQE_Circ = algorithm.construct_circuit(dumpy_params, backend1)
-    #print('The VQE circuit:\n',VQE_Circ)
+    algorithm = VQE(qop_paulis,var_op,optimizer,'paulis', initial_point=var_op._mp2_coeff)
     result = algorithm.run(backend1)
     vqe_energy = result['energy'] + nuclear_repulsion_energy
     vqe_params = result['opt_params']
-    # print('The VQE energy is: ',vqe_energy)
+    print('The VQE energy is: ',vqe_energy)
     # print('The optimized params are {}.'.format(vqe_params))
     ###################################################################
 
     ################### EXACT RESULT ##################################
-    exact_eigensolver = ExactEigensolver(qop, k=1)
-    ret = exact_eigensolver.run()
-    print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
-    print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
+    # exact_eigensolver = ExactEigensolver(qop, k=1)
+    # ret = exact_eigensolver.run()
+    # print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
+    # print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
     exact_energy = ret['eigvals'][0].real + nuclear_repulsion_energy
     # exact_energy_fe = ret['eigvals'][1].real + nuclear_repulsion_energy
     # qop.to_matrix()

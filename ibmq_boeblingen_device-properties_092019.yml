@@ -1,0 +1,2170 @@
+backend_name: ibmq_boeblingen
+backend_version: 1.0.0
+gates:
+- gate: id
+  name: id_0
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00036381039833428494
+  - date: '2019-09-20T12:07:31.706291+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 0
+- gate: u1
+  name: u1_0
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.706330+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 0
+- gate: u2
+  name: u2_0
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00036381039833428494
+  - date: '2019-09-20T12:07:31.706363+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 0
+- gate: u3
+  name: u3_0
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0007276207966685699
+  - date: '2019-09-20T12:07:31.706396+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 0
+- gate: id
+  name: id_1
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00030860654914296657
+  - date: '2019-09-20T12:07:31.706471+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 1
+- gate: u1
+  name: u1_1
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.706503+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 1
+- gate: u2
+  name: u2_1
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00030860654914296657
+  - date: '2019-09-20T12:07:31.706535+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 1
+- gate: u3
+  name: u3_1
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006172130982859331
+  - date: '2019-09-20T12:07:31.706569+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 1
+- gate: id
+  name: id_2
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0003197051922394142
+  - date: '2019-09-20T12:07:31.706649+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 2
+- gate: u1
+  name: u1_2
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.706681+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 2
+- gate: u2
+  name: u2_2
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0003197051922394142
+  - date: '2019-09-20T12:07:31.706713+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 2
+- gate: u3
+  name: u3_2
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006394103844788284
+  - date: '2019-09-20T12:07:31.706746+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 2
+- gate: id
+  name: id_3
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00035896949669524195
+  - date: '2019-09-20T12:07:31.706815+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 3
+- gate: u1
+  name: u1_3
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.706846+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 3
+- gate: u2
+  name: u2_3
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00035896949669524195
+  - date: '2019-09-20T12:07:31.706878+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 3
+- gate: u3
+  name: u3_3
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0007179389933904839
+  - date: '2019-09-20T12:07:31.706912+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 3
+- gate: id
+  name: id_4
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0008147727036877225
+  - date: '2019-09-20T12:07:31.706980+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 4
+- gate: u1
+  name: u1_4
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.707011+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 4
+- gate: u2
+  name: u2_4
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0008147727036877225
+  - date: '2019-09-20T12:07:31.707042+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 4
+- gate: u3
+  name: u3_4
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.001629545407375445
+  - date: '2019-09-20T12:07:31.707073+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 4
+- gate: id
+  name: id_5
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00036088349373941046
+  - date: '2019-09-20T12:07:31.707140+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 5
+- gate: u1
+  name: u1_5
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.707171+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 5
+- gate: u2
+  name: u2_5
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00036088349373941046
+  - date: '2019-09-20T12:07:31.707202+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 5
+- gate: u3
+  name: u3_5
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0007217669874788209
+  - date: '2019-09-20T12:07:31.707235+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 5
+- gate: id
+  name: id_6
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0007417268852083703
+  - date: '2019-09-20T12:07:31.707301+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 6
+- gate: u1
+  name: u1_6
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.707332+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 6
+- gate: u2
+  name: u2_6
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0007417268852083703
+  - date: '2019-09-20T12:07:31.707363+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 6
+- gate: u3
+  name: u3_6
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0014834537704167406
+  - date: '2019-09-20T12:07:31.707396+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 6
+- gate: id
+  name: id_7
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006401444980167905
+  - date: '2019-09-20T12:07:31.707462+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 7
+- gate: u1
+  name: u1_7
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.707493+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 7
+- gate: u2
+  name: u2_7
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006401444980167905
+  - date: '2019-09-20T12:07:31.707524+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 7
+- gate: u3
+  name: u3_7
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.001280288996033581
+  - date: '2019-09-20T12:07:31.707557+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 7
+- gate: id
+  name: id_8
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00024162115744046775
+  - date: '2019-09-20T12:07:31.707632+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 8
+- gate: u1
+  name: u1_8
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.707664+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 8
+- gate: u2
+  name: u2_8
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00024162115744046775
+  - date: '2019-09-20T12:07:31.707695+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 8
+- gate: u3
+  name: u3_8
+  parameters:
+  - date: '2019-09-20T08:50:56+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0004832423148809355
+  - date: '2019-09-20T12:07:31.707728+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 8
+- gate: id
+  name: id_9
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0005385997177137618
+  - date: '2019-09-20T12:07:31.707798+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 9
+- gate: u1
+  name: u1_9
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.707831+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 9
+- gate: u2
+  name: u2_9
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0005385997177137618
+  - date: '2019-09-20T12:07:31.707863+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 9
+- gate: u3
+  name: u3_9
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0010771994354275235
+  - date: '2019-09-20T12:07:31.707896+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 9
+- gate: id
+  name: id_10
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006727204570058372
+  - date: '2019-09-20T12:07:31.707964+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 10
+- gate: u1
+  name: u1_10
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.707995+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 10
+- gate: u2
+  name: u2_10
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006727204570058372
+  - date: '2019-09-20T12:07:31.708026+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 10
+- gate: u3
+  name: u3_10
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0013454409140116743
+  - date: '2019-09-20T12:07:31.708058+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 10
+- gate: id
+  name: id_11
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006814958021958003
+  - date: '2019-09-20T12:07:31.708125+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 11
+- gate: u1
+  name: u1_11
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.708156+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 11
+- gate: u2
+  name: u2_11
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006814958021958003
+  - date: '2019-09-20T12:07:31.708187+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 11
+- gate: u3
+  name: u3_11
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0013629916043916006
+  - date: '2019-09-20T12:07:31.708220+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 11
+- gate: id
+  name: id_12
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0005224261628936389
+  - date: '2019-09-20T12:07:31.708287+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 12
+- gate: u1
+  name: u1_12
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.708319+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 12
+- gate: u2
+  name: u2_12
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0005224261628936389
+  - date: '2019-09-20T12:07:31.708351+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 12
+- gate: u3
+  name: u3_12
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0010448523257872778
+  - date: '2019-09-20T12:07:31.708383+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 12
+- gate: id
+  name: id_13
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006880154876630352
+  - date: '2019-09-20T12:07:31.708453+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 13
+- gate: u1
+  name: u1_13
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.708484+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 13
+- gate: u2
+  name: u2_13
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006880154876630352
+  - date: '2019-09-20T12:07:31.708515+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 13
+- gate: u3
+  name: u3_13
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0013760309753260704
+  - date: '2019-09-20T12:07:31.708548+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 13
+- gate: id
+  name: id_14
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00035583029920605285
+  - date: '2019-09-20T12:07:31.708624+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 14
+- gate: u1
+  name: u1_14
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.708655+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 14
+- gate: u2
+  name: u2_14
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00035583029920605285
+  - date: '2019-09-20T12:07:31.708685+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 14
+- gate: u3
+  name: u3_14
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0007116605984121057
+  - date: '2019-09-20T12:07:31.708718+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 14
+- gate: id
+  name: id_15
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00031291190103128384
+  - date: '2019-09-20T12:07:31.708785+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 15
+- gate: u1
+  name: u1_15
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.708815+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 15
+- gate: u2
+  name: u2_15
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00031291190103128384
+  - date: '2019-09-20T12:07:31.708845+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 15
+- gate: u3
+  name: u3_15
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006258238020625677
+  - date: '2019-09-20T12:07:31.708877+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 15
+- gate: id
+  name: id_16
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00047452877549893156
+  - date: '2019-09-20T12:07:31.708943+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 16
+- gate: u1
+  name: u1_16
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.708974+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 16
+- gate: u2
+  name: u2_16
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00047452877549893156
+  - date: '2019-09-20T12:07:31.709006+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 16
+- gate: u3
+  name: u3_16
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0009490575509978631
+  - date: '2019-09-20T12:07:31.709039+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 16
+- gate: id
+  name: id_17
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00032432097875999684
+  - date: '2019-09-20T12:07:31.709106+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 17
+- gate: u1
+  name: u1_17
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.709137+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 17
+- gate: u2
+  name: u2_17
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.00032432097875999684
+  - date: '2019-09-20T12:07:31.709168+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 17
+- gate: u3
+  name: u3_17
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0006486419575199937
+  - date: '2019-09-20T12:07:31.709200+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 17
+- gate: id
+  name: id_18
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0005907230697608651
+  - date: '2019-09-20T12:07:31.709266+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 18
+- gate: u1
+  name: u1_18
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.709298+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 18
+- gate: u2
+  name: u2_18
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0005907230697608651
+  - date: '2019-09-20T12:07:31.709330+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 18
+- gate: u3
+  name: u3_18
+  parameters:
+  - date: '2019-09-20T08:50:08+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0011814461395217302
+  - date: '2019-09-20T12:07:31.709363+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 18
+- gate: id
+  name: id_19
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0009995331810309753
+  - date: '2019-09-20T12:07:31.709430+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 19
+- gate: u1
+  name: u1_19
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0
+  - date: '2019-09-20T12:07:31.709461+00:00'
+    name: gate_length
+    unit: ns
+    value: 0.0
+  qubits:
+  - 19
+- gate: u2
+  name: u2_19
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0009995331810309753
+  - date: '2019-09-20T12:07:31.709491+00:00'
+    name: gate_length
+    unit: ns
+    value: 35.55555555555556
+  qubits:
+  - 19
+- gate: u3
+  name: u3_19
+  parameters:
+  - date: '2019-09-19T09:04:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.0019990663620619506
+  - date: '2019-09-20T12:07:31.709524+00:00'
+    name: gate_length
+    unit: ns
+    value: 71.11111111111111
+  qubits:
+  - 19
+- gate: cx
+  name: cx0_1
+  parameters:
+  - date: '2019-09-20T08:54:11+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.009974300239079026
+  - date: '2019-09-20T12:07:31.709789+00:00'
+    name: gate_length
+    unit: ns
+    value: 426.66666666666663
+  qubits:
+  - 0
+  - 1
+- gate: cx
+  name: cx1_0
+  parameters:
+  - date: '2019-09-20T08:54:11+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.009974300239079026
+  - date: '2019-09-20T12:07:31.709789+00:00'
+    name: gate_length
+    unit: ns
+    value: 426.66666666666663
+  qubits:
+  - 1
+  - 0
+- gate: cx
+  name: cx1_2
+  parameters:
+  - date: '2019-09-20T09:05:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.007111334762622906
+  - date: '2019-09-20T12:07:31.710920+00:00'
+    name: gate_length
+    unit: ns
+    value: 426.66666666666663
+  qubits:
+  - 1
+  - 2
+- gate: cx
+  name: cx1_6
+  parameters:
+  - date: '2019-09-20T09:50:04+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.014628349239008492
+  - date: '2019-09-20T12:07:31.711303+00:00'
+    name: gate_length
+    unit: ns
+    value: 426.66666666666663
+  qubits:
+  - 1
+  - 6
+- gate: cx
+  name: cx2_1
+  parameters:
+  - date: '2019-09-20T09:05:24+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.007111334762622906
+  - date: '2019-09-20T12:07:31.710920+00:00'
+    name: gate_length
+    unit: ns
+    value: 426.66666666666663
+  qubits:
+  - 2
+  - 1
+- gate: cx
+  name: cx2_3
+  parameters:
+  - date: '2019-09-20T09:10:17+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.009087411199804024
+  - date: '2019-09-20T12:07:31.710997+00:00'
+    name: gate_length
+    unit: ns
+    value: 241.77777777777777
+  qubits:
+  - 2
+  - 3
+- gate: cx
+  name: cx3_2
+  parameters:
+  - date: '2019-09-20T09:10:17+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.009087411199804024
+  - date: '2019-09-20T12:07:31.710997+00:00'
+    name: gate_length
+    unit: ns
+    value: 241.77777777777777
+  qubits:
+  - 3
+  - 2
+- gate: cx
+  name: cx3_4
+  parameters:
+  - date: '2019-09-20T09:14:05+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.018141729558124542
+  - date: '2019-09-20T12:07:31.711150+00:00'
+    name: gate_length
+    unit: ns
+    value: 661.3333333333333
+  qubits:
+  - 3
+  - 4
+- gate: cx
+  name: cx3_8
+  parameters:
+  - date: '2019-09-20T09:54:10+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.008548547705136439
+  - date: '2019-09-20T12:07:31.711074+00:00'
+    name: gate_length
+    unit: ns
+    value: 412.4444444444444
+  qubits:
+  - 3
+  - 8
+- gate: cx
+  name: cx4_3
+  parameters:
+  - date: '2019-09-20T09:14:05+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.018141729558124542
+  - date: '2019-09-20T12:07:31.711150+00:00'
+    name: gate_length
+    unit: ns
+    value: 661.3333333333333
+  qubits:
+  - 4
+  - 3
+- gate: cx
+  name: cx5_6
+  parameters:
+  - date: '2019-09-20T09:57:36+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.014084063610183828
+  - date: '2019-09-20T12:07:31.711227+00:00'
+    name: gate_length
+    unit: ns
+    value: 241.77777777777777
+  qubits:
+  - 5
+  - 6
+- gate: cx
+  name: cx5_10
+  parameters:
+  - date: '2019-09-20T10:20:44+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01387559496754584
+  - date: '2019-09-20T12:07:31.709877+00:00'
+    name: gate_length
+    unit: ns
+    value: 270.22222222222223
+  qubits:
+  - 5
+  - 10
+- gate: cx
+  name: cx6_1
+  parameters:
+  - date: '2019-09-20T09:50:04+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.014628349239008492
+  - date: '2019-09-20T12:07:31.711303+00:00'
+    name: gate_length
+    unit: ns
+    value: 426.66666666666663
+  qubits:
+  - 6
+  - 1
+- gate: cx
+  name: cx6_5
+  parameters:
+  - date: '2019-09-20T09:57:36+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.014084063610183828
+  - date: '2019-09-20T12:07:31.711227+00:00'
+    name: gate_length
+    unit: ns
+    value: 241.77777777777777
+  qubits:
+  - 6
+  - 5
+- gate: cx
+  name: cx6_7
+  parameters:
+  - date: '2019-09-20T10:02:31+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.02644893683964117
+  - date: '2019-09-20T12:07:31.711380+00:00'
+    name: gate_length
+    unit: ns
+    value: 270.22222222222223
+  qubits:
+  - 6
+  - 7
+- gate: cx
+  name: cx7_6
+  parameters:
+  - date: '2019-09-20T10:02:31+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.02644893683964117
+  - date: '2019-09-20T12:07:31.711380+00:00'
+    name: gate_length
+    unit: ns
+    value: 270.22222222222223
+  qubits:
+  - 7
+  - 6
+- gate: cx
+  name: cx7_8
+  parameters:
+  - date: '2019-09-20T10:05:11+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.010336774579054603
+  - date: '2019-09-20T12:07:31.711457+00:00'
+    name: gate_length
+    unit: ns
+    value: 412.4444444444444
+  qubits:
+  - 7
+  - 8
+- gate: cx
+  name: cx7_12
+  parameters:
+  - date: '2019-09-20T10:32:55+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.028132631392733892
+  - date: '2019-09-20T12:07:31.710199+00:00'
+    name: gate_length
+    unit: ns
+    value: 270.22222222222223
+  qubits:
+  - 7
+  - 12
+- gate: cx
+  name: cx8_3
+  parameters:
+  - date: '2019-09-20T09:54:10+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.008548547705136439
+  - date: '2019-09-20T12:07:31.711074+00:00'
+    name: gate_length
+    unit: ns
+    value: 412.4444444444444
+  qubits:
+  - 8
+  - 3
+- gate: cx
+  name: cx8_7
+  parameters:
+  - date: '2019-09-20T10:05:11+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.010336774579054603
+  - date: '2019-09-20T12:07:31.711457+00:00'
+    name: gate_length
+    unit: ns
+    value: 412.4444444444444
+  qubits:
+  - 8
+  - 7
+- gate: cx
+  name: cx8_9
+  parameters:
+  - date: '2019-09-20T10:10:05+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.015388594428458024
+  - date: '2019-09-20T12:07:31.711536+00:00'
+    name: gate_length
+    unit: ns
+    value: 512.0
+  qubits:
+  - 8
+  - 9
+- gate: cx
+  name: cx9_8
+  parameters:
+  - date: '2019-09-20T10:10:05+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.015388594428458024
+  - date: '2019-09-20T12:07:31.711536+00:00'
+    name: gate_length
+    unit: ns
+    value: 512.0
+  qubits:
+  - 9
+  - 8
+- gate: cx
+  name: cx9_14
+  parameters:
+  - date: '2019-09-20T11:17:28+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01882310398327841
+  - date: '2019-09-20T12:07:31.710357+00:00'
+    name: gate_length
+    unit: ns
+    value: 512.0
+  qubits:
+  - 9
+  - 14
+- gate: cx
+  name: cx10_5
+  parameters:
+  - date: '2019-09-20T10:20:44+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01387559496754584
+  - date: '2019-09-20T12:07:31.709877+00:00'
+    name: gate_length
+    unit: ns
+    value: 270.22222222222223
+  qubits:
+  - 10
+  - 5
+- gate: cx
+  name: cx10_11
+  parameters:
+  - date: '2019-09-20T10:44:35+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.02113814032042874
+  - date: '2019-09-20T12:07:31.709960+00:00'
+    name: gate_length
+    unit: ns
+    value: 632.8888888888888
+  qubits:
+  - 10
+  - 11
+- gate: cx
+  name: cx11_10
+  parameters:
+  - date: '2019-09-20T10:44:35+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.02113814032042874
+  - date: '2019-09-20T12:07:31.709960+00:00'
+    name: gate_length
+    unit: ns
+    value: 632.8888888888888
+  qubits:
+  - 11
+  - 10
+- gate: cx
+  name: cx11_12
+  parameters:
+  - date: '2019-09-20T10:50:17+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.016968811766450015
+  - date: '2019-09-20T12:07:31.710040+00:00'
+    name: gate_length
+    unit: ns
+    value: 448.0
+  qubits:
+  - 11
+  - 12
+- gate: cx
+  name: cx11_16
+  parameters:
+  - date: '2019-09-20T11:21:19+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01597186948683521
+  - date: '2019-09-20T12:07:31.710515+00:00'
+    name: gate_length
+    unit: ns
+    value: 448.0
+  qubits:
+  - 11
+  - 16
+- gate: cx
+  name: cx12_7
+  parameters:
+  - date: '2019-09-20T10:32:55+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.028132631392733892
+  - date: '2019-09-20T12:07:31.710199+00:00'
+    name: gate_length
+    unit: ns
+    value: 270.22222222222223
+  qubits:
+  - 12
+  - 7
+- gate: cx
+  name: cx12_11
+  parameters:
+  - date: '2019-09-20T10:50:17+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.016968811766450015
+  - date: '2019-09-20T12:07:31.710040+00:00'
+    name: gate_length
+    unit: ns
+    value: 448.0
+  qubits:
+  - 12
+  - 11
+- gate: cx
+  name: cx12_13
+  parameters:
+  - date: '2019-09-20T10:53:07+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01182397764355525
+  - date: '2019-09-20T12:07:31.710120+00:00'
+    name: gate_length
+    unit: ns
+    value: 384.0
+  qubits:
+  - 12
+  - 13
+- gate: cx
+  name: cx13_12
+  parameters:
+  - date: '2019-09-20T10:53:07+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01182397764355525
+  - date: '2019-09-20T12:07:31.710120+00:00'
+    name: gate_length
+    unit: ns
+    value: 384.0
+  qubits:
+  - 13
+  - 12
+- gate: cx
+  name: cx13_14
+  parameters:
+  - date: '2019-09-20T10:58:00+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.008596054958259852
+  - date: '2019-09-20T12:07:31.710278+00:00'
+    name: gate_length
+    unit: ns
+    value: 334.22222222222223
+  qubits:
+  - 13
+  - 14
+- gate: cx
+  name: cx13_18
+  parameters:
+  - date: '2019-09-20T11:41:00+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01976405344031626
+  - date: '2019-09-20T12:07:31.710685+00:00'
+    name: gate_length
+    unit: ns
+    value: 312.88888888888886
+  qubits:
+  - 13
+  - 18
+- gate: cx
+  name: cx14_9
+  parameters:
+  - date: '2019-09-20T11:17:28+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01882310398327841
+  - date: '2019-09-20T12:07:31.710357+00:00'
+    name: gate_length
+    unit: ns
+    value: 512.0
+  qubits:
+  - 14
+  - 9
+- gate: cx
+  name: cx14_13
+  parameters:
+  - date: '2019-09-20T10:58:00+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.008596054958259852
+  - date: '2019-09-20T12:07:31.710278+00:00'
+    name: gate_length
+    unit: ns
+    value: 334.22222222222223
+  qubits:
+  - 14
+  - 13
+- gate: cx
+  name: cx15_16
+  parameters:
+  - date: '2019-09-20T11:33:27+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.019034534470719594
+  - date: '2019-09-20T12:07:31.710436+00:00'
+    name: gate_length
+    unit: ns
+    value: 448.0
+  qubits:
+  - 15
+  - 16
+- gate: cx
+  name: cx16_11
+  parameters:
+  - date: '2019-09-20T11:21:19+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01597186948683521
+  - date: '2019-09-20T12:07:31.710515+00:00'
+    name: gate_length
+    unit: ns
+    value: 448.0
+  qubits:
+  - 16
+  - 11
+- gate: cx
+  name: cx16_15
+  parameters:
+  - date: '2019-09-20T11:33:27+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.019034534470719594
+  - date: '2019-09-20T12:07:31.710436+00:00'
+    name: gate_length
+    unit: ns
+    value: 448.0
+  qubits:
+  - 16
+  - 15
+- gate: cx
+  name: cx16_17
+  parameters:
+  - date: '2019-09-20T11:37:19+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.013251198290186395
+  - date: '2019-09-20T12:07:31.710603+00:00'
+    name: gate_length
+    unit: ns
+    value: 341.3333333333333
+  qubits:
+  - 16
+  - 17
+- gate: cx
+  name: cx17_16
+  parameters:
+  - date: '2019-09-20T11:37:19+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.013251198290186395
+  - date: '2019-09-20T12:07:31.710603+00:00'
+    name: gate_length
+    unit: ns
+    value: 341.3333333333333
+  qubits:
+  - 17
+  - 16
+- gate: cx
+  name: cx17_18
+  parameters:
+  - date: '2019-09-20T11:44:55+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.018648812942345744
+  - date: '2019-09-20T12:07:31.710763+00:00'
+    name: gate_length
+    unit: ns
+    value: 746.6666666666666
+  qubits:
+  - 17
+  - 18
+- gate: cx
+  name: cx18_13
+  parameters:
+  - date: '2019-09-20T11:41:00+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.01976405344031626
+  - date: '2019-09-20T12:07:31.710685+00:00'
+    name: gate_length
+    unit: ns
+    value: 312.88888888888886
+  qubits:
+  - 18
+  - 13
+- gate: cx
+  name: cx18_17
+  parameters:
+  - date: '2019-09-20T11:44:55+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.018648812942345744
+  - date: '2019-09-20T12:07:31.710763+00:00'
+    name: gate_length
+    unit: ns
+    value: 746.6666666666666
+  qubits:
+  - 18
+  - 17
+- gate: cx
+  name: cx18_19
+  parameters:
+  - date: '2019-09-20T11:49:48+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.025305957566143955
+  - date: '2019-09-20T12:07:31.710843+00:00'
+    name: gate_length
+    unit: ns
+    value: 440.88888888888886
+  qubits:
+  - 18
+  - 19
+- gate: cx
+  name: cx19_18
+  parameters:
+  - date: '2019-09-20T11:49:48+00:00'
+    name: gate_error
+    unit: ''
+    value: 0.025305957566143955
+  - date: '2019-09-20T12:07:31.710843+00:00'
+    name: gate_length
+    unit: ns
+    value: 440.88888888888886
+  qubits:
+  - 19
+  - 18
+general: []
+last_update_date: '2019-09-20T11:49:48+00:00'
+qubits:
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 72.34876075596114
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 116.03993586970911
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 5.046901636262807
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.10999999999999999
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.11333333333333329
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.10666666666666667
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 74.20045118382507
+  - date: '2019-09-20T08:44:48+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 114.18271191086373
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.847300243228496
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.03166666666666673
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.04
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.023333333333333317
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 80.0996845732336
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 125.87262145779327
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.70365401934256
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.033333333333333326
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.046666666666666634
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.02
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 99.22318869325936
+  - date: '2019-09-20T08:44:48+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 63.46923589096253
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.774323205209973
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.016666666666666607
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.026666666666666616
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.006666666666666667
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 130.94780068493708
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 90.53615553250589
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.366187166810728
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.025000000000000022
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.050000000000000044
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.0
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 67.96581704240826
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 102.88201287376847
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.911456048869977
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.011666666666666714
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.02
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.0033333333333332993
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 80.19586073318047
+  - date: '2019-09-20T08:45:30+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 96.4780157821503
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.726827513111063
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.040000000000000036
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.05333333333333334
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.026666666666666616
+- - date: '2019-09-19T09:00:24+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 64.75641998734903
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 34.9451889314957
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.545978288351231
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.02833333333333332
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.03
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.026666666666666616
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 106.36151795659703
+  - date: '2019-09-20T08:45:30+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 91.56494593385135
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.658581184218691
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.043333333333333335
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.056666666666666664
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.030000000000000027
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 41.58797318143743
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 60.388817639943014
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.766684305467372
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.04833333333333334
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.06999999999999995
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.02666666666666667
+- - date: '2019-09-19T09:00:24+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 67.16172130957024
+  - date: '2019-09-20T08:44:48+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 55.77756725868024
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.955303785233078
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.033333333333333326
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.053333333333333344
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.013333333333333334
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 56.151109763909766
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 86.07167915939226
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.521701215352439
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.036666666666666625
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.06
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.013333333333333308
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 42.95504124288563
+  - date: '2019-09-20T08:44:48+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 85.58298271309997
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.73253452516291
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.05499999999999994
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.08666666666666667
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.023333333333333334
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 72.79503735598217
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 69.35894020719157
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.6355234005374495
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.04499999999999993
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.07666666666666666
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.013333333333333334
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 74.06738339203362
+  - date: '2019-09-20T08:44:48+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 116.00171555475018
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.555078375167137
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.040000000000000036
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.053333333333333344
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.02666666666666667
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 67.87225779744408
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 119.86345574340119
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.582268088950504
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.033333333333333326
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.046666666666666634
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.02
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 85.53671167675692
+  - date: '2019-09-20T08:44:48+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 58.207003095936884
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.755628686436942
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.025000000000000022
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.033333333333333326
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.016666666666666666
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 64.4867294889017
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 111.53553326227879
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.589831300018194
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.033333333333333326
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.053333333333333344
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.013333333333333334
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 42.00794728658512
+  - date: '2019-09-20T08:44:48+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 80.7550980430294
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 4.752411727693821
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.040000000000000036
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.05333333333333334
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.026666666666666616
+- - date: '2019-09-20T08:42:16+00:00'
+    name: T1
+    unit: "\xB5s"
+    value: 92.38959161688766
+  - date: '2019-09-20T08:43:01+00:00'
+    name: T2
+    unit: "\xB5s"
+    value: 96.0330267533627
+  - date: '2019-09-20T11:49:48+00:00'
+    name: frequency
+    unit: GHz
+    value: 5.035286831902968
+  - date: '2019-09-20T08:40:40+00:00'
+    name: readout_error
+    unit: ''
+    value: 0.06000000000000005
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas0_prep1
+    unit: ''
+    value: 0.036666666666666625
+  - date: '2019-09-20T08:40:40+00:00'
+    name: prob_meas1_prep0
+    unit: ''
+    value: 0.08333333333333333

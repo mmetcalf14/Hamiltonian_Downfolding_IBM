@@ -16,7 +16,7 @@ import os
 import Load_Hamiltonians as lh
 
 #################### WALK ROOT DIR ############################
-root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/Li2_cc-pVTZ/7_ORBITALS/'
+root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA'
 
 data_file_list = []
 data_file_list_oe = []
@@ -56,7 +56,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     NW_data_file = str(os.path.join(root_dir,file1))
 
-    OE_data_file = str(os.path.join(root_dir+'Orbital_Energies/',file2))
+    OE_data_file = str(os.path.join(root_dir,file2))
 
     try:
         doc = open(NW_data_file, 'r')
@@ -129,7 +129,6 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     #Constructing the fermion operator and qubit operator from integrals data
     fop = FermionicOperator(h1, h2)
     qop_paulis = fop.mapping(map_type)
-    qop = Operator(paulis=qop_paulis.paulis)
 
     #Get Variational form and intial state
     init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type, two_qubit_reduction=False)
@@ -164,7 +163,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     ###################################################################
 
     ################### EXACT RESULT ##################################
-    exact_eigensolver = ExactEigensolver(qop, k=1)
+    exact_eigensolver = ExactEigensolver(qop_paulis, k=1)
     ret = exact_eigensolver.run()
     print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
     print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))

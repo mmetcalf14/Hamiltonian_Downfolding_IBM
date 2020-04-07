@@ -54,11 +54,11 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Wed Jul 17 11:56:02 2019"
+@timestamp def "Tue Mar  3 16:09:11 2020"
 @with ellipse
 @    ellipse on
 @    ellipse loctype view
-@    ellipse 0.7627739726025, 0.8749315068494999, 0.7783219178075, 0.8904794520545
+@    ellipse 0.8090068493148288, 0.3201369863015548, 0.8245547945198288, 0.3356849315065548
 @    ellipse linestyle 1
 @    ellipse linewidth 1.0
 @    ellipse color 15
@@ -68,7 +68,7 @@
 @with ellipse
 @    ellipse on
 @    ellipse loctype view
-@    ellipse 0.3552397260267877, 0.8715068493151301, 0.3707876712317877, 0.8870547945201301
+@    ellipse 0.8107191780815823, 0.2619178082192397, 0.8262671232865823, 0.2774657534242397
 @    ellipse linestyle 1
 @    ellipse linewidth 1.0
 @    ellipse color 11
@@ -78,23 +78,23 @@
 @with string
 @    string on
 @    string loctype view
-@    string 0.796232876712, 0.871575342466
+@    string 0.854452054794, 0.318493150685
 @    string color 1
 @    string rot 0
 @    string font 0
 @    string just 0
 @    string char size 1.000000
-@    string def "VQE Simulation"
+@    string def "DUCC - VQE"
 @with string
 @    string on
 @    string loctype view
-@    string 0.3818493150689179, 0.8715753424658904
+@    string 0.854452054795, 0.26198630137
 @    string color 1
 @    string rot 0
 @    string font 0
 @    string just 0
 @    string char size 1.000000
-@    string def "ED with PNNL Data"
+@    string def "DUCC - FCI"
 @r0 off
 @link r0 to g0
 @r0 type above
@@ -141,7 +141,7 @@
 @g0 fixedpoint format general general
 @g0 fixedpoint prec 6, 6
 @with g0
-@    world 0, -1.2, 10, -0.98
+@    world 0, -1.2, 11, -0.95
 @    stack world 0, 1, 0, 1
 @    znorm 1
 @    view 0.150000, 0.150000, 1.150000, 0.850000
@@ -167,7 +167,7 @@
 @    xaxis  label "R (Å)"
 @    xaxis  label layout para
 @    xaxis  label place auto
-@    xaxis  label char size 1.000000
+@    xaxis  label char size 1.500000
 @    xaxis  label font 0
 @    xaxis  label color 1
 @    xaxis  label place normal
@@ -177,7 +177,7 @@
 @    xaxis  tick default 6
 @    xaxis  tick place rounded true
 @    xaxis  tick in
-@    xaxis  tick major size 1.000000
+@    xaxis  tick major size 0.750000
 @    xaxis  tick major color 1
 @    xaxis  tick major linewidth 1.0
 @    xaxis  tick major linestyle 1
@@ -186,7 +186,7 @@
 @    xaxis  tick minor linewidth 1.0
 @    xaxis  tick minor linestyle 1
 @    xaxis  tick minor grid off
-@    xaxis  tick minor size 0.500000
+@    xaxis  tick minor size 0.250000
 @    xaxis  ticklabel on
 @    xaxis  ticklabel format general
 @    xaxis  ticklabel prec 5
@@ -206,7 +206,7 @@
 @    xaxis  ticklabel char size 1.000000
 @    xaxis  ticklabel font 0
 @    xaxis  ticklabel color 1
-@    xaxis  tick place both
+@    xaxis  tick place normal
 @    xaxis  tick spec type none
 @    yaxis  on
 @    yaxis  type zero false
@@ -218,7 +218,7 @@
 @    yaxis  label "E (Ha)"
 @    yaxis  label layout para
 @    yaxis  label place auto
-@    yaxis  label char size 1.000000
+@    yaxis  label char size 1.500000
 @    yaxis  label font 0
 @    yaxis  label color 1
 @    yaxis  label place normal
@@ -228,7 +228,7 @@
 @    yaxis  tick default 6
 @    yaxis  tick place rounded true
 @    yaxis  tick in
-@    yaxis  tick major size 1.000000
+@    yaxis  tick major size 0.750000
 @    yaxis  tick major color 1
 @    yaxis  tick major linewidth 1.0
 @    yaxis  tick major linestyle 1
@@ -237,7 +237,7 @@
 @    yaxis  tick minor linewidth 1.0
 @    yaxis  tick minor linestyle 1
 @    yaxis  tick minor grid off
-@    yaxis  tick minor size 0.500000
+@    yaxis  tick minor size 0.250000
 @    yaxis  ticklabel on
 @    yaxis  ticklabel format general
 @    yaxis  ticklabel prec 5
@@ -257,7 +257,7 @@
 @    yaxis  ticklabel char size 1.000000
 @    yaxis  ticklabel font 0
 @    yaxis  ticklabel color 1
-@    yaxis  tick place both
+@    yaxis  tick place normal
 @    yaxis  tick spec type none
 @    altxaxis  off
 @    altyaxis  off
@@ -297,7 +297,7 @@
 @    s0 symbol char 65
 @    s0 symbol char font 0
 @    s0 symbol skip 0
-@    s0 line type 1
+@    s0 line type 0
 @    s0 line linestyle 0
 @    s0 line linewidth 1.0
 @    s0 line color 4
@@ -348,7 +348,7 @@
 @    s1 symbol skip 0
 @    s1 line type 1
 @    s1 line linestyle 1
-@    s1 line linewidth 1.0
+@    s1 line linewidth 2.5
 @    s1 line color 1
 @    s1 line pattern 1
 @    s1 baseline type 0
@@ -446,7 +446,7 @@
 @    s3 symbol skip 0
 @    s3 line type 1
 @    s3 line linestyle 1
-@    s3 line linewidth 1.0
+@    s3 line linewidth 2.5
 @    s3 line color 12
 @    s3 line pattern 1
 @    s3 baseline type 0
@@ -480,6 +480,55 @@
 @    s3 errorbar riser clip length 0.100000
 @    s3 comment "Cols 1:3"
 @    s3 legend  ""
+@    s4 hidden true
+@    s4 type xy
+@    s4 symbol 1
+@    s4 symbol size 0.500000
+@    s4 symbol color 5
+@    s4 symbol pattern 1
+@    s4 symbol fill color 12
+@    s4 symbol fill pattern 1
+@    s4 symbol linewidth 1.0
+@    s4 symbol linestyle 1
+@    s4 symbol char 65
+@    s4 symbol char font 0
+@    s4 symbol skip 0
+@    s4 line type 0
+@    s4 line linestyle 1
+@    s4 line linewidth 1.0
+@    s4 line color 5
+@    s4 line pattern 1
+@    s4 baseline type 0
+@    s4 baseline off
+@    s4 dropline off
+@    s4 fill type 0
+@    s4 fill rule 0
+@    s4 fill color 1
+@    s4 fill pattern 1
+@    s4 avalue off
+@    s4 avalue type 2
+@    s4 avalue char size 1.000000
+@    s4 avalue font 0
+@    s4 avalue color 1
+@    s4 avalue rot 0
+@    s4 avalue format general
+@    s4 avalue prec 3
+@    s4 avalue prepend ""
+@    s4 avalue append ""
+@    s4 avalue offset 0.000000 , 0.000000
+@    s4 errorbar on
+@    s4 errorbar place both
+@    s4 errorbar color 5
+@    s4 errorbar pattern 1
+@    s4 errorbar size 1.000000
+@    s4 errorbar linewidth 1.0
+@    s4 errorbar linestyle 1
+@    s4 errorbar riser linewidth 1.0
+@    s4 errorbar riser linestyle 1
+@    s4 errorbar riser clip off
+@    s4 errorbar riser clip length 0.100000
+@    s4 comment "Cols 1:2"
+@    s4 legend  ""
 #QTGRACE_ADDITIONAL_PARAMETER: ELLIPSE 0 ROT 0
 #QTGRACE_ADDITIONAL_PARAMETER: ELLIPSE 0 ALPHA 255 255
 #QTGRACE_ADDITIONAL_PARAMETER: ELLIPSE 1 ROT 0
@@ -512,6 +561,11 @@
 #QTGRACE_ADDITIONAL_PARAMETER: G 0 S 3 CONNECTERRORBARS 0
 #QTGRACE_ADDITIONAL_PARAMETER: G 0 S 3 IGNOREINAUTOSCALE 0
 #QTGRACE_ADDITIONAL_PARAMETER: G 0 S 3 ALPHA_CHANNELS {255;255;255;255;255;255}
+#QTGRACE_ADDITIONAL_PARAMETER: G 0 S 4 POLYGONEBASESET -1
+#QTGRACE_ADDITIONAL_PARAMETER: G 0 S 4 SHOWERRORBARINLEGEND 0
+#QTGRACE_ADDITIONAL_PARAMETER: G 0 S 4 CONNECTERRORBARS 0
+#QTGRACE_ADDITIONAL_PARAMETER: G 0 S 4 IGNOREINAUTOSCALE 0
+#QTGRACE_ADDITIONAL_PARAMETER: G 0 S 4 ALPHA_CHANNELS {255;255;255;255;255;255}
 #QTGRACE_ADDITIONAL_PARAMETER: AUTOATTACH G 0 0 0
 #QTGRACE_ADDITIONAL_PARAMETER: TITLE_SHIFT G 0 0 0
 #QTGRACE_ADDITIONAL_PARAMETER: SUBTITLE_SHIFT G 0 0 0
@@ -602,4 +656,11 @@
 8 -0.99721992
 9 -0.99712344
 10 -0.99708365
+&
+@target G0.S4
+@type xy
+0.8 -1.0091465
+10 -0.99988257
+1.4008 -1.1671483
+4 -1.0135687
 &

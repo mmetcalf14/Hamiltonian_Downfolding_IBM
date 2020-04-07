@@ -23,7 +23,7 @@ def get_spatial_integrals(one_electron,two_electron,n_o):
         my_ind = [i,j,k,l]
         # perm = permutations(my_ind)
         # perm = pm.perm_unique(my_ind)
-        # print(i,j,k,l)
+        # print(my_ind)
         two_electron_spatial_integrals[i, j, k, l] = val[4]
         if two_electron_spatial_integrals[k, l, i, j] == 0:
             two_electron_spatial_integrals[k, l, i, j] = val[4]
@@ -46,6 +46,32 @@ def get_spatial_integrals(one_electron,two_electron,n_o):
         if two_electron_spatial_integrals[l, k, j, i] == 0:
             two_electron_spatial_integrals[l, k, j, i] = val[4]
             #print('Seventh If: ', [l, k, j, i])
+
+    return one_electron_spatial_integrals, two_electron_spatial_integrals
+
+def get_spatial_integrals_noperm(one_electron,two_electron,n_o):
+    one_electron_spatial_integrals = np.zeros((n_o, n_o))
+    two_electron_spatial_integrals = np.zeros((n_o, n_o, n_o, n_o))
+    # populating a one-e spatial hamiltonian
+    for ind, val in enumerate(one_electron):
+        # This is because python index starts at 0
+        i = int(val[0] - 1)
+        j = int(val[1] - 1)
+        one_electron_spatial_integrals[i, j] = val[2]
+        if i != j:
+            one_electron_spatial_integrals[j, i] = val[2]
+
+    # populating a two-electron spatial hamiltonian
+    for ind, val in enumerate(two_electron):
+        i = int(val[0]-1)
+        j = int(val[1]-1)
+        k = int(val[2]-1)
+        l = int(val[3]-1)
+        my_ind = [i,j,k,l]
+        # perm = permutations(my_ind)
+        # perm = pm.perm_unique(my_ind)
+        # print(my_ind)
+        two_electron_spatial_integrals[i, j, k, l] = val[4]
 
     return one_electron_spatial_integrals, two_electron_spatial_integrals
 
@@ -118,7 +144,7 @@ def trunctate_spatial_integrals(one_electron, two_electron, trunc):
     return one_electron,two_electron
 
 
-def convert_to_spin_index(one_electron, two_electron,n_o, thresh):
+def convert_to_spin_index(one_electron, two_electron, n_o):
     h1 = np.block([[one_electron, np.zeros((int(n_o), int(n_o)))],
                    [np.zeros((int(n_o), int(n_o))), one_electron]])
     h2 = np.zeros((2 * n_o, 2 * n_o, 2 * n_o, 2 * n_o))
@@ -176,3 +202,23 @@ def explicit_calc_fromAAGPaper(one_electron, n_o, two_electron_data):
     h2[0,1,2,3] = two_electron_data[1][4]
 
     return h1, 0.5*h2
+
+def freeze_core(qmolecule, orbitals_list):
+    num_alpha = qmolecule.num_alpha
+    num_beta = qmolecule.num_beta
+    new_num_alpha = num_alpha
+    new_num_beta = num_beta
+    freeze_list =[]
+    if len(orbitals_list) > 0:
+        orbitals_list = np.array(orbitals_list)
+        orbitals_list = orbitals_list[(orbitals_list >= 0) & (orbitals_list < qmolecule.num_orbitals)]
+
+        freeze_list_alpha = [i for i in orbitals_list if i < num_alpha]
+        freeze_list_beta = [i for i in orbitals_list if i < num_beta]
+        freeze_list = np.append(freeze_list_alpha, [i + qmolecule.num_orbitals for i in freeze_list_beta])
+
+        new_num_alpha -= len(freeze_list_alpha)
+        new_num_beta -= len(freeze_list_beta)
+
+    new_num_particles = new_num_beta+new_num_alpha
+    return freeze_list, new_num_particles
