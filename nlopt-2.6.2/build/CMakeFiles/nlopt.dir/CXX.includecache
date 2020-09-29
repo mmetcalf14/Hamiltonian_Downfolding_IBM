@@ -1,0 +1,212 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/api/nlopt.h
+stddef.h
+-
+
+../src/util/nlopt-util.h
+stdlib.h
+-
+stdarg.h
+-
+math.h
+-
+nlopt_config.h
+../src/util/nlopt_config.h
+nlopt.h
+../src/util/nlopt.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/ags.cc
+ags.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/ags.h
+solver.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/solver.hpp
+iostream
+-
+cstring
+-
+exception
+-
+limits
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/ags.h
+nlopt-util.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/nlopt-util.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/data_types.hpp
+stdexcept
+-
+string
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/evolvent.cc
+evolvent.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/evolvent.hpp
+cassert
+-
+cmath
+-
+algorithm
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/evolvent.hpp
+vector
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/local_optimizer.cc
+local_optimizer.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/local_optimizer.hpp
+cmath
+-
+algorithm
+-
+limits
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/local_optimizer.hpp
+data_types.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/data_types.hpp
+memory
+-
+vector
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/solver.cc
+solver.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/solver.hpp
+algorithm
+-
+cmath
+-
+iostream
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/solver.hpp
+data_types.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/data_types.hpp
+evolvent.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/evolvent.hpp
+local_optimizer.hpp
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/ags/local_optimizer.hpp
+vector
+-
+memory
+-
+queue
+-
+set
+-
+functional
+-
+limits
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/global.cc
+iostream
+-
+iterator
+-
+algorithm
+-
+stack
+-
+stogo_config.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/stogo_config.h
+global.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/global.h
+local.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/local.h
+nlopt-util.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/nlopt-util.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/global.h
+nlopt-util.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/nlopt-util.h
+queue
+-
+tools.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/tools.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/linalg.cc
+iostream
+-
+math.h
+-
+linalg.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/linalg.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/linalg.h
+iostream
+-
+math.h
+-
+float.h
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/local.cc
+iostream
+-
+stdlib.h
+-
+stogo_config.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/stogo_config.h
+global.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/global.h
+local.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/local.h
+tools.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/tools.h
+nlopt.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/nlopt.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/local.h
+tools.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/tools.h
+global.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/global.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/stogo.cc
+stogo.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/stogo.h
+global.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/global.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/stogo.h
+nlopt-util.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/nlopt-util.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/stogo_config.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/tools.cc
+float.h
+-
+iostream
+-
+stogo_config.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/stogo_config.h
+tools.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/tools.h
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/tools.h
+float.h
+-
+iostream
+-
+algorithm
+-
+iterator
+-
+list
+-
+linalg.h
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/src/algs/stogo/linalg.h
+
+nlopt_config.h
+

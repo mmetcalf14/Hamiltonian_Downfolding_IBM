@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/api/nlopt.h
+stddef.h
+-
+
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/test/t_tutorial.cxx
+iostream
+-
+vector
+-
+iomanip
+-
+nlopt.hpp
+-
+
+nlopt.hpp
+nlopt.h
+-
+vector
+-
+stdexcept
+-
+new
+-
+cstdlib
+-
+cstring
+-
+cmath
+-
+
