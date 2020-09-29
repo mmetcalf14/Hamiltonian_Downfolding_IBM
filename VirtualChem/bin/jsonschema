@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/HamiltonianDownfolding_w_IBM/VirtualChem/bin/python3" "$0" "$@"
+'''exec' "/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/VirtualChem/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

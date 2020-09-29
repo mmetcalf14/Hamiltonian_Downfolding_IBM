@@ -17,8 +17,9 @@
 
 
 #include "framework/utils.hpp"
-#include "simulators/densitymatrix/densitymatrix.hpp"
+#include "simulators/density_matrix/densitymatrix.hpp"
 
+namespace AER {
 namespace QV {
 
 //============================================================================
@@ -53,7 +54,7 @@ public:
   //-----------------------------------------------------------------------
   
   // Set the size of the vector in terms of qubit number
-  virtual void set_num_qubits(size_t num_qubits) override;
+  void set_num_qubits(size_t num_qubits);
 
   // Returns the number of qubits for the superoperator
   virtual uint_t num_qubits() const override {return num_qubits_;}
@@ -138,12 +139,13 @@ void Superoperator<data_t>::initialize_from_matrix(const AER::cmatrix_t &mat) {
 
 //------------------------------------------------------------------------------
 } // end namespace QV
+} // end namespace AER
 //------------------------------------------------------------------------------
 
 // ostream overload for templated qubitvector
 template <typename data_t>
-inline std::ostream &operator<<(std::ostream &out, const QV::Superoperator<data_t>&m) {
-  out << m.matrix();
+inline std::ostream &operator<<(std::ostream &out, const AER::QV::Superoperator<data_t>&m) {
+  out << m.copy_to_matrix();
   return out;
 }
 

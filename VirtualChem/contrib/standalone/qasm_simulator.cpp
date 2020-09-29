@@ -17,9 +17,15 @@
 #include <iostream>
 #include <string>
 
+#ifdef _MSC_VER
+#include <intrin.h>
+#elif defined(__GNUC__)
+#include <cpuid.h>
+#endif
+
 #include "version.hpp"
 // Simulator
-#include "simulators/qasm/qasm_controller.hpp"
+#include "controllers/qasm_controller.hpp"
 
 /*******************************************************************************
  *
@@ -49,19 +55,20 @@ enum class CmdArguments {
 };
 
 inline CmdArguments parse_cmd_options(const std::string& argv){
-  if(argv == "-v" || argv == "--version"){
+  if(argv == "-v" || argv == "--version")
     return CmdArguments::SHOW_VERSION;
-  } else if (argv == "-c" || argv == "--config"){
+
+  if (argv == "-c" || argv == "--config")
     return CmdArguments::INPUT_CONFIG;
-  }
+
   return CmdArguments::INPUT_DATA;
 }
 
 inline void show_version(){
   std::cout << "Qiskit Aer: "
-  << MAJOR_VERSION << "."
-  << MINOR_VERSION << "."
-  << PATCH_VERSION << "\n";
+  << AER_MAJOR_VERSION << "."
+  << AER_MINOR_VERSION << "."
+  << AER_PATCH_VERSION << "\n";
 }
 
 inline void failed(const std::string &msg, std::ostream &o = std::cout,
@@ -92,14 +99,14 @@ int main(int argc, char **argv) {
   json_t qobj;
   json_t config;
 
-  if(argc == 1){
-    usage(std::string(argv[0]), out);
+  if(argc == 1){ // NOLINT
+    usage(std::string(argv[0]), out); // NOLINT
     return 1;
   }
-  
+
   // Parse command line options
-  for(auto pos = 1ul; pos < static_cast<unsigned int>(argc); ++pos){
-    auto option = parse_cmd_options(std::string(argv[pos]));
+  for(auto pos = 1UL; pos < static_cast<unsigned int>(argc); ++pos){ // NOLINT
+    auto option = parse_cmd_options(std::string(argv[pos])); // NOLINT
     switch(option){
       case CmdArguments::SHOW_VERSION:
         show_version();
@@ -119,7 +126,7 @@ int main(int argc, char **argv) {
         break;
       case CmdArguments::INPUT_DATA:
         try {
-          qobj = JSON::load(std::string(argv[pos]));
+          qobj = JSON::load(std::string(argv[pos])); // NOLINT
           pos = argc; //Exit from the loop
         }catch(std::exception &e){
           std::string msg = "Invalid input (" +  std::string(e.what()) + ")";
@@ -136,17 +143,17 @@ int main(int argc, char **argv) {
     // Check for command line config
     // and if present add to qobj config
     json_t& config_all = qobj["config"];
-    if (!config.empty())
+    if (!config.empty()) // NOLINT
       config_all.update(config.begin(), config.end());
 
     // Initialize simulator
     AER::Simulator::QasmController sim;
-    auto result = sim.execute(qobj);
+    auto result = sim.execute(qobj).to_json();
     out << result.dump(4) << std::endl;
 
-    // Check if execution was succesful.
+    // Check if execution was successful.
     bool success = false;
-    std::string status = "";
+    std::string status;
     JSON::get_value(success, "success", result);
     JSON::get_value(status, "status", result);
     if (!success) {

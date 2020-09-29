@@ -21,12 +21,26 @@
 
 #include "framework/utils.hpp"
 #include "framework/json.hpp"
-#include "base/state.hpp"
+#include "simulators/state.hpp"
 #include "superoperator.hpp"
 
 
 namespace AER {
 namespace QubitSuperoperator {
+
+// OpSet of supported instructions
+const Operations::OpSet StateOpSet(
+  // Op types
+  {Operations::OpType::gate, Operations::OpType::reset,
+    Operations::OpType::snapshot, Operations::OpType::barrier,
+    Operations::OpType::matrix, Operations::OpType::diagonal_matrix,
+    Operations::OpType::kraus, Operations::OpType::superop},
+  // Gates
+  {"U", "CX", "u1", "u2", "u3", "cx", "cz", "swap", "id", "x", "y",
+    "z", "h", "s", "sdg", "t", "tdg", "ccx"},
+  // Snapshots
+  {"superoperator"}
+);
 
 // Allowed gates enum class
 enum class Gates {
@@ -47,7 +61,7 @@ class State : public Base::State<data_t> {
 public:
   using BaseState = Base::State<data_t>;
 
-  State() = default;
+  State() : BaseState(StateOpSet) {}
   virtual ~State() = default;
 
   //-----------------------------------------------------------------------
@@ -57,34 +71,10 @@ public:
   // Return the string name of the State class
   virtual std::string name() const override {return "superoperator";}
 
-  // Return the set of qobj instruction types supported by the State
-  virtual Operations::OpSet::optypeset_t allowed_ops() const override {
-    return Operations::OpSet::optypeset_t({
-      Operations::OpType::gate,
-      Operations::OpType::reset,
-      Operations::OpType::snapshot,
-      Operations::OpType::barrier,
-      Operations::OpType::matrix,
-      Operations::OpType::kraus,
-      Operations::OpType::superop
-    });
-  }
-
-  // Return the set of qobj gate instruction names supported by the State
-  virtual stringset_t allowed_gates() const override {
-    return {"U", "CX", "u1", "u2", "u3", "cx", "cz", "swap",
-            "id", "x", "y", "z", "h", "s", "sdg", "t", "tdg", "ccx"};
-  }
-
-  // Return the set of qobj snapshot types supported by the State
-  virtual stringset_t allowed_snapshots() const override {
-    return {"superoperator"};
-  }
-
   // Apply a sequence of operations by looping over list
   // If the input is not in allowed_ops an exeption will be raised.
   virtual void apply_ops(const std::vector<Operations::Op> &ops,
-                         OutputData &data,
+                         ExperimentData &data,
                          RngEngine &rng) override;
 
   // Initializes an n-qubit unitary to the identity matrix
@@ -129,7 +119,7 @@ protected:
 
   // Apply a supported snapshot instruction
   // If the input is not in allowed_snapshots an exeption will be raised.
-  virtual void apply_snapshot(const Operations::Op &op, OutputData &data);
+  virtual void apply_snapshot(const Operations::Op &op, ExperimentData &data);
 
   // Apply a matrix to given qubits (identity on all other qubits)
   void apply_matrix(const reg_t &qubits, const cmatrix_t & mat);
@@ -216,7 +206,7 @@ const stringmap_t<Gates> State<data_t>::gateset_({
 
 template <class data_t>
 void State<data_t>::apply_ops(const std::vector<Operations::Op> &ops,
-                                  OutputData &data,
+                                  ExperimentData &data,
                                   RngEngine &rng) {
   // Simple loop over vector of input operations
   for (const auto op: ops) {
@@ -233,6 +223,9 @@ void State<data_t>::apply_ops(const std::vector<Operations::Op> &ops,
         break;
       case Operations::OpType::matrix:
         apply_matrix(op.qubits, op.mats[0]);
+        break;
+      case Operations::OpType::diagonal_matrix:
+        BaseState::qreg_.apply_diagonal_matrix(op.qubits, op.params);
         break;
       case Operations::OpType::kraus:
         apply_kraus(op.qubits, op.mats);
@@ -340,13 +333,8 @@ void State<data_t>::apply_reset(const reg_t &qubits) {
 template <class statevec_t>
 void State<statevec_t>::apply_kraus(const reg_t &qubits,
                                     const std::vector<cmatrix_t> &kmats) {
-  // Convert to Superoperator
-  const auto nrows = kmats[0].GetRows();
-  cmatrix_t superop(nrows * nrows, nrows * nrows);
-  for (const auto kraus : kmats) {
-    superop += Utils::tensor_product(Utils::conjugate(kraus), kraus);
-  }
-  BaseState::qreg_.apply_superop_matrix(qubits, Utils::vectorize_matrix(superop));
+  BaseState::qreg_.apply_superop_matrix(qubits,
+    Utils::vectorize_matrix(Utils::kraus_superop(kmats)));
 }
 
 //=========================================================================
@@ -462,7 +450,7 @@ void State<statevec_t>::apply_gate_u3(const uint_t qubit,
 
 template <class data_t>
 void State<data_t>::apply_snapshot(const Operations::Op &op,
-                                   OutputData &data) {
+                                   ExperimentData &data) {
   // Look for snapshot type in snapshotset
   if (op.name == "superopertor" || op.name == "state") {
     BaseState::snapshot_state(op, data, "superoperator");

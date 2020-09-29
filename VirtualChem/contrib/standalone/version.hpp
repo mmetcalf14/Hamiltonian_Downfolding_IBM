@@ -12,6 +12,6 @@
  * that they have been altered from the originals.
  */
 
-#define MAJOR_VERSION 0
-#define MINOR_VERSION 3
-#define PATCH_VERSION 0
+#define AER_MAJOR_VERSION 0
+#define AER_MINOR_VERSION 6
+#define AER_PATCH_VERSION 1

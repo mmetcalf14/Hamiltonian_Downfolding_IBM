@@ -24,6 +24,7 @@
 #include "framework/types.hpp"
 #include "framework/json.hpp"
 #include "framework/utils.hpp"
+#include "framework/linalg/almost_equal.hpp"
 
 namespace AER {
 namespace Operations {
@@ -36,7 +37,8 @@ enum class RegComparison {Equal, NotEqual, Less, LessEqual, Greater, GreaterEqua
 // Enum class for operation types
 enum class OpType {
   gate, measure, reset, bfunc, barrier, snapshot,
-  matrix, multiplexer, kraus, superop, roerror, noise_switch, initialize
+  matrix, diagonal_matrix, multiplexer, kraus, superop, roerror,
+  noise_switch, initialize, nop
 };
 
 inline std::ostream& operator<<(std::ostream& stream, const OpType& type) {
@@ -60,7 +62,10 @@ inline std::ostream& operator<<(std::ostream& stream, const OpType& type) {
     stream << "snapshot";
     break;
   case OpType::matrix:
-    stream << "matrix";
+    stream << "unitary";
+    break;
+  case OpType::diagonal_matrix:
+    stream << "diagonal";
     break;
   case OpType::multiplexer:
     stream << "multiplexer";
@@ -79,6 +84,9 @@ inline std::ostream& operator<<(std::ostream& stream, const OpType& type) {
     break;
   case OpType::initialize:
     stream << "initialize";
+    break;
+  case OpType::nop:
+    stream << "nop";
     break;
   default:
     stream << "unknown";
@@ -156,199 +164,6 @@ inline std::ostream& operator<<(std::ostream& s, const Op& op) {
   return s;
 }
 
-//=========================================================================
-// OpSet Class
-//=========================================================================
-
-// This class is used to store type information about a set of operations.
-class OpSet {
-private:
-  // Hash function so that we can use an enum class as a std::unordered_set
-  // key on older C++11 compilers like GCC 5.
-  struct EnumClassHash {
-    template <typename T> size_t operator()(T t) const {
-      return static_cast<size_t>(t);
-    }
-  };
-
-public:
-  // Alias for set of OpTypes
-  using optypeset_t = std::unordered_set<Operations::OpType, EnumClassHash>;
-
-  // Public data members
-  optypeset_t optypes;     // A set of op types
-  stringset_t gates;      // A set of names for OpType::gates
-  stringset_t snapshots;  // set of types for OpType::snapshot
-
-  OpSet() = default;
-  OpSet(const std::vector<Op> &ops) {insert(ops);}
-
-  //-----------------------------------------------------------------------
-  // Insert operations to the OpSet
-  //-----------------------------------------------------------------------
-
-  // Add another opset to the current one
-  void insert(const OpSet& opset);
-
-  // Add additional op to the opset
-  void insert(const Op &op);
-  
-  // Add additional ops to the opset
-  void insert(const std::vector<Op> &ops);
-
-  //-----------------------------------------------------------------------
-  // Validate OpSet against sets of allowed operations
-  //-----------------------------------------------------------------------
-
-  // Return True if opset ops, gates and snapshots are contained in
-  // allowed_ops, allowed_gates, allowed_snapshots
-  bool validate(const optypeset_t &allowed_ops,
-                const stringset_t &allowed_gates,
-                const stringset_t &allowed_snapshots) const;
-
-  // Return True if opset ops are contained in allowed_ops
-  bool validate_optypes(const optypeset_t &allowed_ops) const;
-
-  // Return True if opset gates are contained in allowed_gate
-  bool validate_gates(const stringset_t &allowed_gates) const;
-
-  // Return True if opset snapshots are contained in allowed_snapshots
-  bool validate_snapshots(const stringset_t &allowed_snapshots) const;
-
-  //-----------------------------------------------------------------------
-  // Return OpSet operations invalid for a set of allowed operations
-  //-----------------------------------------------------------------------
-
-  // Return a set of all invalid circuit op names
-  optypeset_t invalid_optypes(const optypeset_t &allowed_ops) const;
-
-  // Return a set of all invalid circuit op names
-  stringset_t invalid_gates(const stringset_t &allowed_gates) const;
-  
-  // Return a set of all invalid circuit op names
-  stringset_t invalid_snapshots(const stringset_t &allowed_snapshots) const;
-};
-
-inline std::ostream& operator<<(std::ostream& s, const OpSet& opset) {
-  s << "optypes={";
-  bool first = true;
-  for (OpType optype: opset.optypes) {
-    if (first)
-      first = false;
-    else
-      s << ",";
-    s << optype;
-  }
-  s << "}, gates={";
-  first = true;
-  for (const std::string& gate: opset.gates) {
-    if (first)
-      first = false;
-    else
-      s << ",";
-    s << gate;
-  }
-  s << "}, snapshots={";
-  first = true;
-  for (const std::string& snapshot: opset.snapshots) {
-    if (first)
-      first = false;
-    else
-      s << ",";
-    s << snapshot;
-  }
-  s << "}";
-  return s;
-}
-
-//------------------------------------------------------------------------------
-// OpSet class methods
-//------------------------------------------------------------------------------
-
-void OpSet::insert(const Op &op) {
-  optypes.insert(op.type);
-  if (op.type == OpType::gate)
-    gates.insert(op.name);
-  if (op.type == OpType::snapshot)
-    snapshots.insert(op.name);
-}
-
-void OpSet::insert(const std::vector<Op> &ops) {
-  for (const auto &op : ops)
-    insert(op);
-}
-
-
-void OpSet::insert(const OpSet &opset) {
-  optypes.insert(opset.optypes.begin(),
-                  opset.optypes.end());
-  gates.insert(opset.gates.begin(),
-                opset.gates.end());
-  snapshots.insert(opset.snapshots.begin(),
-                    opset.snapshots.end());
-}
-
-bool OpSet::validate(const optypeset_t &allowed_ops,
-                     const stringset_t &allowed_gates,
-                     const stringset_t &allowed_snapshots) const {
-  return validate_optypes(allowed_ops) &&
-         validate_gates(allowed_gates) &&
-         validate_snapshots(allowed_snapshots);
-}
-
-bool OpSet::validate_optypes(const optypeset_t &allowed_ops) const {
-  for (const auto &op : optypes) {
-    if (allowed_ops.find(op) == allowed_ops.end())
-      return false;
-  }
-  return true;
-}
-
-bool OpSet::validate_gates(const stringset_t &allowed_gates) const {
-  for (const auto &gate : gates) {
-    if (allowed_gates.find(gate) == allowed_gates.end())
-      return false;
-  }
-  return true;
-}
-
-bool OpSet::validate_snapshots(const stringset_t &allowed_snapshots) const {
-  for (const auto &snap : snapshots) {
-    if (allowed_snapshots.find(snap) == allowed_snapshots.end())
-      return false;
-  }
-  return true;
-}
-
-// Return a set of all invalid circuit op names
-OpSet::optypeset_t OpSet::invalid_optypes(const optypeset_t &allowed_ops) const {
-  optypeset_t invalid;
-  for (const auto &op : optypes) {
-    if (allowed_ops.find(op) == allowed_ops.end())
-      invalid.insert(op);
-  }
-  return invalid;                    
-}
-
-stringset_t OpSet::invalid_gates(const stringset_t &allowed_gates) const {
-  stringset_t invalid;
-  for (const auto &gate : gates) {
-     if (allowed_gates.find(gate) == allowed_gates.end())
-      invalid.insert(gate);
-  }
-  return invalid;
-}
-
-stringset_t OpSet::invalid_snapshots(const stringset_t &allowed_snapshots) const {
-  stringset_t invalid;
-  for (const auto &snap : snapshots) {
-     if (allowed_snapshots.find(snap) == allowed_snapshots.end())
-      invalid.insert(snap);
-  }
-  return invalid;
-}
-
-
 //------------------------------------------------------------------------------
 // Error Checking
 //------------------------------------------------------------------------------
@@ -356,28 +171,28 @@ stringset_t OpSet::invalid_snapshots(const stringset_t &allowed_snapshots) const
 // Raise an exception if name string is empty
 inline void check_empty_name(const Op &op) {
   if (op.name.empty())
-    throw std::invalid_argument("Invalid qobj instruction (\"name\" is empty).");
+    throw std::invalid_argument(R"(Invalid qobj instruction ("name" is empty).)");
 }
 
 // Raise an exception if qubits list is empty
 inline void check_empty_qubits(const Op &op) {
   if (op.qubits.empty())
-    throw std::invalid_argument("Invalid qobj \"" + op.name + 
-                                "\" instruction (\"qubits\" is empty).");
+    throw std::invalid_argument(R"(Invalid qobj ")" + op.name +
+                                R"(" instruction ("qubits" is empty).)");
 }
 
 // Raise an exception if params is empty
 inline void check_empty_params(const Op &op) {
   if (op.params.empty())
-    throw std::invalid_argument("Invalid qobj \"" + op.name + 
-                                "\" instruction (\"params\" is empty).");
+    throw std::invalid_argument(R"(Invalid qobj ")" + op.name +
+                                R"(" instruction ("params" is empty).)");
 }
 
 // Raise an exception if params is empty
 inline void check_length_params(const Op &op, const size_t size) {
   if (op.params.size() != size)
-    throw std::invalid_argument("Invalid qobj \"" + op.name + 
-                                "\" instruction (\"params\" is incorrect length)");
+    throw std::invalid_argument(R"(Invalid qobj ")" + op.name +
+                                R"(" instruction ("params" is incorrect length).)");
 }
 
 // Raise an exception if qubits list contains duplications
@@ -385,8 +200,8 @@ inline void check_duplicate_qubits(const Op &op) {
   auto cpy = op.qubits;
   std::unique(cpy.begin(), cpy.end());
   if (cpy != op.qubits)
-    throw std::invalid_argument("Invalid qobj \"" + op.name + 
-                                "\" instruction (\"qubits\" are not unique)");
+    throw std::invalid_argument(R"(Invalid qobj ")" + op.name +
+                                R"(" instruction ("qubits" are not unique).)");
 }
 
 //------------------------------------------------------------------------------
@@ -410,18 +225,6 @@ inline Op make_superop(const reg_t &qubits, const cmatrix_t &mat) {
   op.name = "superop";
   op.qubits = qubits;
   op.mats = {mat};
-  return op;
-}
-
-inline Op make_fusion(const reg_t &qubits, const cmatrix_t &mat, const std::vector<Op>& fusioned_ops, std::string label = "") {
-  Op op;
-  op.type = OpType::matrix;
-  op.name = "fusion";
-  op.qubits = qubits;
-  op.mats = {mat};
-  if (label != "")
-    op.string_params = {label};
-
   return op;
 }
 
@@ -472,13 +275,13 @@ inline Op make_multiplexer(const reg_t &qubits,
 
   // Check matrices are N-qubit
   auto dim = mats[0].GetRows();
-  uint_t num_targets = uint_t(std::log2(dim));
+  auto num_targets = static_cast<uint_t>(std::log2(dim));
   if (1ULL << num_targets != dim) {
     throw std::invalid_argument("invalid multiplexer matrix dimension.");
   }
   // Check number of matrix compents is power of 2.
   size_t num_mats = mats.size();
-  uint_t num_controls = uint_t(std::log2(num_mats));
+  auto num_controls = static_cast<uint_t>(std::log2(num_mats));
   if (1ULL << num_controls != num_mats) {
     throw std::invalid_argument("invalid number of multiplexer matrices.");
   }
@@ -560,6 +363,7 @@ Op json_to_op_snapshot_pauli(const json_t &js);
 
 // Matrices
 Op json_to_op_unitary(const json_t &js);
+Op json_to_op_diagonal(const json_t &js);
 Op json_to_op_superop(const json_t &js);
 Op json_to_op_multiplexer(const json_t &js);
 Op json_to_op_kraus(const json_t &js);
@@ -595,6 +399,8 @@ Op json_to_op(const json_t &js) {
   // Arbitrary matrix gates
   if (name == "unitary")
     return json_to_op_unitary(js);
+  if (name == "diagonal" || name == "diag")
+    return json_to_op_diagonal(js);
   if (name == "superop")
     return json_to_op_superop(js);
   // Snapshot
@@ -723,10 +529,10 @@ Op json_to_op_measure(const json_t &js) {
   check_empty_qubits(op);
   check_duplicate_qubits(op);
   if (op.memory.empty() == false && op.memory.size() != op.qubits.size()) {
-    throw std::invalid_argument("Invalid measure operation: \"memory\" and \"qubits\" are different lengths.");
+    throw std::invalid_argument(R"(Invalid measure operation: "memory" and "qubits" are different lengths.)");
   }
   if (op.registers.empty() == false && op.registers.size() != op.qubits.size()) {
-    throw std::invalid_argument("Invalid measure operation: \"register\" and \"qubits\" are different lengths.");
+    throw std::invalid_argument(R"(Invalid measure operation: "register" and "qubits" are different lengths.)");
   }
   return op;
 }
@@ -865,6 +671,35 @@ Op json_to_op_unitary(const json_t &js) {
   return op;
 }
 
+Op json_to_op_diagonal(const json_t &js) {
+  Op op;
+  op.type = OpType::diagonal_matrix;
+  op.name = "diagonal";
+  JSON::get_value(op.qubits, "qubits", js);
+  JSON::get_value(op.params, "params", js);
+
+  // Validation
+  check_empty_qubits(op);
+  check_duplicate_qubits(op);
+  if (op.params.size() != 1ULL << op.qubits.size()) {
+    throw std::invalid_argument("\"diagonal\" matrix is wrong size.");
+  }
+  for (const auto val : op.params) {
+    if (!Linalg::almost_equal(std::abs(val), 1.0, 1e-7)) {
+      throw std::invalid_argument("\"diagonal\" matrix is not unitary.");
+    }
+  }
+
+  // Check for a label
+  std::string label;
+  JSON::get_value(label, "label", js);
+  op.string_params.push_back(label);
+
+  // Conditional
+  add_condtional(Allowed::Yes, op, js);
+  return op;
+}
+
 Op json_to_op_superop(const json_t &js) {
   // Warning: we don't check superoperator is valid!
   Op op;
@@ -950,7 +785,7 @@ Op json_to_op_snapshot_default(const json_t &js) {
   JSON::get_value(op.name, "type", js); // LEGACY: to remove in 0.3
   JSON::get_value(op.name, "snapshot_type", js);
   // If missing use "default" for label
-  op.string_params.push_back("default");
+  op.string_params.emplace_back("default");
   JSON::get_value(op.string_params[0], "label", js);
   // Add optional qubits field
   JSON::get_value(op.qubits, "qubits", js);
@@ -969,7 +804,7 @@ Op json_to_op_snapshot_pauli(const json_t &js) {
   check_duplicate_qubits(op);
 
   // Parse Pauli operator components
-  const auto threshold = 1e-10; // drop small components
+  const auto threshold = 1e-15; // drop small components
   // Get components
   if (JSON::check_key("params", js) && js["params"].is_array()) {
     for (const auto &comp : js["params"]) {
@@ -992,11 +827,20 @@ Op json_to_op_snapshot_pauli(const json_t &js) {
                                       "(Pauli label does not match qubit number.).");
         }
         // make tuple and add to components
-        op.params_expval_pauli.push_back(std::make_pair(coeff, pauli));
+        op.params_expval_pauli.emplace_back(coeff, pauli);
       } // end if > threshold
     } // end component loop
   } else {
     throw std::invalid_argument("Invalid Pauli snapshot \"params\".");
+  }
+  // Check edge case of all coefficients being empty
+  // In this case the operator had all coefficients zero, or sufficiently close
+  // to zero that they were all truncated.
+  if (op.params_expval_pauli.empty()) {
+    // Add a single identity op with zero coefficient
+    std::string pauli(op.qubits.size(), 'I');
+    complex_t coeff(0);
+    op.params_expval_pauli.emplace_back(coeff, pauli);
   }
   return op;
 }
@@ -1024,7 +868,6 @@ Op json_to_op_snapshot_matrix(const json_t &js) {
           throw std::invalid_argument("Invalid matrix expval snapshot (param component " + 
                                       comp.dump() + " invalid).");
         }
-        Op::matrix_component_t param;
         for (const auto &subcomp : comp[1]) {
           if (!subcomp.is_array() || subcomp.size() != 2) {
             throw std::invalid_argument("Invalid matrix expval snapshot (param component " + 
@@ -1033,14 +876,15 @@ Op json_to_op_snapshot_matrix(const json_t &js) {
           reg_t comp_qubits = subcomp[0];
           cmatrix_t comp_matrix = subcomp[1];
           // Check qubits are ok
+          // TODO: check that qubits are in range from 0 to Num of Qubits - 1 for instr
           std::unordered_set<uint_t> unique = {comp_qubits.begin(), comp_qubits.end()};
           if (unique.size() != comp_qubits.size()) {
             throw std::invalid_argument("Invalid matrix expval snapshot (param component " + 
                                         comp.dump() + " invalid).");
           }
-          mats.push_back(std::make_pair(comp_qubits, comp_matrix));
+          mats.emplace_back(comp_qubits, comp_matrix);
         }
-        op.params_expval_matrix.push_back(std::make_pair(coeff, mats));
+        op.params_expval_matrix.emplace_back(coeff, mats);
       }
     } // end component loop
   } else {
