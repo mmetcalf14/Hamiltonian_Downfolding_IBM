@@ -99,6 +99,7 @@ class NVARFORM(VariationalForm):
 
         for el in coeff_and_pauli:
             unique_vals_dict[el[0]].append(el[1])
+
         return unique_vals_dict
 
 
@@ -107,7 +108,7 @@ class NVARFORM(VariationalForm):
         # excitations = [1, 3, 4, 6, 8, 9, 10, 13, 15]
         excitations = [3, 4, 6, 8, 10, 13, 15]
         # excitations=[6]
-        param = [3, 6, 9, 12, 18, 24, 33, 36, 48, 66, 72, 96, 129, 132, 144, 192]
+        # param = [3, 6, 9, 12, 18, 24, 33, 36, 48, 66, 72, 96, 129, 132, 144, 192]
         # singles_excitations = [1, 4, 6, 9]
 
         param = 1e-8 * np.random.rand(7)
@@ -120,7 +121,22 @@ class NVARFORM(VariationalForm):
 
         return unitary_matrix
 
+    def construct_single_param_unitary_lst(self, parameters):
+        unitary_matrix = np.zeros((16, 16))
+        broken_down_unitary_lst = []
+
+        excitations = [3, 4, 6, 8, 10, 13, 15]
+        parameter = 1e-8 * np.random.rand(7)
+
+        for i in range(len(parameter)):
+            unitary_matrix[excitations[i]][0], unitary_matrix[0][excitations[i]] = parameter[1], -parameter[i]
+            broken_down_unitary_lst.append(unitary_matrix)
+            unitary_matrix = np.zeros((16, 16))
+        return broken_down_unitary_lst
+
+
     def pauli_decomp(self, parameters):
+        deconstructed_unitary_lst = self.construct_single_param_unitary_lst(parameters)
         unitary_matrix = self.construct_unitary(parameters)
         input_array_lst = []
         pauli_basis = []
@@ -136,25 +152,44 @@ class NVARFORM(VariationalForm):
                 norm = np.sqrt(np.sum(np.square(pauli.to_matrix())))
                 pauli_basis.append(pauli)
 
+        grouped_paulis = []
+
         "Get non zero elements"
-        nonzero_pauli = []
-        for pauli in pauli_basis:
-            norm = np.sqrt(np.sum(np.square(pauli.to_matrix())))
-            if norm is complex:
-                ham_pauli_prod = np.dot(-1j * unitary_matrix, pauli.to_matrix())
-            else:
-                ham_pauli_prod = np.dot(unitary_matrix, pauli.to_matrix())
-            trace = np.trace(ham_pauli_prod)
-            if trace != complex(0, 0):
-                # if trace.imag > 1e-12:
-                #     trace *= -1j
-                nonzero_pauli.append([trace / 4, pauli])
-                coeff.append(trace / 4)
-            # print("nonzero pauli",nonzero_pauli)
-        self.unique_coeff = np.unique(np.array(coeff)).tolist()
+        for unitary in deconstructed_unitary_lst:
+            nonzero_pauli = []
+            for pauli in pauli_basis:
+                norm = np.sqrt(np.sum(np.square(pauli.to_matrix())))
+                if norm is complex:
+                    ham_pauli_prod = np.dot(-1j * unitary, pauli.to_matrix())
+                else:
+                    ham_pauli_prod = np.dot(unitary, pauli.to_matrix())
+                trace = np.trace(ham_pauli_prod)
+                if trace != complex(0, 0):
+                    # if trace.imag > 1e-12:
+                    #     trace *= -1j
+                    nonzero_pauli.append([trace / 4, pauli])
+                    coeff.append(trace / 4)
+            grouped_paulis.append(nonzero_pauli)
+        print("grouped pualis", grouped_paulis)
+                # print("nonzero pauli",nonzero_pauli)
 
-        return nonzero_pauli
+        # nonzero_pauli = []
+        # for pauli in pauli_basis:
+        #     norm = np.sqrt(np.sum(np.square(pauli.to_matrix())))
+        #     if norm is complex:
+        #         ham_pauli_prod = np.dot(-1j * unitary_matrix, pauli.to_matrix())
+        #     else:
+        #         ham_pauli_prod = np.dot(unitary_matrix, pauli.to_matrix())
+        #     trace = np.trace(ham_pauli_prod)
+        #     if trace != complex(0, 0):
+        #         # if trace.imag > 1e-12:
+        #         #     trace *= -1j
+        #         nonzero_pauli.append([trace / 4, pauli])
+        #         coeff.append(trace / 4)
+        #     # print("nonzero pauli",nonzero_pauli)
+        # self.unique_coeff = np.unique(np.array(coeff)).tolist()
 
+        return grouped_paulis
 
 
     def construct_circuit(self, parameters, q=None):
@@ -162,18 +197,29 @@ class NVARFORM(VariationalForm):
         print("parameters ",parameters)
         pauli_ops = self.pauli_decomp(parameters)
         print("pauliops ",pauli_ops)
-        print(self.unique_coeff_paulis(self.unique_coeff, pauli_ops))
-        qubit_op = WeightedPauliOperator(pauli_ops)
-        qubit_op = qubit_op * -1j
+        print(self.unique_coeff)
+        # print(self.unique_coeff_paulis(self.unique_coeff, pauli_ops))
+
+        param_and_op_lst = []
+        for i in range(len(parameters)):
+            qubit_op = WeightedPauliOperator(pauli_ops[i])
+            qubit_op = qubit_op * -1j
+            param_and_op_lst.append((qubit_op, parameters[i]))
+
+        print("param and op list",param_and_op_lst)
+
+
+        # qubit_op = WeightedPauliOperator(pauli_ops)
+        # qubit_op = qubit_op * -1j
 
         if q is None:
             q = QuantumRegister(self._num_qubits, name='q')
 
         circuit = QuantumCircuit(q)
 
-        param_and_op_lst = []
-        for param in parameters:
-            param_and_op_lst.append((qubit_op, param))
+        # param_and_op_lst = []
+        # for param in parameters:
+        #     param_and_op_lst.append((qubit_op, param))
 
         result = parallel_map(NVARFORM._construct_circuit_for_each_param,
                               param_and_op_lst, task_args=(q, self._num_time_slices),
