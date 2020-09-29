@@ -23,7 +23,6 @@ from qiskit.quantum_info.operators.predicates import ATOL_DEFAULT, RTOL_DEFAULT
 
 from ..noiseerror import NoiseError
 from .errorutils import qubits_from_mat
-from ...utils.helpers import deprecation
 
 
 class ReadoutError:
@@ -31,35 +30,44 @@ class ReadoutError:
     Readout error class for Qiskit Aer noise model.
     """
     # pylint: disable=invalid-name
-    ATOL = ATOL_DEFAULT
-    RTOL = RTOL_DEFAULT
-    MAX_TOL = 1e-4
+    _ATOL_DEFAULT = ATOL_DEFAULT
+    _RTOL_DEFAULT = RTOL_DEFAULT
+    _MAX_TOL = 1e-4
 
     def __init__(self, probabilities, atol=ATOL_DEFAULT):
         """
         Create a readout error for a noise model.
 
+        For an N-qubit readout error probabilities are entered as vectors:
+
+        .. code-block:: python
+
+            probabilities[j] = [P(0|m), P(1|m), ..., P(2 ** N - 1|m)]
+
+        where ``P(j|m)`` is the probability of recording a measurement outcome
+        of ``m`` as the value ``j``. Where ``j`` and ``m`` are integer
+        representations of bit-strings.
+
+        **Example: 1-qubit**
+
+        .. code-block:: python
+
+            probabilities[0] = [P("0"|"0"), P("1"|"0")]
+            probabilities[1] = [P("0"|"1"), P("1"|"1")]
+
+        **Example: 2-qubit**
+
+        .. code-block:: python
+
+            probabilities[0] = [P("00"|"00"), P("01"|"00"), P("10"|"00"), P("11"|"00")]
+            probabilities[1] = [P("00"|"01"), P("01"|"01"), P("10"|"01"), P("11"|"01")]
+            probabilities[2] = [P("00"|"10"), P("01"|"10"), P("10"|"10"), P("11"|"10")]
+            probabilities[3] = [P("00"|"11"), P("01"|"11"), P("10"|"11"), P("11"|"11")]
+
         Args:
             probabilities (matrix): List of outcome assignment probabilities.
             atol (double): Threshold for checking probabilities are normalized
-                           [Default: 1e-8]
-
-        Additional Information:
-            For an N-qubit readout error probabilites are entered as vectors:
-                probabilities[j] = [P(j|0), P(j|1), ..., P(j|2 ** N - 1)]
-            where P(j|m) is the probability of recording a measurement outcome
-            of `m` as the value `j`. Where `j` and `m` are integer
-            representations of bitstrings.
-
-            Example: 1-qubit
-                probabilities[0] = [P("0"|"0"), P("1"|"0")
-                probabilities[1] = [P("0"|"1"), P("1"|"1")
-
-            Example: 2-qubit
-                probabilities[0] = [P("00"|"00"), P("01"|"00"), P("10"|"00"), P("11"|"00")]
-                probabilities[1] = [P("00"|"01"), P("01"|"01"), P("10"|"01"), P("11"|"01")]
-                probabilities[1] = [P("00"|"10"), P("01"|"10"), P("10"|"10"), P("11"|"10")]
-                probabilities[1] = [P("00"|"11"), P("01"|"11"), P("10"|"11"), P("11"|"11")]
+                           (Default: 1e-8).
         """
         self._check_probabilities(probabilities, atol)
         self._probabilities = np.array(probabilities, dtype=float)
@@ -104,35 +112,37 @@ class ReadoutError:
 
     @property
     def atol(self):
-        """The absolute tolerence parameter for float comparisons."""
-        return self.ATOL
-
-    @atol.setter
-    def atol(self, atol):
-        """Set the absolute tolerence parameter for float comparisons."""
-        max_tol = self.MAX_TOL
-        if atol < 0:
-            raise NoiseError("Invalid atol: must be non-negative.")
-        if atol > max_tol:
-            raise NoiseError(
-                "Invalid atol: must be less than {}.".format(max_tol))
-        self.ATOL = atol
+        """The default absolute tolerance parameter for float comparisons."""
+        return ReadoutError._ATOL_DEFAULT
 
     @property
     def rtol(self):
-        """The relative tolerence parameter for float comparisons."""
-        return self.RTOL
+        """The relative tolerance parameter for float comparisons."""
+        return ReadoutError._RTOL_DEFAULT
 
-    @rtol.setter
-    def rtol(self, rtol):
-        """Set the relative tolerence parameter for float comparisons."""
-        max_tol = self.MAX_TOL
-        if rtol < 0:
-            raise NoiseError("Invalid rtol: must be non-negative.")
-        if rtol > max_tol:
+    @classmethod
+    def set_atol(cls, value):
+        """Set the class default absolute tolerance parameter for float comparisons."""
+        if value < 0:
             raise NoiseError(
-                "Invalid rtol: must be less than {}.".format(max_tol))
-        self.RTOL = rtol
+                "Invalid atol ({}) must be non-negative.".format(value))
+        if value > cls._MAX_TOL:
+            raise NoiseError(
+                "Invalid atol ({}) must be less than {}.".format(
+                    value, cls._MAX_TOL))
+        cls._ATOL_DEFAULT = value
+
+    @classmethod
+    def set_rtol(cls, value):
+        """Set the class default relative tolerance parameter for float comparisons."""
+        if value < 0:
+            raise NoiseError(
+                "Invalid rtol ({}) must be non-negative.".format(value))
+        if value > cls._MAX_TOL:
+            raise NoiseError(
+                "Invalid rtol ({}) must be less than {}.".format(
+                    value, cls._MAX_TOL))
+        cls._RTOL_DEFAULT = value
 
     def ideal(self):
         """Return True if current error object is an identity"""
@@ -143,18 +153,8 @@ class ReadoutError:
         return False
 
     def to_instruction(self):
-        """Convet the ReadoutError to a circuit Instruction."""
+        """Convert the ReadoutError to a circuit Instruction."""
         return Instruction("roerror", 0, self.number_of_qubits, self._probabilities)
-
-    def as_dict(self):
-        """
-        DEPRECATED: Use to_dict()
-        Returns:
-            dict: The current error as a dictionary.
-        """
-        deprecation("ReadoutError::as_dict() method is deprecated and will be removed after 0.3."
-                    "Use '.to_dict()' instead")
-        return self.to_dict()
 
     def to_dict(self):
         """Return the current error as a dictionary."""
@@ -166,13 +166,15 @@ class ReadoutError:
         return error
 
     def compose(self, other, front=False):
-        """Return the composition readout error self∘other.
+        """Return the composition readout error other * self.
+
+        Note that for `front=True` this is equivalent to the
+        :meth:`ReadoutError.dot` method.
 
         Args:
             other (ReadoutError): a readout error.
-            front (bool): If False compose in standard order other(self(input))
-                          otherwise compose in reverse order self(other(input))
-                          [default: False]
+            front (bool): If True return the reverse order composation
+                          self * other instead [default: False].
 
         Returns:
             ReadoutError: The composition readout error.
@@ -181,15 +183,24 @@ class ReadoutError:
             NoiseError: if other is not a ReadoutError or has incompatible
             dimensions.
         """
-        if not isinstance(other, ReadoutError):
-            other = ReadoutError(other)
-        if self.number_of_qubits != other.number_of_qubits:
-            raise NoiseError("other must have same number of qubits.")
         if front:
-            probs = np.dot(self._probabilities, other._probabilities)
-        else:
-            probs = np.dot(other._probabilities, self._probabilities)
-        return ReadoutError(probs)
+            return self._matmul(other)
+        return self._matmul(other, left_multiply=True)
+
+    def dot(self, other):
+        """Return the composition readout error self * other.
+
+        Args:
+            other (ReadoutError): a readout error.
+
+        Returns:
+            ReadoutError: The composition readout error.
+
+        Raises:
+            NoiseError: if other is not a ReadoutError or has incompatible
+            dimensions.
+        """
+        return self._matmul(other)
 
     def power(self, n):
         """Return the compose of the readout error with itself n times.
@@ -265,6 +276,30 @@ class ReadoutError:
                     "Invalid probabilities: {} "
                     "contains a negative probability.".format(vec))
 
+    def _matmul(self, other, left_multiply=False):
+        """Return the composition readout error.
+
+        Args:
+            other (ReadoutError): a readout error.
+            left_multiply (bool): If True return other * self
+                                  If False return self * other [Default:False]
+        Returns:
+            ReadoutError: The composition readout error.
+
+        Raises:
+            NoiseError: if other is not a ReadoutError or has incompatible
+            dimensions.
+        """
+        if not isinstance(other, ReadoutError):
+            other = ReadoutError(other)
+        if self.number_of_qubits != other.number_of_qubits:
+            raise NoiseError("other must have same number of qubits.")
+        if left_multiply:
+            probs = np.dot(other._probabilities, self._probabilities)
+        else:
+            probs = np.dot(self._probabilities, other._probabilities)
+        return ReadoutError(probs)
+
     def _tensor_product(self, other, reverse=False):
         """Return the tensor product readout error.
 
@@ -282,3 +317,33 @@ class ReadoutError:
         else:
             probs = np.kron(self._probabilities, other._probabilities)
         return ReadoutError(probs)
+
+    # Overloads
+    def __matmul__(self, other):
+        return self.compose(other)
+
+    def __mul__(self, other):
+        return self.dot(other)
+
+    def __pow__(self, n):
+        return self.power(n)
+
+    def __xor__(self, other):
+        return self.tensor(other)
+
+    def __rmul__(self, other):
+        raise NotImplementedError(
+            "'ReadoutError' does not support scalar multiplication.")
+
+    def __truediv__(self, other):
+        raise NotImplementedError("'ReadoutError' does not support division.")
+
+    def __add__(self, other):
+        raise NotImplementedError("'ReadoutError' does not support addition.")
+
+    def __sub__(self, other):
+        raise NotImplementedError(
+            "'ReadoutError' does not support subtraction.")
+
+    def __neg__(self):
+        raise NotImplementedError("'ReadoutError' does not support negation.")

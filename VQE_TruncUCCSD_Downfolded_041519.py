@@ -92,7 +92,7 @@ quantum_instance = QuantumInstance(shots=2**10, backend=backend1)
 #Li2_cc-pVTZ_4_ORBITALS_Li2-4_ORBITALS-ccpVTZ-2_1384
 root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
 NW_data_file = str(root_dir+'h2_ccpvtz_ccsd_0_80au.yaml')
-# NW_data_file = str('H2.yaml')
+#NW_data_file = str('H2.yaml')
 #OE_data_file = str(root_dir+ 'h2_ccpvtz_ccsd_0_80au.FOCK')
 # NW_data_file = 'H2.yaml'
 doc_nw = open(NW_data_file,'r')
@@ -169,17 +169,17 @@ qm.mo_eri_ints = two_electron_spatial_integrals
 print('Getting Pauli Operator')
 fop = FermionicOperator(h1, h2)
 qop_paulis = fop.mapping(map_type)
-print(fop.modes)
-# print(qop_paulis.to_matrix_operator().matrix)
+#print(fop.modes)
+print(qop_paulis.to_matrix_operator().matrix)
 
-
-if map_type == 'parity':
-    two_qubit_reduction = True
-    n_qubits = n_orbitals - 2
-    qop_paulis = Z2Symmetries.two_qubit_reduction(qop_paulis, n_particles)
-else:
-    two_qubit_reduction = False
-    n_qubits = n_orbitals
+#
+# if map_type == 'parity':
+#     two_qubit_reduction = True
+#     n_qubits = n_orbitals - 2
+#     qop_paulis = Z2Symmetries.two_qubit_reduction(qop_paulis, n_particles)
+# else:
+#     two_qubit_reduction = False
+#     n_qubits = n_orbitals
 
 # z2_symmetries = Z2Symmetries.find_Z2_symmetries(qop_paulis)
 # symm, sq_pauli, sq_list = symmetries_4_8qbit_jwmap()
@@ -240,11 +240,11 @@ else:
 # active_virt_list = active_virt_list.tolist()
 #print('Orbitals {} are unoccupied'.format(active_virt_list))
 ###########################################################
-init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type,two_qubit_reduction=two_qubit_reduction)
-
-var_op = UCCSD(num_qubits=n_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles,
-               initial_state=init_state, qubit_mapping=map_type, two_qubit_reduction=two_qubit_reduction,
-               mp2_reduction=False, singles_deletion=False)
+# init_state = HartreeFock(n_qubits, n_orbitals, n_particles, map_type,two_qubit_reduction=two_qubit_reduction)
+#
+# var_op = UCCSD(num_qubits=n_qubits, depth=1, num_orbitals=n_orbitals, num_particles=n_particles,
+#                initial_state=init_state, qubit_mapping=map_type, two_qubit_reduction=two_qubit_reduction,
+#                mp2_reduction=False, singles_deletion=False)
 # Unitaries with symmetries
 # init_state = HartreeFock(num_qubits=the_tapered_op.num_qubits, num_orbitals=n_orbitals, num_particles=n_particles,
 #                          qubit_mapping=map_type,two_qubit_reduction=two_qubit_reduction, sq_list=the_tapered_op.z2_symmetries.sq_list)

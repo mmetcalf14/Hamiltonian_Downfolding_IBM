@@ -10,7 +10,9 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-"""Standard error module for Qiskit Aer."""
+"""
+Errors for qiskit-aer noise models.
+"""
 
 from .readout_error import ReadoutError
 from .quantum_error import QuantumError

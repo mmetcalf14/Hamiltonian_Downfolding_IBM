@@ -21,8 +21,11 @@
 
 #include "framework/utils.hpp"
 #include "framework/json.hpp"
-#include "base/state.hpp"
+#include "simulators/state.hpp"
 #include "qubitvector.hpp"
+#ifdef AER_THRUST_SUPPORTED
+#include "qubitvector_thrust.hpp"
+#endif
 
 
 namespace AER {
@@ -44,7 +47,7 @@ enum class Snapshots {
 };
 
 // Enum class for different types of expectation values
-enum class SnapshotDataType {average, average_var, single_shot};
+enum class SnapshotDataType {average, average_var, pershot};
 
 //=========================================================================
 // QubitVector State subclass
@@ -63,7 +66,7 @@ public:
   //-----------------------------------------------------------------------
 
   // Return the string name of the State class
-  virtual std::string name() const override {return "statevector";}
+  virtual std::string name() const override {return statevec_t::name();}
 
   // Return the set of qobj instruction types supported by the State
   virtual Operations::OpSet::optypeset_t allowed_ops() const override {
@@ -77,6 +80,7 @@ public:
       Operations::OpType::bfunc,
       Operations::OpType::roerror,
       Operations::OpType::matrix,
+      Operations::OpType::diagonal_matrix,
       Operations::OpType::multiplexer,
       Operations::OpType::kraus
     });
@@ -84,9 +88,9 @@ public:
 
   // Return the set of qobj gate instruction names supported by the State
   virtual stringset_t allowed_gates() const override {
-    return {"u1", "u2", "u3", "cx", "cz", "cy", "cu1", "swap",
-            "id", "x", "y", "z", "h", "s", "sdg", "t", "tdg", "ccx",
-            "mcx", "mcz", "mcy", "mcz", "mcu1", "mcu2", "mcu3", "mcswap"};
+    return {"u1", "u2", "u3", "cx", "cz", "cy", "cu1", "cu2", "cu3", "swap", 
+            "id", "x", "y", "z", "h", "s", "sdg", "t", "tdg", "ccx", "cswap",
+            "mcx", "mcy", "mcz", "mcu1", "mcu2", "mcu3", "mcswap"};
   }
 
   // Return the set of qobj snapshot types supported by the State
@@ -103,7 +107,7 @@ public:
   }
 
   // Apply a sequence of operations by looping over list
-  // If the input is not in allowed_ops an exeption will be raised.
+  // If the input is not in allowed_ops an exception will be raised.
   virtual void apply_ops(const std::vector<Operations::Op> &ops,
                          ExperimentData &data,
                          RngEngine &rng) override;
@@ -230,6 +234,11 @@ protected:
   // should be left in the pre-snapshot state.
   //-----------------------------------------------------------------------
 
+  // Snapshot current amplitudes
+  void snapshot_statevector(const Operations::Op &op,
+                            ExperimentData &data,
+                            SnapshotDataType type);
+
   // Snapshot current qubit probabilities for a measurement (average)
   void snapshot_probabilities(const Operations::Op &op,
                               ExperimentData &data,
@@ -311,16 +320,20 @@ const stringmap_t<Gates> State<statevec_t>::gateset_({
   {"cy", Gates::mcy},        // Controlled-Y gate
   {"cz", Gates::mcz},        // Controlled-Z gate
   {"cu1", Gates::mcu1},      // Controlled-u1 gate
+  {"cu2", Gates::mcu2},      // Controlled-u2 gate
+  {"cu3", Gates::mcu3},      // Controlled-u3 gate
   {"swap", Gates::mcswap},   // SWAP gate
-  {"mcswap", Gates::mcswap}, // Multi-controlled SWAP gate
+  // 3-qubit gates
+  {"ccx", Gates::mcx},       // Controlled-CX gate (Toffoli)
+  {"cswap", Gates::mcswap},  // Controlled SWAP gate (Fredkin)
   // Multi-qubit controlled gates
-  {"ccx", Gates::mcx},   // Controlled-CX gate (Toffoli)
-  {"mcx", Gates::mcx},   // Multi-controlled-X gate
-  {"mcy", Gates::mcy},   // Multi-controlled-Y gate
-  {"mcz", Gates::mcz},   // Multi-controlled-Z gate
-  {"mcu1", Gates::mcu1}, // Multi-controlled-u1
-  {"mcu2", Gates::mcu2}, // Multi-controlled-u2
-  {"mcu3", Gates::mcu3}  // Multi-controlled-u3
+  {"mcx", Gates::mcx},      // Multi-controlled-X gate
+  {"mcy", Gates::mcy},      // Multi-controlled-Y gate
+  {"mcz", Gates::mcz},      // Multi-controlled-Z gate
+  {"mcu1", Gates::mcu1},    // Multi-controlled-u1
+  {"mcu2", Gates::mcu2},    // Multi-controlled-u2
+  {"mcu3", Gates::mcu3},    // Multi-controlled-u3
+  {"mcswap", Gates::mcswap} // Multi-controlled SWAP gate
 
 });
 
@@ -394,8 +407,6 @@ template <class statevec_t>
 size_t State<statevec_t>::required_memory_mb(uint_t num_qubits,
                                              const std::vector<Operations::Op> &ops)
                                              const {
-  // An n-qubit state vector as 2^n complex doubles
-  // where each complex double is 16 bytes
   (void)ops; // avoid unused variable compiler warning
   return BaseState::qreg_.required_memory_mb(num_qubits);
 }
@@ -457,6 +468,9 @@ void State<statevec_t>::apply_ops(const std::vector<Operations::Op> &ops,
         case Operations::OpType::matrix:
           apply_matrix(op);
           break;
+        case Operations::OpType::diagonal_matrix:
+          BaseState::qreg_.apply_diagonal_matrix(op.qubits, op.params);
+          break;
         case Operations::OpType::multiplexer:
           apply_multiplexer(op.regs[0], op.regs[1], op.mats); // control qubits ([0]) & target qubits([1])
           break;
@@ -487,7 +501,7 @@ void State<statevec_t>::apply_snapshot(const Operations::Op &op,
                                 op.name + "\'.");
   switch (it -> second) {
     case Snapshots::statevector:
-      BaseState::snapshot_state(op, data, "statevector");
+      data.add_pershot_snapshot("statevector", op.string_params[0], BaseState::qreg_.vector());
       break;
     case Snapshots::cmemory:
       BaseState::snapshot_creg_memory(op, data);
@@ -516,10 +530,10 @@ void State<statevec_t>::apply_snapshot(const Operations::Op &op,
       snapshot_matrix_expval(op, data, SnapshotDataType::average_var);
     }  break;
     case Snapshots::expval_pauli_shot: {
-      snapshot_pauli_expval(op, data, SnapshotDataType::single_shot);
+      snapshot_pauli_expval(op, data, SnapshotDataType::pershot);
     } break;
     case Snapshots::expval_matrix_shot: {
-      snapshot_matrix_expval(op, data, SnapshotDataType::single_shot);
+      snapshot_matrix_expval(op, data, SnapshotDataType::pershot);
     }  break;
     default:
       // We shouldn't get here unless there is a bug in the snapshotset
@@ -604,8 +618,8 @@ void State<statevec_t>::snapshot_pauli_expval(const Operations::Op &op,
       data.add_average_snapshot("expectation_value", op.string_params[0],
                             BaseState::creg_.memory_hex(), expval, true);
       break;
-    case SnapshotDataType::single_shot:
-      data.add_singleshot_snapshot("expectation_values", op.string_params[0], expval);
+    case SnapshotDataType::pershot:
+      data.add_pershot_snapshot("expectation_values", op.string_params[0], expval);
       break;
   }
   // Revert to original state
@@ -664,8 +678,8 @@ void State<statevec_t>::snapshot_matrix_expval(const Operations::Op &op,
       data.add_average_snapshot("expectation_value", op.string_params[0],
                             BaseState::creg_.memory_hex(), expval, true);
       break;
-    case SnapshotDataType::single_shot:
-      data.add_singleshot_snapshot("expectation_values", op.string_params[0], expval);
+    case SnapshotDataType::pershot:
+      data.add_pershot_snapshot("expectation_values", op.string_params[0], expval);
       break;
   }
   // Revert to original state

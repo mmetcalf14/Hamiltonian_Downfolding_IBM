@@ -76,19 +76,19 @@ def standard_gate_instruction(instruction, ignore_phase=True):
         return [instruction]
 
     # Check single qubit gates
-    mat_dagger = np.conj(params[0])
+    mat = params[0]
     if len(qubits) == 1:
         # Check clifford gates
         for j in range(24):
             if matrix_equal(
-                    mat_dagger,
+                    mat,
                     single_qubit_clifford_matrix(j),
                     ignore_phase=ignore_phase):
                 return single_qubit_clifford_instructions(j, qubit=qubits[0])
         # Check t gates
         for name in ["t", "tdg"]:
             if matrix_equal(
-                    mat_dagger,
+                    mat,
                     standard_gate_unitary(name),
                     ignore_phase=ignore_phase):
                 return [{"name": name, "qubits": qubits}]
@@ -97,13 +97,13 @@ def standard_gate_instruction(instruction, ignore_phase=True):
     if len(qubits) == 2:
         for name in ["cx", "cz", "swap"]:
             if matrix_equal(
-                    mat_dagger,
+                    mat,
                     standard_gate_unitary(name),
                     ignore_phase=ignore_phase):
                 return [{"name": name, "qubits": qubits}]
         # Check reversed CX
         if matrix_equal(
-                mat_dagger,
+                mat,
                 standard_gate_unitary("cx_10"),
                 ignore_phase=ignore_phase):
             return [{"name": "cx", "qubits": [qubits[1], qubits[0]]}]
@@ -114,7 +114,7 @@ def standard_gate_instruction(instruction, ignore_phase=True):
                 pmat = np.kron(
                     standard_gate_unitary(pauli1),
                     standard_gate_unitary(pauli0))
-                if matrix_equal(mat_dagger, pmat, ignore_phase=ignore_phase):
+                if matrix_equal(mat, pmat, ignore_phase=ignore_phase):
                     if pauli0 == "id":
                         return [{"name": pauli1, "qubits": [qubits[1]]}]
                     elif pauli1 == "id":
@@ -130,12 +130,12 @@ def standard_gate_instruction(instruction, ignore_phase=True):
     # Check three qubit toffoli
     if len(qubits) == 3:
         if matrix_equal(
-                mat_dagger,
+                mat,
                 standard_gate_unitary("ccx_012"),
                 ignore_phase=ignore_phase):
             return [{"name": "ccx", "qubits": qubits}]
         if matrix_equal(
-                mat_dagger,
+                mat,
                 standard_gate_unitary("ccx_021"),
                 ignore_phase=ignore_phase):
             return [{
@@ -143,7 +143,7 @@ def standard_gate_instruction(instruction, ignore_phase=True):
                 "qubits": [qubits[0], qubits[2], qubits[1]]
             }]
         if matrix_equal(
-                mat_dagger,
+                mat,
                 standard_gate_unitary("ccx_120"),
                 ignore_phase=ignore_phase):
             return [{
@@ -156,7 +156,7 @@ def standard_gate_instruction(instruction, ignore_phase=True):
 
 
 def single_qubit_clifford_gates(j):
-    """Return a QASM gate names for a single qubit clifford.
+    """Return a QASM gate names for a single qubit Clifford.
 
     The labels are returned in a basis set consisting of
     ('id', 's', 'sdg', 'z', 'h', x', 'y') gates decomposed to
@@ -211,7 +211,7 @@ def single_qubit_clifford_gates(j):
 
 
 def single_qubit_clifford_matrix(j):
-    """Return Numpy array for a single qubit clifford.
+    """Return Numpy array for a single qubit Clifford.
 
     Args:
         j (int): Clifford index 0, ..., 23.
@@ -244,7 +244,7 @@ def single_qubit_clifford_matrix(j):
 
 # pylint: disable=invalid-name
 def single_qubit_clifford_instructions(index, qubit=0):
-    """Return a list of qobj instructions for a single qubit cliffords.
+    """Return a list of qobj instructions for a single qubit Cliffords.
 
     The instructions are returned in a basis set consisting of
     ('id', 's', 'sdg', 'z', 'h', x', 'y') gates decomposed to
@@ -557,6 +557,7 @@ def kraus2instructions(kraus_ops, standard_gates, atol=ATOL_DEFAULT):
     for mat in kraus_ops:
         # Get the value of the maximum diagonal element
         # of op.H * op for rescaling
+        # pylint: disable=no-member
         prob = abs(max(np.diag(np.conj(np.transpose(mat)).dot(mat))))
         if prob > 0.0:
             if abs(prob - 1) > 0.0:

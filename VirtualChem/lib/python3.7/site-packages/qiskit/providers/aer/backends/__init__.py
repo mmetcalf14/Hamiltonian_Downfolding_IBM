@@ -10,8 +10,11 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-"""Aer Backends."""
+"""
+Aer Provider Simulator Backends
+"""
 
 from .qasm_simulator import QasmSimulator
 from .statevector_simulator import StatevectorSimulator
 from .unitary_simulator import UnitarySimulator
+from .pulse_simulator import PulseSimulator

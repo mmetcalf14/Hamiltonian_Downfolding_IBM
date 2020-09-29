@@ -16,10 +16,11 @@
 
 import os
 from collections import OrderedDict
+from typing import Dict, Tuple
 
 from .credentials import Credentials
+from .hubgroupproject import HubGroupProject
 
-# Dictionary that maps `ENV_VARIABLE_NAME` to credential parameter.
 VARIABLES_MAP = {
     'QE_TOKEN': 'token',
     'QE_URL': 'url',
@@ -27,25 +28,25 @@ VARIABLES_MAP = {
     'QE_GROUP': 'group',
     'QE_PROJECT': 'project'
 }
+"""Dictionary that maps `ENV_VARIABLE_NAME` to credential parameter."""
 
 
-def read_credentials_from_environ():
-    """Read the environment variables and return its credentials.
+def read_credentials_from_environ() -> Dict[HubGroupProject, Credentials]:
+    """Extract credentials from the environment variables.
 
     Returns:
-        dict: dictionary with the credentials, in the form::
-
-            {credentials_unique_id: Credentials}
+        A dictionary containing the credentials, in the
+        ``{credentials_unique_id: Credentials}`` format.
     """
     # The token is the only required parameter.
     if not (os.getenv('QE_TOKEN') and os.getenv('QE_URL')):
         return OrderedDict()
 
     # Build the credentials based on environment variables.
-    credentials = {}
+    credentials_dict = {}
     for envar_name, credential_key in VARIABLES_MAP.items():
         if os.getenv(envar_name):
-            credentials[credential_key] = os.getenv(envar_name)
+            credentials_dict[credential_key] = os.getenv(envar_name)
 
-    credentials = Credentials(**credentials)
+    credentials = Credentials(**credentials_dict)  # type: ignore[arg-type]
     return OrderedDict({credentials.unique_id(): credentials})

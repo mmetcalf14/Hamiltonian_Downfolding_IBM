@@ -33,6 +33,8 @@ class ApiJobStatus(enum.Enum):
     VALIDATED = 'VALIDATED'
     RUNNING = 'RUNNING'
     COMPLETED = 'COMPLETED'
+    PENDING_IN_QUEUE = 'PENDING_IN_QUEUE'
+    QUEUED = 'QUEUED'
 
     CANCELLED = 'CANCELLED'
     ERROR_CREATING_JOB = 'ERROR_CREATING_JOB'
@@ -54,3 +56,12 @@ class ApiJobKind(enum.Enum):
     QOBJECT = 'q-object'
     QOBJECT_STORAGE = 'q-object-external-storage'
     CIRCUIT = 'q-circuit'
+
+
+class ApiJobShareLevel(enum.Enum):
+    """Possible values used by the API for job share levels."""
+    GLOBAL = 'global'
+    HUB = 'hub'
+    GROUP = 'group'
+    PROJECT = 'project'
+    NONE = 'none'

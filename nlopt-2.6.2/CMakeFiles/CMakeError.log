@@ -1,0 +1,21 @@
+Performing C SOURCE FILE Test HAVE_THREAD_LOCAL_STORAGE failed with the following output:
+Change Dir: /Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_aeead/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_aeead.dir/build.make CMakeFiles/cmTC_aeead.dir/build
+Building C object CMakeFiles/cmTC_aeead.dir/src.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -DHAVE_THREAD_LOCAL_STORAGE -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_aeead.dir/src.c.o   -c "/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/CMakeFiles/CMakeTmp/src.c"
+/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/nlopt-2.6.2/CMakeFiles/CMakeTmp/src.c:2:5: error: '__declspec' attributes are not enabled; use '-fdeclspec' or '-fms-extensions' to enable support for __declspec attributes
+    __declspec(thread) int tls;
+    ^
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_aeead.dir/src.c.o] Error 1
+make: *** [cmTC_aeead/fast] Error 2
+
+
+Source file was:
+
+    __declspec(thread) int tls;
+
+    int main(void) {
+        return 0;
+    }

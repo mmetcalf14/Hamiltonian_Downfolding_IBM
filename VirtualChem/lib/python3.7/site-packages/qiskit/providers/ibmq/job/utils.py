@@ -12,48 +12,42 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-"""Utilities for working with IBM Q Jobs."""
+"""Utilities for working with IBM Quantum Experience jobs."""
 
-from datetime import datetime, timezone
+from typing import Dict, List, Generator, Any, Union
+from contextlib import contextmanager
 
+from qiskit.providers.jobstatus import JobStatus
 
-def current_utc_time():
-    """Gets the current time in UTC format.
-
-    Returns:
-        str: current time in UTC format.
-    """
-    datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
+from ..apiconstants import ApiJobStatus
+from ..api.exceptions import ApiError
+from .exceptions import IBMQJobApiError
 
 
-def is_job_queued(api_job_status_response):
-    """Checks whether a job has been queued or not.
-
-    Args:
-        api_job_status_response (dict): status response of the job.
-
-    Returns:
-        Pair[boolean, int]: a pair indicating if the job is queued and in which
-            position.
-    """
-    is_queued, position = False, 0
-    if 'infoQueue' in api_job_status_response:
-        if 'status' in api_job_status_response['infoQueue']:
-            queue_status = api_job_status_response['infoQueue']['status']
-            is_queued = queue_status == 'PENDING_IN_QUEUE'
-        if 'position' in api_job_status_response['infoQueue']:
-            position = api_job_status_response['infoQueue']['position']
-    return is_queued, position
+API_TO_JOB_STATUS = {
+    ApiJobStatus.CREATING: JobStatus.INITIALIZING,
+    ApiJobStatus.CREATED: JobStatus.INITIALIZING,
+    ApiJobStatus.VALIDATING: JobStatus.VALIDATING,
+    ApiJobStatus.VALIDATED: JobStatus.VALIDATING,
+    ApiJobStatus.RUNNING: JobStatus.RUNNING,
+    ApiJobStatus.PENDING_IN_QUEUE: JobStatus.QUEUED,
+    ApiJobStatus.QUEUED: JobStatus.QUEUED,
+    ApiJobStatus.COMPLETED: JobStatus.DONE,
+    ApiJobStatus.CANCELLED: JobStatus.CANCELLED,
+    ApiJobStatus.ERROR_CREATING_JOB: JobStatus.ERROR,
+    ApiJobStatus.ERROR_VALIDATING_JOB: JobStatus.ERROR,
+    ApiJobStatus.ERROR_RUNNING_JOB: JobStatus.ERROR
+}
 
 
-def build_error_report(results):
-    """Build an user-friendly error report for a failed job.
+def build_error_report(results: List[Dict[str, Any]]) -> str:
+    """Build a user-friendly error report for a failed job.
 
     Args:
-        results (dict): result section of the job response.
+        results: Result section of the job response.
 
     Returns:
-        str: the error report.
+        The error report.
     """
     error_list = []
     for index, result in enumerate(results):
@@ -62,3 +56,39 @@ def build_error_report(results):
 
     error_report = 'The following experiments failed:\n{}'.format('\n'.join(error_list))
     return error_report
+
+
+def api_status_to_job_status(api_status: Union[str, ApiJobStatus]) -> JobStatus:
+    """Return the corresponding job status for the input server job status.
+
+    Args:
+        api_status: Server job status.
+
+    Returns:
+        Job status.
+    """
+    if isinstance(api_status, str):
+        api_status = ApiJobStatus(api_status)
+    return API_TO_JOB_STATUS[api_status]
+
+
+def get_cancel_status(cancel_response: Dict[str, Any]) -> bool:
+    """Return whether the cancel response represents a successful job cancel.
+
+    Args:
+        cancel_response: The response received from the server after
+            cancelling a job.
+
+    Returns:
+        Whether the job cancel is successful.
+    """
+    return 'error' not in cancel_response and cancel_response.get('cancelled', False)
+
+
+@contextmanager
+def api_to_job_error() -> Generator[None, None, None]:
+    """Convert an ``ApiError`` to an ``IBMQJobApiError``."""
+    try:
+        yield
+    except ApiError as api_err:
+        raise IBMQJobApiError(str(api_err)) from api_err

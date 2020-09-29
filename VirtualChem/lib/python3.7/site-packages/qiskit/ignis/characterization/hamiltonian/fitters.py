@@ -12,12 +12,20 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
+# pylint: disable=invalid-name
+
+
 """
 Fitters for hamiltonian parameters
 """
 
 import numpy as np
-from .. import BaseCoherenceFitter
+try:
+    from matplotlib import pyplot as plt
+    HAS_MATPLOTLIB = True
+except ImportError:
+    HAS_MATPLOTLIB = False
+from ..fitters import BaseCoherenceFitter
 
 
 class ZZFitter(BaseCoherenceFitter):
@@ -50,9 +58,10 @@ class ZZFitter(BaseCoherenceFitter):
         Return the ZZ rate from the fit of the two curves
 
         Args:
-            qind: qubit index to return (-1 return all)
+            qind (int): qubit index to return (-1 return all)
 
-        return a list of zz_rates
+        Returns:
+            list: a list of zz_rates
         """
 
         freq0 = self._get_param(1, qind, series='0', err=False)
@@ -66,14 +75,20 @@ class ZZFitter(BaseCoherenceFitter):
         Plot ZZ data. Will plot both traces on the plot.
 
         Args:
-            qind: qubit index to plot
-            ax: plot axes
-            show_plot: call plt.show()
+            qind (int): qubit index to plot
+            ax (Axes): plot axes
+            show_plot (bool): call plt.show()
 
-        return the axes object
+        Returns:
+            Axes: the axes object
+
+        Raises:
+            ImportError: If matplotlib is not installed
         """
-
-        from matplotlib import pyplot as plt
+        if not HAS_MATPLOTLIB:
+            raise ImportError("To plot the ZZ data matplotlib must be "
+                              "and correctly configured. To install run "
+                              "'pip install matplotlib'")
 
         if ax is None:
             plt.figure()

@@ -12,8 +12,9 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-"""Helper for updating credentials from IBM Q Experience v1 to v2."""
+"""Helper for updating IBM Quantum Experience credentials from v1 to v2."""
 
+from typing import Optional
 from .credentials import Credentials
 from .configrc import (read_credentials_from_qiskitrc,
                        remove_credentials,
@@ -29,31 +30,26 @@ QCONSOLE2_URL = 'https://api-qcon.quantum-computing.ibm.com/api'
 QE2_AUTH_URL = 'https://auth.quantum-computing.ibm.com/api'
 
 
-def update_credentials(force=False):
+def update_credentials(force: bool = False) -> Optional[Credentials]:
     """Update or provide information about updating stored credentials.
 
     This function is an interactive helper to update credentials stored in
-    disk from IBM Q Experience v1 to v2. Upon invocation, the
+    disk from IBM Quantum Experience v1 to v2. Upon invocation, the
     function will inspect the credentials stored in disk and attempt to
     convert them to the new version, displaying the changes and asking for
     confirmation before overwriting the credentials.
 
-    The function attempts to preserve the existing advanced parameters (such
-    as proxies), but has limited conflict resolution handling. For complex
-    configurations with multiple credentials, an alternative is to directly
-    clear the existing credentials via `IBMQ.delete_accounts()` and recreate
-    the configuration from the instructions at the IBM Q Experience site.
-
     Args:
-        force (bool): if `True`, disable interactive prompts and perform the
+        force: If ``True``, disable interactive prompts and perform the
             changes.
 
     Returns:
-        Credentials: if the updating is possible, credentials for IBM Q
-            Experience version 2; and `None` otherwise.
+        IBM Quantum Experience v2 credentials, if it was possible to make the
+        update. Otherwise ``None``.
     """
     # Get the list of stored credentials.
-    credentials_list = list(read_credentials_from_qiskitrc().values())
+    stored_credentials, _ = read_credentials_from_qiskitrc()
+    credentials_list = list(stored_credentials.values())
 
     new_credentials = []
     hub_lines = []
@@ -146,8 +142,8 @@ def update_credentials(force=False):
     return final_credentials
 
 
-def is_directly_updatable(credentials):
-    """Returns `True` if credentials can be updated directly."""
+def is_directly_updatable(credentials: Credentials) -> bool:
+    """Returns ``True`` if credentials can be updated directly."""
     if credentials.base_url == QE_URL:
         return True
 

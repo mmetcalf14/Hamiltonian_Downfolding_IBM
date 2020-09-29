@@ -14,18 +14,22 @@
 
 """Utilities related to Qobj."""
 
-from qiskit.qobj import QobjHeader
+from typing import Dict, Any, Optional, Union
+
+from qiskit.qobj import QobjHeader, QasmQobj, PulseQobj
+
+from .json_decoder import decode_pulse_qobj
 
 
-def _serialize_noise_model(config):
-    """Traverse the dictionary looking for noise_model keys and apply
-       a transformation so it can be serialized.
+def _serialize_noise_model(config: Dict[str, Any]) -> Dict[str, Any]:
+    """Traverse the dictionary looking for ``noise_model`` keys and apply
+    a transformation so it can be serialized.
 
-       Args:
-           config (dict): The dictionary to traverse
+    Args:
+        config: The dictionary to traverse.
 
-       Returns:
-           dict: The transformed dictionary
+    Returns:
+        The transformed dictionary.
     """
     for k, v in config.items():
         if isinstance(config[k], dict):
@@ -42,16 +46,20 @@ def _serialize_noise_model(config):
     return config
 
 
-def update_qobj_config(qobj, backend_options=None, noise_model=None):
-    """Update a Qobj configuration from options and noise model.
+def update_qobj_config(
+        qobj: Union[QasmQobj, PulseQobj],
+        backend_options: Optional[Dict] = None,
+        noise_model: Any = None
+) -> Union[QasmQobj, PulseQobj]:
+    """Update a ``Qobj`` configuration from backend options and a noise model.
 
     Args:
-        qobj (Qobj): description of job
-        backend_options (dict): backend options
-        noise_model (NoiseModel): noise model
+        qobj: Description of the job.
+        backend_options: Backend options.
+        noise_model: Noise model.
 
     Returns:
-        Qobj: qobj.
+        The updated ``Qobj``.
     """
     config = qobj.config.to_dict()
 
@@ -71,3 +79,18 @@ def update_qobj_config(qobj, backend_options=None, noise_model=None):
     qobj.config = QobjHeader.from_dict(config)
 
     return qobj
+
+
+def dict_to_qobj(qobj_dict: Dict) -> Union[QasmQobj, PulseQobj]:
+    """Convert a Qobj in dictionary format to an instance.
+
+    Args:
+        qobj_dict: Qobj in dictionary format.
+
+    Returns:
+        The corresponding QasmQobj or PulseQobj instance.
+    """
+    if qobj_dict['type'] == 'PULSE':
+        decode_pulse_qobj(qobj_dict)   # Convert to proper types.
+        return PulseQobj.from_dict(qobj_dict)
+    return QasmQobj.from_dict(qobj_dict)
