@@ -3,9 +3,10 @@ import numpy as np
 from qiskit import Aer
 from qiskit.aqua.algorithms import VQE, ExactEigensolver
 from qiskit.aqua.components.optimizers import COBYLA
-from qiskit.chemistry.aqua_extensions.components.initial_states import HartreeFock
-from qiskit.chemistry.aqua_extensions.components.variational_forms.new_var_form import NVARFORM
-from qiskit.aqua.operators.weighted_pauli_operator import WeightedPauliOperator
+from qiskit.chemistry.components.initial_states import HartreeFock
+from new_var_form import NVARFORM
+from qiskit.chemistry.components.variational_forms import UCCSD
+from qiskit.aqua.operators import WeightedPauliOperator
 from yaml import SafeLoader as Loader
 import os
 import scipy.linalg as la
@@ -13,14 +14,14 @@ from qiskit.chemistry import QMolecule as qm
 from qiskit.chemistry import FermionicOperator as fo
 from qiskit.quantum_info.operators import pauli as p
 import reduced_ham_qiskit as rh
-from qiskit.aqua import Operator
+from qiskit.aqua import operators
 from itertools import product
 
 import Load_Hamiltonians as lh
 
 ################### WALK ROOT DIR ############################
 
-root_dir = '/Users/dianachamaki/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA'
+root_dir = '/Users/dchamaki/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA'
 
 data_file_list = []
 data_file_list_oe = []
@@ -32,14 +33,15 @@ for dirName, subdirList, fileList in os.walk(root_dir):
         if fname.endswith('.FOCK'):
             data_file_list_oe.append(fname)
 
+#
 data_file_list.remove('h2_ccpvtz_ccsd_1_4008au_ducc_1_3.yaml')
 data_file_list.remove('h2_ccpvtz_ccsd_4_00au_ducc_1_3.yaml')
-# data_file_list.remove('h2_ccpvtz_ccsd_10_0au_ducc_1_3.yaml')
-data_file_list.remove(('h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml'))
-
-data_file_list_oe.remove('h2_ccpvtz_ccsd_0_80au.FOCK')
+data_file_list.remove('h2_ccpvtz_ccsd_10_0au_ducc_1_3.yaml')
+# data_file_list.remove(('h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml'))
+#
+# data_file_list_oe.remove('h2_ccpvtz_ccsd_0_80au.FOCK')
 data_file_list_oe.remove('h2_ccpvtz_ccsd_1_4008au.FOCK')
-# data_file_list_oe.remove('h2_ccpvtz_ccsd_10_0au.FOCK')
+data_file_list_oe.remove('h2_ccpvtz_ccsd_10_0au.FOCK')
 data_file_list_oe.remove(('h2_ccpvtz_ccsd_4_00au.FOCK'))
 
 ############# Output Files to Plot stuff ###############
@@ -78,10 +80,10 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     dist = np.sqrt((coordinates2[0] - coordinates1[0]) ** 2 + (coordinates2[1] - coordinates1[1]) ** 2 + (
                 coordinates2[2] - coordinates1[2]) ** 2)
     # R.append(round(dist,3))
-    print('orbitals\n', n_orbitals)
+    print('orbitals: ', n_orbitals)
     print(n_particles)
     print('Bond distance is {}'.format(dist))
-    n_qubits = 4
+    n_qubits = 4 #forgot how to calculate reduced number of qubits formualically, ask!!
 
     # Importing the integrals
     truncation_threshold = 1e-1000
@@ -119,34 +121,14 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     del [two_electron_spatial_integrals]
 
     molecular_hamiltonian = fo(h1, h2)
-    fo._convert_to_interleaved_spins(molecular_hamiltonian)
-    print(molecular_hamiltonian)
 
     # Build matrix representation & diagonalize
     operator = molecular_hamiltonian.mapping("jordan_wigner", threshold=1e-1000)
-    qubit_hamiltonian_matrix_init = operator.to_matrix().dense_matrix
-    evltemp, evctemp = la.eigh(qubit_hamiltonian_matrix_init)
-
-    # Use symmetries to reduce hilbert space
-    num_row, num_col = qubit_hamiltonian_matrix_init.shape[0], qubit_hamiltonian_matrix_init.shape[1]
-
-    needed_indices = rh.getindices(n_orbitals, n_particles)
-
-    def getindices():
-        return needed_indices
-
-
-    # Use symmetries to reduce hilbert space
-    deleted_rows = list(range(0, num_row))
-    deleted_cols = list(range(0, num_col))
-    for i in needed_indices:
-        deleted_rows.remove(i)
-        deleted_cols.remove(i)
-
-    qubit_hamiltonian_matrix = np.delete(qubit_hamiltonian_matrix_init, deleted_cols, 0)
-    qubit_hamiltonian_matrix = np.delete(qubit_hamiltonian_matrix, deleted_rows, 1)
-    print('Hamiltonian after mapping has dim {}'.format(qubit_hamiltonian_matrix.shape))
-    print('Hamiltonian after mapping has dim {}'.format(qubit_hamiltonian_matrix.shape))
+    indices = [3, 6, 9, 12, 18, 24, 33, 36, 48, 66, 72, 96, 129, 132, 144, 192]
+    qubit_hamiltonian_matrix = operators.op_converter.to_matrix_operator_reduced(operator, indices, n_qubits).dense_matrix
+    qubit_hamiltonian_matrix2 = operators.op_converter.to_matrix_operator(operator).dense_matrix
+    evltemp2, evctemp2 = la.eigh(qubit_hamiltonian_matrix)
+    print("reduced hamiltonian eigenvalues: ", evltemp2)
 
     'Generate Pauli string acting on qubit space'
     input_array_lst = []
@@ -154,12 +136,6 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     for i in product(range(2), repeat=n_qubits):
         input_array_lst.append(np.array(i))
-
-    # for i in range(2):
-    #     for j in range(2):
-    #         for k in range(2):
-    #             for l in range(2):
-    #                 input_array_lst.append(np.array([i, j, k, l]))
 
     print(input_array_lst)
 
@@ -217,17 +193,27 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     map_type = str('jordan_wigner')
     qop_pauli = WeightedPauliOperator(nonzero_pauli)
-    print(qop_pauli)
+    print("nonzero_pauli and type ", nonzero_pauli, type(nonzero_pauli))
 
+    fo._convert_to_interleaved_spins(molecular_hamiltonian)
+    qop_paulis2 = molecular_hamiltonian.mapping(map_type=map_type)
+    qop2 = WeightedPauliOperator(qop_paulis2.paulis)
+
+    print("this should be the non reduced operator paulis ", qop2)
 
     #Get Variational form and intial state
-    init_state = HartreeFock(4, n_orbitals//2, n_particles, map_type, two_qubit_reduction=False)
-    var_op = NVARFORM(num_qubits=4, depth=1, num_orbitals=n_orbitals//2, num_particles=n_particles, initial_state=init_state,
+
+    init_state = HartreeFock(n_orbitals, n_particles, map_type, two_qubit_reduction=False)
+    var_op2 = UCCSD(num_orbitals=n_orbitals, num_particles=n_particles, initial_state=init_state, qubit_mapping=map_type, two_qubit_reduction=False)
+    var_op = NVARFORM(num_qubits=4,depth=1, num_orbitals=n_orbitals//2, num_particles=n_particles, initial_state=init_state,
                 qubit_mapping=map_type, two_qubit_reduction=False)
+
+    print("uccsd: ", var_op2.parameter_bounds)
+    print("our var form: ", var_op.parameter_bounds)
 
     ######################## VQE RESULT ###############################
     # setup a classical optimizer for VQE
-    max_eval = 500
+    max_eval = 1
     optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-4)
 
 
@@ -237,24 +223,21 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     optimal_params_1_4 = np.array([0.03909578, 0.03560041, -0.04395869, 0.04399395, 0.05516548])
     optimal_params_4 = np.array([0.48836229, 0.07245607, -0.07464593, 0.00588291, -0.121308, 0.12098167, 0.03228614])
     optimal_params_10 = np.array([0.7726071, 0.11747436, -0.12602609, -0.01833866, -0.11863041, 0.11783347, 0.01748658])
-    circuit = var_op.construct_circuit(parameters=np.array(optimal_params_10))
-    depth = circuit.depth()
-    print(depth)
 
-    # f = open('10_doubles_circuit_depth.qasm', 'w')
-    # f.write(circuit.qasm())
-    # f.close()
-
-    # print(circuit.depth())
-    # circuit_drawer(circuit, filename='circ_0.8_doubles_depth_275')
     print('Doing VQE')
-    algorithm = VQE(qop_pauli, var_op, optimizer, 'paulis', initial_point=initial_params)
+    print(n_particles, n_orbitals)
+    print('operators: \n', qop_pauli, '\n', var_op)
+    # algorithm = VQE(qop_paulis2, var_op, optimizer, initial_point=initial_params)
+
+    algorithm = VQE(qop_pauli, var_op, optimizer, initial_point=initial_params)
+    # algorithm = VQE(qop_paulis2, var_op2, optimizer)
+
 
     result = algorithm.run(backend1)
     vqe_energy = result['energy'] + nuclear_repulsion_energy
     vqe_params = result['opt_params']
 
-    qop = Operator(paulis=qop_pauli.paulis)
+    qop = WeightedPauliOperator(paulis=qop_pauli.paulis)
 
     exact_eigensolver = ExactEigensolver(qop, k=1)
     ret = exact_eigensolver.run()
