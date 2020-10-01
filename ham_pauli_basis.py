@@ -74,7 +74,10 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     n_spatial_orbitals = data['integral_sets'][0]['n_orbitals']
     nuclear_repulsion_energy = data['integral_sets'][0]['coulomb_repulsion']['value']
     n_orbitals = 2 * n_spatial_orbitals
+    n_orbitals = 2 * n_spatial_orbitals
     n_particles = data['integral_sets'][0]['n_electrons']
+    n_alpha = int(n_particles / 2)
+    n_beta = int(n_particles / 2)
     coordinates1 = data['integral_sets'][0]['geometry']['atoms'][0]['coords']
     coordinates2 = data['integral_sets'][0]['geometry']['atoms'][1]['coords']
     dist = np.sqrt((coordinates2[0] - coordinates1[0]) ** 2 + (coordinates2[1] - coordinates1[1]) ** 2 + (
@@ -98,7 +101,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     one_electron_spatial_integrals, two_electron_spatial_integrals = lh.trunctate_spatial_integrals(
         one_electron_spatial_integrals, two_electron_spatial_integrals, .001)
     h1, h2 = lh.convert_to_spin_index(one_electron_spatial_integrals, two_electron_spatial_integrals,
-                                      n_spatial_orbitals, truncation_threshold)
+                                      n_spatial_orbitals)
 
     # print(h2)
 
@@ -129,7 +132,9 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     qubit_hamiltonian_matrix = operators.op_converter.to_matrix_operator_reduced(operator, indices, n_qubits).dense_matrix
     qubit_hamiltonian_matrix2 = operators.op_converter.to_matrix_operator(operator).dense_matrix
     evltemp2, evctemp2 = la.eigh(qubit_hamiltonian_matrix)
+    evltemp1, evctemp1 = la.eigh(qubit_hamiltonian_matrix2)
     print("reduced hamiltonian eigenvalues: ", evltemp2)
+    print("reg hamiltonian eigenvalues: ", evltemp1)
 
     'Generate Pauli string acting on qubit space'
     input_array_lst = []
@@ -245,7 +250,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
     print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
     exact_energy = ret['eigvals'][0].real + nuclear_repulsion_energy
-
+    print(nuclear_repulsion_energy)
     print("exact: ", exact_energy, "\n vqe: ", vqe_energy)
     print(vqe_params)
 

@@ -127,7 +127,7 @@ class NVARFORM(VariationalForm):
 
         excitations = [3, 4, 6, 8, 10, 13, 15]
         parameter = 1e-8 * np.random.rand(7)
-        print('type of parameter',type(parameter))
+        #print('type of parameter',type(parameter))
         for i in range(len(parameter)):
             unitary_matrix[excitations[i]][0], unitary_matrix[0][excitations[i]] = parameter[1], -parameter[i]
             broken_down_unitary_lst.append(unitary_matrix)
@@ -170,7 +170,7 @@ class NVARFORM(VariationalForm):
                     nonzero_pauli.append([trace / 4, pauli])
                     coeff.append(trace / 4)
             grouped_paulis.append(nonzero_pauli)
-        print("grouped pualis", grouped_paulis)
+        # print("grouped pualis", grouped_paulis)
         #How did she deal with the imaginary piece?
                 # print("nonzero pauli",nonzero_pauli)
 
@@ -196,7 +196,7 @@ class NVARFORM(VariationalForm):
     def construct_circuit(self, parameters, q=None):
         ###doesn't work when I pass in parameters
         # These are the params passed from VQE
-        print("parameters ",parameters)
+        # print("parameters ",parameters)
         pauli_ops = self.pauli_decomp(parameters)
         # print('unique_coeff',self.unique_coeff)
         # print(self.unique_coeff_paulis(self.unique_coeff, pauli_ops))

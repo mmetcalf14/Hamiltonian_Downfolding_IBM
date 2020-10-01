@@ -118,7 +118,7 @@ def trunctate_spatial_integrals(one_electron, two_electron, trunc):
     return one_electron,two_electron
 
 
-def convert_to_spin_index(one_electron, two_electron,n_o, thresh):
+def convert_to_spin_index(one_electron, two_electron,n_o):
     h1 = np.block([[one_electron, np.zeros((int(n_o), int(n_o)))],
                    [np.zeros((int(n_o), int(n_o))), one_electron]])
     h2 = np.zeros((2 * n_o, 2 * n_o, 2 * n_o, 2 * n_o))
