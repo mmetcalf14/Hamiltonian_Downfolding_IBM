@@ -21,7 +21,7 @@ import Load_Hamiltonians as lh
 
 ################### WALK ROOT DIR ############################
 
-root_dir = '/Users/dchamaki/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA'
+root_dir = '/Users/mmetcalf/Dropbox/Quantum Embedding/Codes/Lithium_Downfolding/Qiskit Chem/Hamiltonian_Downfolding_IBM/IntegralData/H2_MEKENA/'
 
 data_file_list = []
 data_file_list_oe = []
@@ -115,6 +115,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     qm.core_orbitals = 0
     qm.nuclear_repulsion_energy = nuclear_repulsion_energy
     qm.hf_energy = data['integral_sets'][0]['scf_energy']['value']
+    qm.mo_eri_ints = two_electron_spatial_integrals
 
 
     del [one_electron_spatial_integrals]
@@ -204,7 +205,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     #Get Variational form and intial state
 
     init_state = HartreeFock(n_orbitals, n_particles, map_type, two_qubit_reduction=False)
-    var_op2 = UCCSD(num_orbitals=n_orbitals, num_particles=n_particles, initial_state=init_state, qubit_mapping=map_type, two_qubit_reduction=False)
+    var_op2 = UCCSD(num_orbitals=n_orbitals, num_particles=n_particles, initial_state=init_state, qubit_mapping=map_type, mp2_reduction=False, two_qubit_reduction=False)
     var_op = NVARFORM(num_qubits=4,depth=1, num_orbitals=n_orbitals//2, num_particles=n_particles, initial_state=init_state,
                 qubit_mapping=map_type, two_qubit_reduction=False)
 

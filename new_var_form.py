@@ -127,7 +127,7 @@ class NVARFORM(VariationalForm):
 
         excitations = [3, 4, 6, 8, 10, 13, 15]
         parameter = 1e-8 * np.random.rand(7)
-
+        print('type of parameter',type(parameter))
         for i in range(len(parameter)):
             unitary_matrix[excitations[i]][0], unitary_matrix[0][excitations[i]] = parameter[1], -parameter[i]
             broken_down_unitary_lst.append(unitary_matrix)
@@ -165,12 +165,13 @@ class NVARFORM(VariationalForm):
                     ham_pauli_prod = np.dot(unitary, pauli.to_matrix())
                 trace = np.trace(ham_pauli_prod)
                 if trace != complex(0, 0):
-                    # if trace.imag > 1e-12:
-                    #     trace *= -1j
+                    if np.abs(trace.imag) > 1e-12:
+                        trace = np.real(trace.imag)
                     nonzero_pauli.append([trace / 4, pauli])
                     coeff.append(trace / 4)
             grouped_paulis.append(nonzero_pauli)
         print("grouped pualis", grouped_paulis)
+        #How did she deal with the imaginary piece?
                 # print("nonzero pauli",nonzero_pauli)
 
         # nonzero_pauli = []
@@ -194,19 +195,23 @@ class NVARFORM(VariationalForm):
 
     def construct_circuit(self, parameters, q=None):
         ###doesn't work when I pass in parameters
+        # These are the params passed from VQE
         print("parameters ",parameters)
         pauli_ops = self.pauli_decomp(parameters)
-        print("pauliops ",pauli_ops)
-        print(self.unique_coeff)
+        # print('unique_coeff',self.unique_coeff)
         # print(self.unique_coeff_paulis(self.unique_coeff, pauli_ops))
 
         param_and_op_lst = []
         for i in range(len(parameters)):
             qubit_op = WeightedPauliOperator(pauli_ops[i])
-            qubit_op = qubit_op * -1j
+            print(qubit_op.paulis)
+            # qubit_op = qubit_op * -1j
+            #This imag/real business might be the issue
+            print(qubit_op.paulis)
+            print(parameters[i])
             param_and_op_lst.append((qubit_op, parameters[i]))
 
-        print("param and op list",param_and_op_lst)
+        #print("param and op list",param_and_op_lst)
 
 
         # qubit_op = WeightedPauliOperator(pauli_ops)
@@ -233,6 +238,7 @@ class NVARFORM(VariationalForm):
 
     @staticmethod
     def _construct_circuit_for_each_param(op_and_param, qr, num_time_slices):
+
         qop, parameters = op_and_param
         quantum_circ = qop.evolve(state_in=None, evo_time=parameters,
                                   num_time_slices=num_time_slices, quantum_registers=qr)
