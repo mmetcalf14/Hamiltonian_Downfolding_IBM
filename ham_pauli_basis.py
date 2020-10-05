@@ -18,6 +18,7 @@ from qiskit.aqua import operators
 from itertools import product
 
 import Load_Hamiltonians as lh
+from Basis import Basis
 
 ################### WALK ROOT DIR ############################
 
@@ -74,7 +75,6 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     n_spatial_orbitals = data['integral_sets'][0]['n_orbitals']
     nuclear_repulsion_energy = data['integral_sets'][0]['coulomb_repulsion']['value']
     n_orbitals = 2 * n_spatial_orbitals
-    n_orbitals = 2 * n_spatial_orbitals
     n_particles = data['integral_sets'][0]['n_electrons']
     n_alpha = int(n_particles / 2)
     n_beta = int(n_particles / 2)
@@ -86,10 +86,11 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     print('orbitals: ', n_orbitals)
     print(n_particles)
     print('Bond distance is {}'.format(dist))
-    n_qubits = 4 #forgot how to calculate reduced number of qubits formualically, ask!!
+    n_qubits = 4
 
-    # Importing the integrals
-    truncation_threshold = 1e-1000
+    fermion_basis = Basis(n_spatial_orbitals, n_alpha, n_beta, basis_type='block')
+    reduced_basis = fermion_basis.create_total_basis()
+
 
     one_electron_import = data['integral_sets'][0]['hamiltonian']['one_electron_integrals']['values']
     two_electron_import = data['integral_sets'][0]['hamiltonian']['two_electron_integrals']['values']
@@ -128,13 +129,18 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     # Build matrix representation & diagonalize
     operator = molecular_hamiltonian.mapping("jordan_wigner", threshold=1e-1000)
-    indices = [3, 6, 9, 12, 18, 24, 33, 36, 48, 66, 72, 96, 129, 132, 144, 192]
+
+    indices = []
+    for key, val in enumerate(reduced_basis):
+        indices.append(val)
+    print('qubit index: ',indices)
+
     qubit_hamiltonian_matrix = operators.op_converter.to_matrix_operator_reduced(operator, indices, n_qubits).dense_matrix
     qubit_hamiltonian_matrix2 = operators.op_converter.to_matrix_operator(operator).dense_matrix
     evltemp2, evctemp2 = la.eigh(qubit_hamiltonian_matrix)
     evltemp1, evctemp1 = la.eigh(qubit_hamiltonian_matrix2)
-    print("reduced hamiltonian eigenvalues: ", evltemp2)
-    print("reg hamiltonian eigenvalues: ", evltemp1)
+    # print("reduced hamiltonian eigenvalues: ", evltemp2)
+    # print("reg hamiltonian eigenvalues: ", evltemp1)
 
     'Generate Pauli string acting on qubit space'
     input_array_lst = []
@@ -199,31 +205,32 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     map_type = str('jordan_wigner')
     qop_pauli = WeightedPauliOperator(nonzero_pauli)
-    print("nonzero_pauli and type ", nonzero_pauli, type(nonzero_pauli))
+    #print("nonzero_pauli and type ", nonzero_pauli, type(nonzero_pauli))
 
     fo._convert_to_interleaved_spins(molecular_hamiltonian)
     qop_paulis2 = molecular_hamiltonian.mapping(map_type=map_type)
     qop2 = WeightedPauliOperator(qop_paulis2.paulis)
 
-    print("this should be the non reduced operator paulis ", qop2)
+    #print("this should be the non reduced operator paulis ", qop2)
 
     #Get Variational form and intial state
+    single_excitations, double_excitations = fermion_basis.compute_varform_excitations(reduced_basis)
+
 
     init_state = HartreeFock(n_orbitals, n_particles, map_type, two_qubit_reduction=False)
     var_op2 = UCCSD(num_orbitals=n_orbitals, num_particles=n_particles, initial_state=init_state, qubit_mapping=map_type, mp2_reduction=False, two_qubit_reduction=False)
-    var_op = NVARFORM(num_qubits=4,depth=1, num_orbitals=n_orbitals//2, num_particles=n_particles, initial_state=init_state,
-                qubit_mapping=map_type, two_qubit_reduction=False)
+    var_op = NVARFORM(num_qubits=4,depth=1, num_orbitals=n_orbitals//2, num_particles=n_particles, excitation_list=[single_excitations,double_excitations])
 
-    print("uccsd: ", var_op2.parameter_bounds)
-    print("our var form: ", var_op.parameter_bounds)
+    # print("uccsd: ", var_op2.parameter_bounds)
+    # print("our var form: ", var_op.parameter_bounds)
 
     ######################## VQE RESULT ###############################
     # setup a classical optimizer for VQE
-    max_eval = 1
-    optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-4)
+    max_eval = 500
+    optimizer = COBYLA(maxiter=max_eval, disp=True, rhobeg=1e-1, tol=1e-4)
 
 
-    initial_params = 1e-8 * np.random.rand(7)
+    initial_params = 1e-8 * np.random.rand(var_op._num_parameters)
     print(initial_params)
     optimal_params_0_8 = [0.01219819, 0.02912151, -0.01852697, 0.01863373, 0.0311612]
     optimal_params_1_4 = np.array([0.03909578, 0.03560041, -0.04395869, 0.04399395, 0.05516548])
@@ -232,7 +239,7 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     print('Doing VQE')
     print(n_particles, n_orbitals)
-    print('operators: \n', qop_pauli, '\n', var_op)
+    #print('operators: \n', qop_pauli, '\n', var_op)
     # algorithm = VQE(qop_paulis2, var_op, optimizer, initial_point=initial_params)
 
     algorithm = VQE(qop_pauli, var_op, optimizer, initial_point=initial_params)
@@ -241,8 +248,9 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
 
     result = algorithm.run(backend1)
     vqe_energy = result['energy'] + nuclear_repulsion_energy
-    vqe_params = result['opt_params']
+    vqe_params = result['optimal_parameters']
 
+    print('Have the VQE energy')
     qop = WeightedPauliOperator(paulis=qop_pauli.paulis)
 
     exact_eigensolver = ExactEigensolver(qop, k=1)

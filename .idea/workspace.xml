@@ -4,10 +4,14 @@
     <list default="true" id="9552b325-1b90-417c-9142-344781b485d4" name="Default Changelist" comment="The UCCSD class now has a boolean to delete the single excitations in the variational anzats">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/10_0_unitary1" beforeDir="false" afterPath="$PROJECT_DIR$/10_0_unitary1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Basis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/H2_OptimalParams_wMP2_7-orbitals_091119.dat" beforeDir="false" afterPath="$PROJECT_DIR$/H2_OptimalParams_wMP2_7-orbitals_091119.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/H2_VQEEnergies_wMP2_WSingles_7-orbitals_091119.dat" beforeDir="false" afterPath="$PROJECT_DIR$/H2_VQEEnergies_wMP2_WSingles_7-orbitals_091119.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Load_Hamiltonians.py" beforeDir="false" afterPath="$PROJECT_DIR$/Load_Hamiltonians.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VQE_UCCSD_MP2_Downfold_061120.py" beforeDir="false" afterPath="$PROJECT_DIR$/VQE_UCCSD_MP2_Downfold_061120.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/minimum_eigen_solvers/vqe.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/minimum_eigen_solvers/vqe.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/vq_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/vq_algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/components/variational_forms/new_var_form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/converters/circuit_sampler.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/converters/circuit_sampler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/weighted_pauli_operator.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/weighted_pauli_operator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/components/variational_forms/uccsd.py" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/components/variational_forms/uccsd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ham_pauli_basis.py" beforeDir="false" afterPath="$PROJECT_DIR$/ham_pauli_basis.py" afterDir="false" />
@@ -24,26 +28,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VQE_UCCSD_MP2_Downfold_061120.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="125" column="76" lean-forward="true" selection-start-line="125" selection-start-column="76" selection-end-line="125" selection-end-column="76" />
+            <state relative-caret-position="136">
+              <caret line="114" column="13" lean-forward="true" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
+              <folding>
+                <element signature="e#5265#5324#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Load_Hamiltonians.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ham_pauli_basis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1395">
-              <caret line="137" selection-start-line="137" selection-end-line="137" />
+            <state relative-caret-position="91">
+              <caret line="232" column="66" lean-forward="true" selection-start-line="232" selection-start-column="66" selection-end-line="232" selection-end-column="66" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -52,10 +50,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Basis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-822">
+              <caret line="217" column="51" lean-forward="true" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+              <folding>
+                <element signature="e#151#169#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_basis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_var_form.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-564">
-              <caret line="198" column="10" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+            <state relative-caret-position="225">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
             </state>
           </provider>
         </entry>
@@ -63,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/components/variational_forms/uccsd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="467" column="10" selection-start-line="467" selection-start-column="10" selection-end-line="467" selection-end-column="10" />
+            <state relative-caret-position="124">
+              <caret line="834" column="77" selection-start-line="834" selection-start-column="77" selection-end-line="834" selection-end-column="77" />
               <folding>
                 <element signature="e#842#882#0" expanded="true" />
               </folding>
@@ -75,17 +97,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/weighted_pauli_operator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3913">
-              <caret line="943" lean-forward="true" selection-start-line="943" selection-end-line="943" />
+            <state relative-caret-position="223">
+              <caret line="944" column="37" lean-forward="true" selection-start-line="944" selection-start-column="37" selection-end-line="944" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="387" column="43" selection-start-line="387" selection-start-column="43" selection-end-line="387" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py">
+        <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/minimum_eigen_solvers/vqe.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="326" column="23" lean-forward="true" selection-start-line="326" selection-start-column="23" selection-end-line="326" selection-end-column="23" />
+            <state relative-caret-position="190">
+              <caret line="505" column="75" selection-start-line="505" selection-start-column="75" selection-end-line="505" selection-end-column="75" />
+              <folding>
+                <element signature="e#601#662#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,13 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>optimization</find>
-      <find>noise</find>
-      <find>num_qu</find>
-      <find>rho</find>
-      <find>num_</find>
-      <find>active</find>
-      <find>fout</find>
       <find>pri</find>
       <find>7.8</find>
       <find>subs</find>
@@ -125,12 +152,19 @@
       <find>pr</find>
       <find>_cs_</find>
       <find>pool</find>
-      <find>bou</find>
       <find>inter</find>
       <find>shallow</find>
       <find>parameter</find>
       <find>supp</find>
+      <find>qop_pa</find>
+      <find>energy</find>
+      <find>qop2</find>
+      <find>bound</find>
+      <find>bou</find>
+      <find>boun</find>
       <find>print</find>
+      <find>excitations</find>
+      <find>num_para</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,8 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DownfoldedHam_VQE_QPU_092319.py" />
-        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/validation/base.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/execute.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/visualization/counts_visualization.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.6/site-packages/qiskit/aqua/utils/run_circuits.py" />
@@ -180,23 +212,25 @@
         <option value="$PROJECT_DIR$/VirtualChem/bin/activate" />
         <option value="$PROJECT_DIR$/ED_bittest_071320.py" />
         <option value="$PROJECT_DIR$/TruncUCCSD_toQASM_Downfolded_121319.py" />
-        <option value="$PROJECT_DIR$/test_basis.py" />
-        <option value="$PROJECT_DIR$/Basis.py" />
-        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/minimum_eigen_solvers/vqe.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/components/variational_forms/variational_form.py" />
         <option value="$PROJECT_DIR$/Load_Hamiltonians.py" />
-        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/components/variational_forms/uccsd.py" />
-        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/converters/circuit_sampler.py" />
         <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/weighted_pauli_operator.py" />
-        <option value="$PROJECT_DIR$/ham_pauli_basis.py" />
-        <option value="$PROJECT_DIR$/new_var_form.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/vq_algorithm.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/minimum_eigen_solvers/vqe.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/components/variational_forms/uccsd.py" />
+        <option value="$PROJECT_DIR$/test_basis.py" />
         <option value="$PROJECT_DIR$/VQE_UCCSD_MP2_Downfold_061120.py" />
+        <option value="$PROJECT_DIR$/new_var_form.py" />
+        <option value="$PROJECT_DIR$/Basis.py" />
+        <option value="$PROJECT_DIR$/ham_pauli_basis.py" />
+        <option value="$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="39" />
-    <option name="y" value="25" />
+    <option name="x" value="20" />
+    <option name="y" value="65" />
     <option name="width" value="1234" />
     <option name="height" value="802" />
   </component>
@@ -211,11 +245,6 @@
             <path>
               <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hamiltonian_Downfolding_IBM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hamiltonian_Downfolding_IBM" type="462c0819:PsiDirectoryNode" />
-              <item name="VirtualChem" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -375,8 +404,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.ham_pauli_basis" />
-        <item itemvalue="Python.VQE_UCCSD_MP2_Downfold_061120" />
         <item itemvalue="Python.test_basis" />
+        <item itemvalue="Python.VQE_UCCSD_MP2_Downfold_061120" />
         <item itemvalue="Python.TruncUCCSD_toQASM_Downfolded_121319" />
         <item itemvalue="Python.ED_bittest_071320" />
       </list>
@@ -434,9 +463,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="39" y="25" width="1234" height="802" extended-state="0" />
+    <frame x="20" y="65" width="1234" height="802" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.79891306" visible="true" weight="0.27205276" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.79891306" visible="true" weight="0.27205276" />
       <window_info id="Structure" order="1" sideWeight="0.20108695" side_tool="true" weight="0.27205276" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -520,22 +550,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="The UCCSD class now has a boolean to delete the single excitations in the variational anzats" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_1_4008au.FOCK">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IntegralData/H4/h4_ccpvtz_001_nactv_5.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IntegralData/H4/h4_ccpvtz_100_nactv_5.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IntegralData/H4/h4_ccpvtz_500_nactv_5.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/IntegralData/H4/h4_ccpvtz_001_nactv_5.yaml" />
+    <entry file="file://$PROJECT_DIR$/IntegralData/H4/h4_ccpvtz_100_nactv_5.yaml" />
+    <entry file="file://$PROJECT_DIR$/IntegralData/H4/h4_ccpvtz_500_nactv_5.yaml" />
     <entry file="file://$PROJECT_DIR$/DownfoldedHam_VQE_043019.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2250">
@@ -600,16 +617,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Basis_Work.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2820">
-          <caret line="192" column="34" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
-          <folding>
-            <element signature="e#151#169#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Basis_Work.py" />
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/eigen_solvers/numpy_eigen_solver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -638,16 +646,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/nlopt-2.6.2.dist-info/INSTALLER">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/nlopt-2.6.2.dist-info/WHEEL">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/nlopt-2.6.2.dist-info/INSTALLER" />
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/nlopt-2.6.2.dist-info/WHEEL" />
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/components/optimizers/nlopts/direct_l.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -669,53 +669,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ED_bittest_071320.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="71" column="27" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/fermionic_operator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6795">
-          <caret line="466" column="46" selection-start-line="466" selection-start-column="46" selection-end-line="466" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TruncUCCSD_toQASM_Downfolded_121319.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="122" column="14" selection-start-line="122" selection-start-column="14" selection-end-line="122" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_basis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Basis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3015">
-          <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
-          <folding>
-            <element signature="e#151#169#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ED_bittest_071320.py" />
+    <entry file="file://$PROJECT_DIR$/TruncUCCSD_toQASM_Downfolded_121319.py" />
     <entry file="file://$USER_HOME$/opt/anaconda3/lib/python3.7/typing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2547">
@@ -737,44 +692,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/minimum_eigen_solvers/vqe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/circuit/quantumcircuit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="192" column="11" selection-start-line="192" selection-start-column="11" selection-end-line="192" selection-end-column="11" />
-          <folding>
-            <element signature="e#534#545#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/components/variational_forms/variational_form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/circuit/parameter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/vq_algorithm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="100" column="50" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
-          <folding>
-            <element signature="e#1127#1171#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -788,30 +709,6 @@
     <entry file="file://$PROJECT_DIR$/H2.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/components/variational_forms/uccsd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="467" column="10" selection-start-line="467" selection-start-column="10" selection-end-line="467" selection-end-column="10" />
-          <folding>
-            <element signature="e#842#882#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="326" column="23" lean-forward="true" selection-start-line="326" selection-start-column="23" selection-end-line="326" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/weighted_pauli_operator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3913">
-          <caret line="943" lean-forward="true" selection-start-line="943" selection-end-line="943" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_1_4008au_ducc_1_3.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
@@ -819,41 +716,139 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Load_Hamiltonians.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="1785">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_var_form.py">
+    <entry file="file://$PROJECT_DIR$/IntegralData/H2_MEKENA/h2_ccpvtz_ccsd_0_80au_ducc_1_3.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-564">
-          <caret line="198" column="10" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+        <state relative-caret-position="161">
+          <caret line="73" column="20" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/fermionic_operator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/converters/circuit_sampler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="212" column="13" selection-start-line="212" selection-start-column="13" selection-end-line="212" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/circuit/quantumcircuit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="1755" column="8" selection-start-line="1755" selection-start-column="8" selection-end-line="1755" selection-end-column="8" />
+          <folding>
+            <element signature="e#534#545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/weighted_pauli_operator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="944" column="37" lean-forward="true" selection-start-line="944" selection-start-column="37" selection-end-line="944" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/vq_algorithm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="201" selection-start-line="201" selection-end-line="201" />
+          <folding>
+            <element signature="e#1127#1171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/algorithms/minimum_eigen_solvers/vqe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="505" column="75" selection-start-line="505" selection-start-column="75" selection-end-line="505" selection-end-column="75" />
+          <folding>
+            <element signature="e#601#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/chemistry/components/variational_forms/uccsd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="834" column="77" selection-start-line="834" selection-start-column="77" selection-end-line="834" selection-end-column="77" />
+          <folding>
+            <element signature="e#842#882#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/components/variational_forms/variational_form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="719">
+          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VQE_UCCSD_MP2_Downfold_061120.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="125" column="76" lean-forward="true" selection-start-line="125" selection-start-column="76" selection-end-line="125" selection-end-column="76" />
+        <state relative-caret-position="136">
+          <caret line="114" column="13" lean-forward="true" selection-start-line="114" selection-start-column="13" selection-end-line="114" selection-end-column="13" />
+          <folding>
+            <element signature="e#5265#5324#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_basis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Basis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-822">
+          <caret line="217" column="51" lean-forward="true" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+          <folding>
+            <element signature="e#151#169#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ham_pauli_basis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1395">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        <state relative-caret-position="91">
+          <caret line="232" column="66" lean-forward="true" selection-start-line="232" selection-start-column="66" selection-end-line="232" selection-end-column="66" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_var_form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualChem/lib/python3.7/site-packages/qiskit/aqua/operators/legacy/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="387" column="43" selection-start-line="387" selection-start-column="43" selection-end-line="387" selection-end-column="43" />
         </state>
       </provider>
     </entry>

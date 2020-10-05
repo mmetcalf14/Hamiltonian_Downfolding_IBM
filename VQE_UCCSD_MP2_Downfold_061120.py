@@ -84,16 +84,16 @@ print(n_spatial_orbitals, n_particles)
 ###########################################
 #Exact Result to compare to: This can also be obtained via the yaml file once we verify correctness.
 #Don't use trunctated Hamiltonian
-# print('Getting energy')
-# exact_eigensolver = NumPyEigensolver(qop_paulis, k=15)
-# ret = exact_eigensolver.run()
+print('Getting energy')
+exact_eigensolver = NumPyEigensolver(qop_paulis, k=15)
+ret = exact_eigensolver.run()
 # print('The electronic energy is: {:.12f}'.format(ret['eigvals'][0].real))
 # print('The total FCI energy is: {:.12f}'.format(ret['eigvals'][0].real + nuclear_repulsion_energy))
 # print('First excited state is: {:.12f}'.format(ret['eigvals'][1].real + nuclear_repulsion_energy))
 # print('Second excited state is: {:.12f}'.format(ret['eigvals'][2].real + nuclear_repulsion_energy))
 # print('Third excited state is: {:.12f}'.format(ret['eigvals'][3].real + nuclear_repulsion_energy))
 # print('Fourth excited state is: {:.12f}'.format(ret['eigvals'][4].real + nuclear_repulsion_energy))
-# print(ret['eigvals'].real + nuclear_repulsion_energy)
+print('exact ',ret['eigvals'][0].real + nuclear_repulsion_energy)
 # exact_wf = ret['eigvecs'][7].to_matrix()
 #
 # count = 0
@@ -107,12 +107,12 @@ print(n_spatial_orbitals, n_particles)
 init_state = HartreeFock(n_orbitals, num_particles=[n_alpha, n_beta], qubit_mapping=map_type, two_qubit_reduction=False)
 
 var_op = UCCSD(num_orbitals=n_orbitals, num_particles=[n_alpha, n_beta], reps=1, initial_state=init_state, qubit_mapping=map_type, \
-               two_qubit_reduction=False, mp2_reduction=False, method_singles='both', method_doubles='ucc', excitation_type='sd')
+               two_qubit_reduction=False, mp2_reduction=True, method_singles='both', method_doubles='ucc', excitation_type='sd')
 
 print('There are {} params in this anzats'.format(var_op.num_parameters))
 start_time = time.time()
 
-max_eval = 1000
+max_eval = 10
 optimizer = COBYLA(maxiter=max_eval, disp=True, tol=1e-3, rhobeg=1e-1)
 # optimizer = L_BFGS_B(maxiter=max_eval,iprint=0,epsilon=1e-3)
 # optimizer = DIRECT_L(max_evals=max_eval)
@@ -134,10 +134,10 @@ print('raw result: ', result['eigenvalue'])
 vqe_energy = result['eigenvalue']+nuclear_repulsion_energy
 print('The VQE energy is: ',vqe_energy)
 print('HartreeFock: ', hf_energy)
-opt_params = result['optimal_point']
+opt_params = result['optimal_parameters']
 # print(' {} are the optimal parameters.'.format(opt_params))
 # result = adapt_algorithm.run(quantum_instance=quantum_instance)
-print(result)
+print(opt_params)
 end_time = time.time()
 print('It took {} seconds to run this calculation'.format(end_time-start_time))
 

@@ -10,6 +10,8 @@ from qiskit.aqua.operators import WeightedPauliOperator
 from qiskit import QuantumRegister
 from qiskit.tools import parallel_map
 from itertools import product
+import scipy.linalg as la
+
 
 logger = logging.getLogger(__name__)
 
@@ -42,55 +44,53 @@ class NVARFORM(VariationalForm):
                     'minItems': 2,
                     'maxItems': 2
                 },
-                'qubit_mapping': {
-                    'type': 'string',
-                    'default': 'parity',
-                    'enum': ['jordan_wigner', 'parity', 'bravyi_kitaev']
-                },
-                'two_qubit_reduction': {
-                    'type': 'boolean',
-                    'default': True
-                },
-            },
-            'additionalProperties': False
-        },
-        'depends': [
-            {
-                'pluggable_type': 'initial_state',
-                'default': {
-                    'name': 'HartreeFock',
+                'excitation_index': {
+                    'type': ['array','integer'],
+                    'default': [1]
                 }
             },
-        ],
+            'additionalProperties': False
+        }
     }
 
-    def __init__(self, num_qubits, depth, num_orbitals, num_particles,
-                 initial_state=None, qubit_mapping='parity', two_qubit_reduction=True):
+    def __init__(self, num_qubits, depth, num_orbitals, num_particles, excitation_list):
         validate_min('num_orbitals', num_orbitals, 1)
+        print('qubits: ', num_qubits)
         if isinstance(num_particles, list) and len(num_particles) != 2:
             raise ValueError('Num particles value {}. Number of values allowed is 2'.format(
                 num_particles))
-        validate_in_set('qubit_mapping', qubit_mapping,
-                        {'jordan_wigner', 'parity', 'bravyi_kitaev'})
+
 
         super().__init__()
-        self._num_qubits = num_orbitals if not two_qubit_reduction else num_orbitals - 2
-        self._num_qubits = self._num_qubits
+        self._num_qubits = num_qubits
+        self._initial_state = None
         if self._num_qubits != num_qubits:
             raise ValueError('Computed num qubits {} does not match actual {}'
                              .format(self._num_qubits, num_qubits))
         self._depth = depth
-        self._num_parameters = 7
-        self._initial_state = initial_state
-        self._qubit_mapping = qubit_mapping
-        self._two_qubit_reduction = two_qubit_reduction
         self._num_time_slices = 1
-
+        self._single_excitations =  excitation_list[0]
+        self._double_excitations = excitation_list[1]
+        self._excitation_index = self.get_excitation_index()
+        print('excitation index: ', self._excitation_index)
+        self._num_parameters = len(self._excitation_index)
+        print('{} params'.format(self._num_parameters) )
         self._support_parameterized_circuit = True
 
         self._bounds = [(-np.pi, np.pi) for _ in range(self._num_parameters)]
         self.unique_coeff = []
+        self.groups_pauli = self.pauli_decomp(self.num_parameters)
 
+
+    def get_excitation_index(self):
+
+        excitations_list = []
+        for key, val in enumerate(self._single_excitations):
+            excitations_list.append(int(val[1]))
+        for key, val in enumerate(self._double_excitations):
+            excitations_list.append(int(val[1]))
+
+        return excitations_list
 
     def unique_coeff_paulis(self, ceoff, coeff_and_pauli):
         unique_vals_dict = {}
@@ -103,16 +103,12 @@ class NVARFORM(VariationalForm):
         return unique_vals_dict
 
 
-    def construct_unitary(self, parameters):
-        unitary_matrix = np.zeros((16, 16))
-        # excitations = [1, 3, 4, 6, 8, 9, 10, 13, 15]
-        excitations = [3, 4, 6, 8, 10, 13, 15]
-        # excitations=[6]
-        # param = [3, 6, 9, 12, 18, 24, 33, 36, 48, 66, 72, 96, 129, 132, 144, 192]
-        # singles_excitations = [1, 4, 6, 9]
+    def construct_unitary(self):
+        unitary_matrix = np.zeros((2**self._num_qubits, 2**self._num_qubits))
 
-        param = 1e-8 * np.random.rand(7)
-        for key, val in enumerate(excitations):
+
+        param = np.ones(self._num_parameters)
+        for key, val in enumerate(self._excitation_index):
             unitary_matrix[val][0], unitary_matrix[0][val] = param[key], -param[key]
 
         unitary_matrix = -1j * unitary_matrix / 4
@@ -121,23 +117,36 @@ class NVARFORM(VariationalForm):
 
         return unitary_matrix
 
-    def construct_single_param_unitary_lst(self, parameters):
-        unitary_matrix = np.zeros((16, 16))
+    def construct_single_param_unitary_lst(self):
+        unitary_matrix = np.zeros((2**self._num_qubits, 2**self._num_qubits))
+        unitary_matrix_test = np.zeros((2**self._num_qubits, 2**self._num_qubits))
         broken_down_unitary_lst = []
 
-        excitations = [3, 4, 6, 8, 10, 13, 15]
-        parameter = 1e-8 * np.random.rand(7)
-        #print('type of parameter',type(parameter))
+        excitations = self._excitation_index
+        parameter = 1e-8 * np.random.rand(self._num_parameters)
+        print('params: ',parameter)
         for i in range(len(parameter)):
-            unitary_matrix[excitations[i]][0], unitary_matrix[0][excitations[i]] = parameter[1], -parameter[i]
+            unitary_matrix[excitations[i]][0], unitary_matrix[0][excitations[i]] = parameter[i], -parameter[i]
+            unitary_matrix = -1j * unitary_matrix / 4
             broken_down_unitary_lst.append(unitary_matrix)
-            unitary_matrix = np.zeros((16, 16))
+            unitary_matrix = np.zeros((2**self._num_qubits, 2**self._num_qubits))
+
+        for key, val in enumerate(excitations):
+            print(key, val)
+            unitary_matrix_test[val][0], unitary_matrix_test[0][val] = parameter[key], -parameter[key]
+        unitary_matrix_test = -1j * unitary_matrix_test / 4
+
+        eval_sum_matrix, evec_sum_matrix = la.eigh(sum(broken_down_unitary_lst))
+        eval_test_matrix, evec_test_matrix = la.eigh(unitary_matrix_test)
+
+        print("eigenvalues of decontructed matrix: ", eval_sum_matrix, "\neigenvalues of test matrix: ", eval_test_matrix)
         return broken_down_unitary_lst
 
 
-    def pauli_decomp(self, parameters):
-        deconstructed_unitary_lst = self.construct_single_param_unitary_lst(parameters)
-        unitary_matrix = self.construct_unitary(parameters)
+    def pauli_decomp(self, len_parameters):
+
+        deconstructed_unitary_lst = self.construct_single_param_unitary_lst()
+        # unitary_matrix = self.construct_unitary(parameters)
         input_array_lst = []
         pauli_basis = []
         coeff = []
@@ -166,12 +175,14 @@ class NVARFORM(VariationalForm):
                 trace = np.trace(ham_pauli_prod)
                 if trace != complex(0, 0):
                     if np.abs(trace.imag) > 1e-12:
-                        trace = np.real(trace.imag)
-                    nonzero_pauli.append([trace / 4, pauli])
+                        trace *= -1j
+                    if trace > 0:
+                        nonzero_pauli.append([0.5, pauli])
+                    else:
+                        nonzero_pauli.append([-0.5, pauli])
                     coeff.append(trace / 4)
             grouped_paulis.append(nonzero_pauli)
         # print("grouped pualis", grouped_paulis)
-        #How did she deal with the imaginary piece?
                 # print("nonzero pauli",nonzero_pauli)
 
         # nonzero_pauli = []
@@ -195,23 +206,19 @@ class NVARFORM(VariationalForm):
 
     def construct_circuit(self, parameters, q=None):
         ###doesn't work when I pass in parameters
-        # These are the params passed from VQE
         # print("parameters ",parameters)
-        pauli_ops = self.pauli_decomp(parameters)
-        # print('unique_coeff',self.unique_coeff)
+        pauli_ops_lst = self.groups_pauli
+        # print("pauliops ",pauli_ops_lst)
+        print(self.unique_coeff)
         # print(self.unique_coeff_paulis(self.unique_coeff, pauli_ops))
 
         param_and_op_lst = []
         for i in range(len(parameters)):
-            qubit_op = WeightedPauliOperator(pauli_ops[i])
-            print(qubit_op.paulis)
-            # qubit_op = qubit_op * -1j
-            #This imag/real business might be the issue
-            print(qubit_op.paulis)
-            print(parameters[i])
+            qubit_op = WeightedPauliOperator(pauli_ops_lst[i])
             param_and_op_lst.append((qubit_op, parameters[i]))
 
-        #print("param and op list",param_and_op_lst)
+        # print(qubit_op.paulis)
+        # print("param and op list", param_and_op_lst)
 
 
         # qubit_op = WeightedPauliOperator(pauli_ops)
@@ -221,6 +228,11 @@ class NVARFORM(VariationalForm):
             q = QuantumRegister(self._num_qubits, name='q')
 
         circuit = QuantumCircuit(q)
+        # if self._initial_state is not None:
+        #     circuit = self._initial_state.construct_circuit('circuit', q)
+        #     print("circuit type: ", circuit)
+
+        # circuit = QuantumCircuit(q)
 
         # param_and_op_lst = []
         # for param in parameters:
@@ -234,12 +246,20 @@ class NVARFORM(VariationalForm):
             circuit.data += circ
 
 
+        ### attempting the old method
+        # if q is None:
+        #     q = QuantumRegister(self._num_qubits, name='q')
+        # pauli_ops = self.pauli_decomp(parameters)
+        # qop = WeightedPauliOperator(pauli_ops)
+        # circuit = qop.evolve(state_in=None, evo_time=1,
+        #                           num_time_slices=1)
+
         return circuit
 
     @staticmethod
     def _construct_circuit_for_each_param(op_and_param, qr, num_time_slices):
-
         qop, parameters = op_and_param
+        # print('params in construct circuit', parameters)
         quantum_circ = qop.evolve(state_in=None, evo_time=parameters,
                                   num_time_slices=num_time_slices, quantum_registers=qr)
 
