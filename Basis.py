@@ -43,12 +43,13 @@ class Basis():
         self._num_spin_up = num_spin_up
         self._num_spin_down = num_spin_down
         self._max_count_up = comb(num_spatial_orbitals,num_spin_up)
-
+        print('qubit number: ',ceil(log2(comb(num_spatial_orbitals,num_spin_up)*comb(num_spatial_orbitals,num_spin_down))))
+        print('{} is the number of states'.format(comb(num_spatial_orbitals,num_spin_up)*comb(num_spatial_orbitals,num_spin_down)))
         self._excitations_up = self.generate_excitation_list(num_spatial_orbitals,num_spin_up)
         self._excitations_down = self.generate_excitation_list(num_spatial_orbitals, num_spin_down)
         self._spin_up_basis = self.create_single_particle_basis(num_spatial_orbitals,num_spin_up, excitations=self._excitations_up)
         self._spin_down_basis = self.create_single_particle_basis(num_spatial_orbitals,num_spin_down, excitations=self._excitations_down)
-        print('qubit number: ',ceil(log2(comb(num_spatial_orbitals,num_spin_up)*comb(num_spatial_orbitals,num_spin_down))))
+        self._num_qubits = ceil(log2(comb(num_spatial_orbitals,num_spin_up)*comb(num_spatial_orbitals,num_spin_down)))
         # spin up dictionary -> function
         # spin down dictionary -> function
         # total spin basis (block or interleaved) -> function
@@ -135,11 +136,12 @@ class Basis():
         """
 
         count = np.arange(0,N)
+
         minrange = sum([2**(i) for i in count])
-        maxrange = sum([2**(M-i-1) for i in count])
-        max_count = comb(M,N)
-        box_dim_1 = int(M / N)
-        box_dim_2 = comb(M - 1, N - 1)
+        # maxrange = sum([2**(M-i-1) for i in count])
+        # max_count = comb(M,N)
+        # box_dim_1 = int(M / N)
+        # box_dim_2 = comb(M - 1, N - 1)
         # print(box_dim_1, box_dim_2)
         # print('{} is maximum integer value for this configuration'.format(max_count))
         # FS stands for Fermi-Sea
@@ -201,7 +203,6 @@ class Basis():
                         phase *= -1
                     else: phase *= 1
 
-                print(H)
                 pcount = comb(M-N,excitation_number)
                 hcount = comb(N, excitation_number)
                 H = hcount-H-1
@@ -282,7 +283,7 @@ class Basis():
 
             else: None
 
-        #print(single_excitations)
+        print('There are {} excitations'.format(len(single_excitations)+len(double_excitations)))
         print()
         #print(double_excitations)
         return single_excitations, double_excitations

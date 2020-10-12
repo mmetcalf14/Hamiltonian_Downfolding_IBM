@@ -139,8 +139,8 @@ for file1, file2 in zip(data_file_list, data_file_list_oe):
     qubit_hamiltonian_matrix2 = operators.op_converter.to_matrix_operator(operator).dense_matrix
     evltemp2, evctemp2 = la.eigh(qubit_hamiltonian_matrix)
     evltemp1, evctemp1 = la.eigh(qubit_hamiltonian_matrix2)
-    # print("reduced hamiltonian eigenvalues: ", evltemp2)
-    # print("reg hamiltonian eigenvalues: ", evltemp1)
+    print("reduced hamiltonian eigenvalues: ", evltemp2)
+    print("reg hamiltonian eigenvalues: ", evltemp1)
 
     'Generate Pauli string acting on qubit space'
     input_array_lst = []
